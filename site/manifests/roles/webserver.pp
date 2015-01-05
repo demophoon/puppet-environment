@@ -1,9 +1,6 @@
 $latest_packages = [
-    'vim',
-    'emacs',
-    'zsh',
-    'bash',
-    'ntp',
+    'fail2ban',
+    'apache2',
 ]
 
 package { $latest_packages:
