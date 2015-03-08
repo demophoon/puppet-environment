@@ -37,12 +37,12 @@ class profiles::webserver {
     }
 
     # hakc.io Resources
-    nginx::resource::vhost { 'orderofdisarray.com':
+    nginx::resource::vhost { ['hakc.io', 'www.hakc.io']:
       www_root => '/var/www/hakc/',
     }
 
     # OrderofDisArray.com Resources
-    nginx::resource::vhost { 'orderofdisarray.com':
+    nginx::resource::vhost { ['www.orderofdisarray.com', 'orderofdisarray.com']:
       www_root => '/var/www/htdocs/disarray/',
     }
 
