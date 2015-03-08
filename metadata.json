@@ -1,0 +1,22 @@
+{
+  "name": "demophoon-profiles",
+  "version": "0.1.0",
+  "author": "Britt Gresham",
+  "license": "MIT",
+  "summary": "Personal puppet manifests",
+  "source": "https://github.com/demophoon/puppet-profiles",
+  "project_page": "https://github.com/demophoon/puppet-profiles",
+  "issues_url": "https://github.com/demophoon/puppet-profiles/issues",
+  "tags": ["profiles"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem": "Ubuntu",
+    "operatingsystemrelease": [ "12.04", "10.04" ]
+    }
+   ],
+  "dependencies": [
+    { "name": "puppetlabs/git", "version_requirement": ">=0.3.0" },
+    { "name": "zack/r10k", "version_requirement": ">=2.6.4" },
+    { "name": "jfryman/nginx", "version_requirement": ">=0.2.2" }
+  ]
+}
