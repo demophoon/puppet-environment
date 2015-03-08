@@ -1,7 +1,6 @@
 class profiles::base {
   $latest_packages = [
     'vim',
-    'emacs',
     'zsh',
     'bash',
     'ntp',
@@ -11,12 +10,18 @@ class profiles::base {
     ensure => latest,
   }
 
+  user { 'britt':
+    ensure => present,
+    home   => '/home/britt/',
+    shell  => '/bin/zsh',
+  }
+
   class { 'r10k':
     remote => 'https://github.com/demophoon/puppet-environment.git',
   }
 
   cron { 'puppet apply':
-    command => '/usr/bin/puppet apply /local/puppet/puppet-environment/manifests/site.pp',
+    command => '/usr/bin/puppet apply /etc/puppet/modules/profiles/manifests/site.pp',
     user => 'root',
     minute => ['0', '30'],
   }
