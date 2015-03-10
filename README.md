@@ -14,6 +14,6 @@ How to setup:
         basedir: '/etc/puppet/environments'
 ```
 * Run r10k: `r10k deploy environment -pv`
-* Run Puppet: `puppet apply --modulepath /etc/puppet/environments/production/modules/ /etc/puppet/environments/production/modules/profiles/manifests/site.pp`
+* Run Puppet: `puppet apply --modulepath /etc/puppet/environments/production/modules/ /etc/puppet/environments/production/site.pp`
 
 Enjoy your new puppet environment!

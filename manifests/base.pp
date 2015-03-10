@@ -20,8 +20,10 @@ class profiles::base {
     remote => 'https://github.com/demophoon/puppet-environment.git',
   }
 
-  $apply_module_path = '/etc/puppet/environments/production/modules/'
-  $site_pp = "${apply_module_path}profiles/manifests/site.pp"
+  $apply_environment = 'production'
+  $apply_path = "/etc/puppet/environments/${apply_environment}"
+  $apply_module_path = "${apply_path}/modules/"
+  $site_pp = "${apply_path}/site.pp"
 
   cron { 'puppet apply':
     command => "/usr/bin/puppet apply --modulepath ${apply_module_path} ${site_pp}",
