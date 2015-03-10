@@ -10,8 +10,11 @@ class profiles::webserver {
     class { 'nginx': }
 
     # BrittG.com Resources
-    nginx::resource::vhost { ['brittg.com', 'www.brittg.com']:
+    nginx::resource::vhost { 'brittg.com':
       proxy => 'http://localhost:2649',
+    }
+    nginx::resource::vhost { 'www.brittg.com':
+      www_root => '/var/www/brittg/',
     }
     nginx::resource::vhost { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
