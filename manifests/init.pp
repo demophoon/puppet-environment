@@ -1,4 +1,4 @@
 class profiles {
-    include roles::base
+    include profiles::base
 }
 
