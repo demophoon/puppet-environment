@@ -28,6 +28,9 @@ class profiles::webserver {
     nginx::resource::vhost { 'music.brittg.com':
       www_root => '/var/www/htdocs/music/',
     }
+    nginx::resource::vhost { 'brittbot.brittg.com':
+      www_root => '/var/www/htdocs/brittbot/',
+    }
 
     # www.revelation22.org Resources
     nginx::resource::vhost { 'www.revelation22.org':
