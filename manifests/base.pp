@@ -26,7 +26,7 @@ class profiles::base {
   ssh_authorized_key { 'britt@chromebook.home.brittg.com':
     user => 'britt',
     type => 'ssh-rsa',
-    key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDA1jWsyzwKBzWDer8nnYFg+tjfR2y8UM3l9Q33wDuEvVtsmSK8wJN63MjTCr9K+kCziYn6JT8JOx4L36v1XXmETEg0d9nxayAFEwiQa4NiBRL84sv2aY/mUBq3lPqyE5GiRTUbW131qkEdYT9DM7L/aDpKSZz9fFqElzXL/TD8sgMfnKHu004QblKl/oCovVPYFSYXsYa03r9MnS3FNRCt+1Q56JEBJcTXeB3GfmEVTQY0/V/n3/hoVdUHYTnuWNKGbyFw7LX/Brqplx9FBCmwYrtmqhXx6AMNOgXhwitxHWGRO/aIcC4AnP1C/NEL5AByBIuYmkOcerH6OARvslYJ',
+    key  => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDqHI7MvhcCW/D+TP5cnTDIMpxFjRbx8aAABd5SMPIG+WU46HDKCb9PRtz5vYwiw/P9sdY0KyzHQikq7/p3zNcSDXv1dKFm68obj3SsQVrfrXCqBzi/1Kt1bLrP0rWyKgYYSg0v3Y0Dvcu9WXXWMKzHkofN7Dh4j6QQbKvjsyrro3C1eLZNjUuoqEP6S8dAeJduXEIrVcb2weoTYDZT4s2NQxueh4UMtiSux4dqxCOG8mL1adtzrCk1yiV74zUrC5vv4hJfEP5uiVItzm8OS3hHOfcVzO8lKtXSDTVki3mcBHxZFZhOQaLajZFYSrJOcRaT6fgJR/ZCKyhYsoL5jDiQ4PWe4jj4HC8rMsr4senE5ejrkJgAMvBf38L+ihdcbJ6tMQqYMV3enVMIOtGWpgqPGlRwYD0T4TaUSDBx7vXKWDKuaeNB0ce8RCD+HxvJZO+NwZ72YZ7n5KKlF9bzxV25S6rvUSuOueUC/Q0NXcJOSvJTwmL+nXmalfbuFMPlnVYaCUBj6oaJTCsGzeJnt388i2cc6/bO0B8f+JD71ArUPJ/f//tkHgZ9MX9GB36S/z4RHY01HB1k5j6k1DzE1lQmYwu6Rz6WTdb9HHU89ca7J4ohG1hmJbb4WwearzES11fvbr+/ZVt7krCmDONoJqgJAOvOHbfZOLUPuzhsGSd0oQ==',
   }
 
   ssh_authorized_key { 'britt@britt-ubuntu.home.brittg.com':
