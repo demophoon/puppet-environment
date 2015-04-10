@@ -56,4 +56,7 @@ class profiles::webserver {
     nginx::resource::vhost { 'www.brittg.sexy':
       proxy => 'http://localhost:2326',
     }
+    nginx::resource::vhost { 'vim.brittg.com':
+      proxy => 'http://localhost:2326',
+    }
 }
