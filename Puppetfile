@@ -19,5 +19,5 @@ mod 'puppetlabs/vcsrepo'
 
 mod 'jfryman/nginx'
 mod 'puppetlabs/stdlib'
-mod 'puppetlabs/apt'
+mod 'puppetlabs/apt', '1.8.0'
 mod 'puppetlabs/concat'
