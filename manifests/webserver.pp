@@ -42,20 +42,7 @@ class profiles::webserver {
       www_root => '/var/www/mm/',
     }
 
-    # hakc.io Resources
-    nginx::resource::vhost { ['hakc.io', 'www.hakc.io']:
-      www_root => '/var/www/hakc/',
-    }
-
-    # OrderofDisArray.com Resources
-    nginx::resource::vhost { ['www.orderofdisarray.com', 'orderofdisarray.com']:
-      www_root => '/var/www/htdocs/disarray/',
-    }
-
-    # brittg.sexy Resources
-    nginx::resource::vhost { 'www.brittg.sexy':
-      proxy => 'http://localhost:2326',
-    }
+    # vim.brittg.com Resources
     nginx::resource::vhost { 'vim.brittg.com':
       proxy => 'http://localhost:2326',
     }
