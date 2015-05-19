@@ -1,4 +1,4 @@
-node /.*\.home\.brittg\.com/ {
+node 'RaspberryFro.home.brittg.com' {
   class { 'profiles::base': }
 }
 
