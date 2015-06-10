@@ -5,6 +5,7 @@ node 'RaspberryFro.home.brittg.com' {
 node 'linode.brittg.com' {
   class { 'profiles::base': }
   class { 'profiles::webserver': }
+  class { 'profiles::linode': }
 }
 
 node default {
