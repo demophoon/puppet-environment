@@ -11,6 +11,10 @@ class profiles::base {
   User <| tag == 'global' |>
   Ssh_authorized_key <| tag == 'global' |>
 
+  class { 'ssh_hardening':
+    ipv6_enabled => true,
+  }
+
   package { $latest_packages:
     ensure => latest,
   }

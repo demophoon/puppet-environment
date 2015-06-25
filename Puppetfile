@@ -21,3 +21,6 @@ mod 'jfryman/nginx'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/apt', '1.8.0'
 mod 'puppetlabs/concat'
+
+mod 'hardening/ssh_hardening', '1.0.5'
+mod 'saz/ssh', '2.3.6'
