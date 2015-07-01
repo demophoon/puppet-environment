@@ -1,11 +1,7 @@
 class profiles::webserver {
-    $latest_packages = [
-        'fail2ban',
-    ]
+    include profiles::packages
 
-    package { $latest_packages:
-        ensure => latest,
-    }
+    Package <| tag == 'webserver' |>
 
     class { 'nginx': }
 

@@ -1,22 +1,14 @@
 class profiles::base {
   include profiles::users
-
-  $latest_packages = [
-    'vim',
-    'zsh',
-    'bash',
-    'ntp',
-  ]
+  include profiles::packages
 
   User <| tag == 'global' |>
   Ssh_authorized_key <| tag == 'global' |>
+  Package <| tag == 'global' |>
+
 
   class { 'ssh_hardening':
     ipv6_enabled => true,
-  }
-
-  package { $latest_packages:
-    ensure => latest,
   }
 
   class { 'r10k':
