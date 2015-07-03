@@ -15,6 +15,9 @@ class profiles::webserver {
     nginx::resource::vhost { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
     }
+    nginx::resource::vhost { 'assets.brittg.com':
+      www_root => '/var/www/assets',
+    }
     nginx::resource::vhost { 'linode.brittg.com':
       www_root => '/var/www/',
     }
