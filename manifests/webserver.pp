@@ -3,7 +3,9 @@ class profiles::webserver {
 
     Package <| tag == 'webserver' |>
 
-    class { 'nginx': }
+    class { 'nginx':
+      vhost_purge => true,
+    }
 
     # BrittG.com Resources
     nginx::resource::vhost { 'brittg.com':
