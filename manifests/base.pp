@@ -9,6 +9,7 @@ class profiles::base {
 
   class { 'ssh_hardening':
     ipv6_enabled => true,
+    weak_kex     => true,
   }
 
   class { 'r10k':
