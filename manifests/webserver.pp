@@ -1,9 +1,10 @@
 class profiles::webserver {
     include profiles::packages
+    include nginx
 
     Package <| tag == 'webserver' |>
 
-    class { 'nginx':
+    class { 'nginx::config':
       vhost_purge => true,
     }
 
