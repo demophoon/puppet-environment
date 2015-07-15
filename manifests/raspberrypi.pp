@@ -1,7 +1,6 @@
 class profiles::raspberrypi {
   include profiles::base
-
-  class { 'nginx': }
+  include nginx
 
   $latest_packages = [
     'gphoto2',
