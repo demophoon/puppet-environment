@@ -12,6 +12,8 @@ How to setup:
     :default:
         remote: 'https://github.com/demophoon/puppet-environment.git'
         basedir: '/etc/puppet/environments'
+        # Or if you are running Puppet 4.x with r10k 2.x
+        # basedir: '/etc/puppetlabs/code/environments'
 ```
 * Run r10k: `r10k deploy environment -pv`
 * Run Puppet: `puppet apply --modulepath /etc/puppet/environments/production/modules/ /etc/puppet/environments/production/site.pp`
