@@ -5,7 +5,7 @@ How to setup:
 
 * Install Puppet
 * Install r10k
-* Configure r10k with the configuration file below
+* Configure r10k with the configuration file below into `/etc/puppetlabs/r10k/r10k.yaml`
 ```yaml
 :cachedir: '/var/cache/r10k'
 :sources:
