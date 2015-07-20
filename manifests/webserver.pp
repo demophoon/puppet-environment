@@ -1,12 +1,12 @@
 class profiles::webserver {
     include profiles::packages
-    include nginx
 
     Package <| tag == 'webserver' |>
 
     class { 'nginx::config':
       vhost_purge => true,
-    }
+    } ->
+    class { 'nginx': }
 
     # BrittG.com Resources
     nginx::resource::vhost { 'brittg.com':
