@@ -1,4 +1,4 @@
-class profiles::webserver {
+class profiles::components::webserver {
     include profiles::packages
 
     Package <| tag == 'webserver' |>

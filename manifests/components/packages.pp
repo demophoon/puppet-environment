@@ -1,4 +1,4 @@
-class profiles::packages {
+class profiles::components::packages {
   $global_packages = [
     'vim',
     'zsh',

@@ -1,4 +1,4 @@
-class profiles::users {
+class profiles::components::users {
   # Users
   @user { 'britt':
     ensure         => present,

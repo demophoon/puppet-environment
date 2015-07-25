@@ -1,6 +1,6 @@
 class profiles::base {
-  include profiles::users
-  include profiles::packages
+  include profiles::components::users
+  include profiles::components::packages
 
   User <| tag == 'global' |>
   Ssh_authorized_key <| tag == 'global' |>
