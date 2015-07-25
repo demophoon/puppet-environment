@@ -24,8 +24,7 @@ class profiles::base {
     default       => '/etc/puppet',
   }
 
-  $apply_environment = 'production'
-  $apply_path = "${puppet_code_dir}/environments/${apply_environment}"
+  $apply_path = "${puppet_code_dir}/environments/${::environment}"
   $apply_module_path = "${apply_path}/modules/"
   $site_pp = "${apply_path}/site.pp"
 
