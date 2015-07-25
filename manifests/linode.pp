@@ -6,7 +6,6 @@ class profiles::linode {
   class { 'profiles::components::webserver': }
 
   class { 'profiles::components::consul':
-    datacenter => hiera('datacenter'),
-    pool       => [],
+    datacenter => hiera('datacenter', 'dc1'),
   }
 }
