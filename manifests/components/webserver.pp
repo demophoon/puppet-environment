@@ -1,5 +1,5 @@
 class profiles::components::webserver {
-    include profiles::packages
+    include profiles::components::packages
 
     Package <| tag == 'webserver' |>
 
