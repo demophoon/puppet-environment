@@ -1,10 +1,8 @@
 node 'RaspberryFro.home.brittg.com' {
-  class { 'profiles::base': }
+  class { 'profiles::raspberrypi': }
 }
 
 node 'linode.brittg.com' {
-  class { 'profiles::base': }
-  class { 'profiles::webserver': }
   class { 'profiles::linode': }
 }
 
