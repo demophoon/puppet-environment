@@ -24,3 +24,5 @@ mod 'puppetlabs/concat'
 
 mod 'hardening/ssh_hardening', '1.0.5'
 mod 'saz/ssh', '2.3.6'
+
+mod 'KyleAnderson/consul', '1.0.0'
