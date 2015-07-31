@@ -3,10 +3,7 @@ class profiles::components::webserver {
 
     Package <| tag == 'webserver' |>
 
-    class { 'nginx::config':
-      vhost_purge => true,
-    } ->
-    class { 'nginx': }
+    include nginx
 
     # BrittG.com Resources
     nginx::resource::vhost { 'brittg.com':
