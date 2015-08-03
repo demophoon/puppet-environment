@@ -1,6 +1,7 @@
 class profiles::base {
   include profiles::components::users
   include profiles::components::packages
+  include profiles::components::symlinks
 
   User <| tag == 'global' |>
   Ssh_authorized_key <| tag == 'global' |>
