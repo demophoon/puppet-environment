@@ -40,7 +40,7 @@ class profiles::base {
     minute  => ['15', '45'],
   }
 
-  profiles::components::symlink { 'puppet': }
-  profiles::components::symlink { 'facter': }
-  profiles::components::symlink { 'hiera': }
+  profiles::components::symlinks { 'puppet': }
+  profiles::components::symlinks { 'facter': }
+  profiles::components::symlinks { 'hiera': }
 }
