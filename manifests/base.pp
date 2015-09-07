@@ -1,7 +1,6 @@
 class profiles::base {
   include profiles::components::users
   include profiles::components::packages
-  include profiles::components::symlinks
 
   User <| tag == 'global' |>
   Ssh_authorized_key <| tag == 'global' |>
@@ -40,4 +39,8 @@ class profiles::base {
     user    => 'root',
     minute  => ['15', '45'],
   }
+
+  profiles::components::symlink { 'puppet': }
+  profiles::components::symlink { 'facter': }
+  profiles::components::symlink { 'hiera': }
 }
