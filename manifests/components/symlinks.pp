@@ -9,7 +9,7 @@ class profiles::components::symlinks {
     $filename,
     $base_symlink_path="/usr/local/bin",
   ) {
-    file { "${base_symlink_path}/${filename}"
+    file { "${base_symlink_path}/${filename}":
       ensure => link,
       target => "${puppet_bin_dir}/${filename}"
     }
