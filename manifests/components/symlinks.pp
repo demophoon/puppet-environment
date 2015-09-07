@@ -6,8 +6,8 @@ class profiles::components::symlinks {
   }
 
   define profiles::components::symlink (
-    $filename,
-    $base_symlink_path="/usr/local/bin",
+    $filename = $title,
+    $base_symlink_path = '/usr/local/bin',
   ) {
     file { "${base_symlink_path}/${filename}":
       ensure => link,
@@ -15,13 +15,7 @@ class profiles::components::symlinks {
     }
   }
 
-  profiles::components::symlink {
-    filename =>'puppet'
-  }
-  profiles::components::symlink {
-    filename =>'facter'
-  }
-  profiles::components::symlink {
-    filename =>'hiera'
-  }
+  profiles::components::symlink { 'puppet': }
+  profiles::components::symlink { 'facter': }
+  profiles::components::symlink { 'hiera': }
 }
