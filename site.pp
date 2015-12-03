@@ -4,7 +4,7 @@ node 'RaspberryFro.home.brittg.com' {
   class { 'profiles::raspberrypi': }
 }
 
-node 'linode.brittg.com' {
+node /linode.*/ {
   class { 'profiles::linode': }
 }
 
