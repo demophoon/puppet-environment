@@ -10,12 +10,12 @@ class profiles::components::webserver {
       proxy => 'http://localhost:2649',
     }
     profiles::components::webserver::ssl_vhost { 'www.brittg.com':
-      www_root         => '/var/www/brittg/',
+      www_root => '/var/www/brittg/',
     }
     nginx::resource::vhost { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
     }
-    nginx::resource::vhost { 'assets.brittg.com':
+    profiles::components::webserver::ssl_vhost { 'assets.brittg.com':
       www_root => '/var/www/assets',
     }
     nginx::resource::vhost { 'linode.brittg.com':
