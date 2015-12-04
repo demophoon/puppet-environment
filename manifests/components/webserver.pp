@@ -16,7 +16,7 @@ class profiles::components::webserver {
       proxy => 'http://localhost:3143',
     }
     profiles::components::webserver::ssl_vhost { 'assets.brittg.com':
-      www_root => '/var/www/assets',
+      www_root => '/var/www/assets/',
     }
     nginx::resource::vhost { 'linode.brittg.com':
       www_root => '/var/www/',
@@ -27,7 +27,7 @@ class profiles::components::webserver {
     nginx::resource::vhost { 'music.brittg.com':
       www_root => '/var/www/htdocs/music/',
     }
-    nginx::resource::vhost { 'brittbot.brittg.com':
+    profiles::components::webserver::ssl_vhost { 'brittbot.brittg.com':
       www_root => '/var/www/htdocs/brittbot/',
     }
 
