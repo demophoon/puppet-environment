@@ -9,12 +9,8 @@ class profiles::components::webserver {
     nginx::resource::vhost { 'brittg.com':
       proxy => 'http://localhost:2649',
     }
-    nginx::resource::vhost { 'www.brittg.com':
+    profiles::components::webserver::ssl_vhost { 'www.brittg.com':
       www_root         => '/var/www/brittg/',
-      ssl              => true,
-      ssl_cert         => '/etc/letsencrypt/live/www.brittg.com/cert.pem',
-      ssl_key          => '/etc/letsencrypt/live/www.brittg.com/privkey.pem',
-      rewrite_to_https => true,
     }
     nginx::resource::vhost { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
