@@ -14,9 +14,6 @@ mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/git'
 mod 'gentoo/portage'
 
-mod 'puppetlabs/git'
-mod 'puppetlabs/vcsrepo'
-
 mod 'jfryman/nginx', '0.2.7'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/apt', '1.8.0'
