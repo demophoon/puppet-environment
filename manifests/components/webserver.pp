@@ -6,7 +6,7 @@ class profiles::components::webserver {
     include nginx
 
     # BrittG.com Resources
-    nginx::resource::vhost { 'brittg.com':
+    profiles::components::webserver::ssl_vhost  { 'brittg.com':
       proxy => 'http://localhost:2649',
     }
     profiles::components::webserver::ssl_vhost { 'www.brittg.com':
