@@ -7,7 +7,8 @@ class profiles::components::webserver {
 
     # BrittG.com Resources
     profiles::components::webserver::ssl_vhost  { 'brittg.com':
-      proxy => 'http://localhost:2649',
+      www_root => '/opt/shrls/uploads/',
+      proxy    => 'http://localhost:2649',
     }
     profiles::components::webserver::ssl_vhost { 'www.brittg.com':
       www_root => '/var/www/brittg/',

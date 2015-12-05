@@ -1,5 +1,5 @@
 define profiles::components::webserver::ssl_vhost (
-  Optional[String] $www_root   = undef,
+  String $www_root,
   Optional[String] $proxy      = undef,
   String $vhost_name           = $title,
   String $letsencrypt_ssl_root = '/etc/letsencrypt/live',
@@ -20,8 +20,14 @@ define profiles::components::webserver::ssl_vhost (
     webroot => $www_root,
   }
 
+  if $proxy {
+    $_www_root = undef
+  } else {
+    $_www_root = $www_root
+  }
+
   nginx::resource::vhost { "${vhost_name}":
-    www_root         => $www_root,
+    www_root         => $_www_root,
     proxy            => $proxy,
     ssl              => true,
     ssl_cert         => "${letsencrypt_ssl_root}/${vhost_name}/${_certname}",
