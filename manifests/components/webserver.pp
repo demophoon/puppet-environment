@@ -19,7 +19,7 @@ class profiles::components::webserver {
     profiles::components::webserver::ssl_vhost { 'assets.brittg.com':
       www_root => '/var/www/assets/',
     }
-    profiles::components::webserver::ssl_vhost { 'linode.brittg.com':
+    nginx::resource::vhost { 'linode.brittg.com':
       www_root => '/var/www/',
     }
     nginx::resource::vhost { 'htdocs.brittg.com':
