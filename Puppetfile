@@ -24,3 +24,6 @@ mod 'saz/ssh', '2.3.6'
 
 mod 'KyleAnderson/consul', '1.0.0'
 mod 'nanliu/staging'
+
+mod 'demophoon/letsencrypt_client'
+mod 'stankevich-python', '1.10.0'

@@ -16,6 +16,10 @@ define profiles::components::webserver::ssl_vhost (
     fail('www_root or proxy must be passed into ssl_vhost defined type')
   }
 
+  letsencrypt_client::cert { "${vhost_name}":
+    webroot => $www_root,
+  }
+
   nginx::resource::vhost { "${vhost_name}":
     www_root         => $www_root,
     proxy            => $proxy,
@@ -23,5 +27,6 @@ define profiles::components::webserver::ssl_vhost (
     ssl_cert         => "${letsencrypt_ssl_root}/${vhost_name}/${_certname}",
     ssl_key          => "${letsencrypt_ssl_root}/${vhost_name}/privkey.pem",
     rewrite_to_https => $rewrite_to_https,
+    require          => Letsencrypt_client::Cert["${vhost_name}"],
   }
 }
