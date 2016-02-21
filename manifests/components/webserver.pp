@@ -31,6 +31,9 @@ class profiles::components::webserver {
     profiles::components::webserver::ssl_vhost { 'brittbot.brittg.com':
       www_root => '/var/www/htdocs/brittbot/',
     }
+    nginx::resource::vhost { 'reader.brittg.com':
+      proxy => 'http://localhost:8082',
+    }
 
     # www.revelation22.org Resources
     nginx::resource::vhost { 'www.revelation22.org':
