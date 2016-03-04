@@ -6,13 +6,37 @@ class profiles::components::webserver {
     include nginx
 
     # BrittG.com Resources
-    profiles::components::webserver::ssl_vhost  { 'brittg.com':
-      www_root => '/opt/shrls/uploads/',
-      proxy    => 'http://localhost:2649',
+    letsencrypt_client::cert { "brittg.com":
+      domains => [
+        {
+          webroot     => '/opt/shrls/uploads/',
+          domain_name => 'brittg.com',
+        },
+        {
+          webroot     => '/var/www/brittg/',
+          domain_name => 'www.brittg.com',
+        },
+      ]
     }
-    profiles::components::webserver::ssl_vhost { 'www.brittg.com':
-      www_root => '/var/www/brittg/',
+
+    nginx::resource::vhost { "brittg.com":
+      proxy            => 'http://localhost:2649',
+      ssl              => true,
+      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      rewrite_to_https => true,
+      require          => Letsencrypt_client::Cert["brittg.com"],
     }
+
+    nginx::resource::vhost { "www.brittg.com":
+      www_root         => '/var/www/brittg/',
+      ssl              => true,
+      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      rewrite_to_https => true,
+      require          => Letsencrypt_client::Cert["brittg.com"],
+    }
+
     nginx::resource::vhost { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
     }
