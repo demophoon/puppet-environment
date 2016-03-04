@@ -6,7 +6,7 @@ class profiles::components::webserver {
     include nginx
 
     # BrittG.com Resources
-    letsencrypt_client::cert { "brittg.com":
+    letsencrypt_client::cert { "www.brittg.com":
       domains => [
         {
           webroot     => '/opt/shrls/uploads/',
@@ -42,64 +42,64 @@ class profiles::components::webserver {
     nginx::resource::vhost { "brittg.com":
       proxy            => 'http://localhost:2649',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "www.brittg.com":
       www_root         => '/var/www/brittg/',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "assets.brittg.com":
       www_root         => '/var/www/assets/',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "linode.brittg.com":
       www_root         => '/var/www/',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "htdocs.brittg.com":
       www_root         => '/var/www/htdocs',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "brittbot.brittg.com":
       www_root         => '/var/www/htdocs/brittbot',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { "music.brittg.com":
       www_root         => '/var/www/htdocs/music',
       ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/brittg.com/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/brittg.com/privkey.pem",
+      ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
+      ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
       rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["brittg.com"],
+      require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::vhost { 'cards.brittg.com':
