@@ -35,7 +35,7 @@ class profiles::base {
   }
 
   cron { 'r10k update environments':
-    command => '/usr/local/bin/r10k deploy environment -pv',
+    command => '/opt/puppetlabs/puppet/bin/r10k deploy environment -pv',
     user    => 'root',
     minute  => ['15', '45'],
   }
