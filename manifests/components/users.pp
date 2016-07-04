@@ -5,6 +5,7 @@ class profiles::components::users {
     home           => '/home/britt',
     shell          => '/bin/zsh',
     purge_ssh_keys => true,
+    managehome     => true,
     tag            => ['global'],
   }
 
@@ -12,6 +13,7 @@ class profiles::components::users {
     ensure         => present,
     home           => '/home/fgresham',
     purge_ssh_keys => true,
+    managehome     => true,
     tag            => ['tx.dc'],
   }
 
