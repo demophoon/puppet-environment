@@ -8,6 +8,10 @@ node /linode.*/ {
   class { 'profiles::linode': }
 }
 
+node /dc.ca.*/ {
+  class { 'profiles::linode': }
+}
+
 node 'britt-ubuntu' {
   class { 'profiles::britt_ubuntu': }
 }
