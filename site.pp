@@ -8,9 +8,7 @@ node /linode.*/ {
   class { 'profiles::linode': }
 }
 
-node /dc.ca.*/ {
-  class { 'profiles::linode': }
-}
+node /dc.ca.*/ { }
 
 node 'britt-ubuntu' {
   class { 'profiles::britt_ubuntu': }
