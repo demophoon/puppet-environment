@@ -2,6 +2,7 @@ class profiles::components::users {
   # Users
   @user { 'britt':
     ensure         => present,
+    password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
     home           => '/home/britt',
     shell          => '/bin/zsh',
     purge_ssh_keys => true,
