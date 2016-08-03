@@ -48,6 +48,12 @@ class profiles::components::webserver {
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
+    nginx::resource::location { "brittg.com/api":
+      proxy    => 'http://localhost:3254',
+      location => '/api/',
+      vhost    => 'brittg.com',
+    }
+
     nginx::resource::vhost { "www.brittg.com":
       www_root         => '/var/www/brittg/',
       ssl              => true,
@@ -56,6 +62,13 @@ class profiles::components::webserver {
       rewrite_to_https => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
+
+    nginx::resource::location { "www.brittg.com/api":
+      proxy    => 'http://localhost:3254',
+      location => '/api/',
+      vhost    => 'www.brittg.com',
+    }
+
 
     nginx::resource::vhost { "assets.brittg.com":
       www_root         => '/var/www/assets/',
