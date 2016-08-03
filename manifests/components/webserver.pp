@@ -50,6 +50,7 @@ class profiles::components::webserver {
 
     nginx::resource::location { "brittg.com/api":
       proxy    => 'http://localhost:3254',
+      ssl      => true,
       location => '/api/',
       vhost    => 'brittg.com',
     }
@@ -65,6 +66,7 @@ class profiles::components::webserver {
 
     nginx::resource::location { "www.brittg.com/api":
       proxy    => 'http://localhost:3254',
+      ssl      => true,
       location => '/api/',
       vhost    => 'www.brittg.com',
     }
