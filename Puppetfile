@@ -27,4 +27,4 @@ mod 'nanliu/staging'
 
 mod 'demophoon/letsencrypt_client'
 mod 'stankevich/python'
-mod 'stahnma-epel'
+mod 'stahnma/epel'
