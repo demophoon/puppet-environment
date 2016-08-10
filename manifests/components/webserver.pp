@@ -71,6 +71,10 @@ class profiles::components::webserver {
       vhost    => 'www.brittg.com',
     }
 
+    nginx::resource::vhost { "tilde.demophoon.com":
+      proxy            => 'http://192.168.1.4:7844',
+      ssl              => false,
+    }
 
     nginx::resource::vhost { "assets.brittg.com":
       www_root         => '/var/www/assets/',
