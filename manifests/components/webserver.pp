@@ -36,7 +36,7 @@ class profiles::components::webserver {
           webroot     => '/var/www/htdocs/music/',
           domain_name => 'music.brittg.com',
         },
-      ],
+      ]
     }
 
     nginx::resource::vhost { "brittg.com":
@@ -129,21 +129,8 @@ class profiles::components::webserver {
     }
 
     # www.revelation22.org Resources
-    letsencrypt_client::cert { 'www.revelation22.org':
-      domains => [
-        {
-          webroot     => '/var/www/htdocs/revelation22/',
-          domain_name => 'www.revelation22.org',
-        },
-      ]
-    }
     nginx::resource::vhost { 'www.revelation22.org':
       www_root => '/var/www/htdocs/revelation22/',
-      ssl              => true,
-      ssl_cert         => "/etc/letsencrypt/live/www.revelation22.org/fullchain.pem",
-      ssl_key          => "/etc/letsencrypt/live/www.revelation22.org/privkey.pem",
-      rewrite_to_https => true,
-      require          => Letsencrypt_client::Cert["www.revelation22.org"],
     }
 
     # www.mikhailmarchenko.com Resources
