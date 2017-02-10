@@ -27,10 +27,10 @@ class profiles::components::users {
     require => User['britt'],
   }
 
-  @ssh_authorized_key { 'britt@chromebook.home.brittg.com':
+  @ssh_authorized_key { 'britt@nexus7.home.brittg.com':
     user    => 'britt',
     type    => 'ssh-rsa',
-    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCvdZtEd0EuMnNxlVsMWEiuNb3r4R3Cp3sRjcQ6go1KvFhuyhJplnCSj9WhoNpG0XAjPBhzSUPBNxYeiP+nrjszsu6BOhLBvRr5tJCPjtMf8T6yQOMb3uAPtEHOly70118vfexK1aWRLUX/HAITdAX9PHr5roK362Q68ddl5hWDoK1h/Oe8hI9t1UlKUXqzo2jGYBnpoi3fTfQpzzMU2b22o6Ok7FUkvfKXy+6XMT55CL5hO2j7vvZE2adk7vhm40jifzyrfZUJKg3S2IORtzwsRK5hLcTJnVsSx9Y2TVUoU0CzyecATO0HlRZxSLNOPxsKIdAllbfPghk4vBMZPvrD',
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDj1CH9EQ+8Ikcjx0hbR8cKh7ihr9fFQCeS1mvX6KqyR1EOHNmzdKdX0XC9eCp7hcj1ryzE6WJ/2buplINOFDm0zjlvauAt2L1gk0KpF5cGQh52hLU65qcqtd5FjkiCS1N1Ka+swWQMHBM8ulxGqwAYyc+HMNL1gExu43KdwR12RdWolUNI9GC54/0+aAlU4uWwyF4b809DDuBJVL8ClYLJUe82K3k9bzewfSxTkUHGIi9Cg+J+HmbeP3ZM7k0YFsIceDTIrVYNRfP8So48FzUYyjwB+TY3J1CX6SLo1GyXNGiJjnq+eMakZA6ICl+rHquZfAViMwRt4Lw6jnBdP1I2uo1ZWMPt9Ekg2IGHopnvcAPKYizn0+QFwv3yCu9TTSSU0I7NQUWbaXUR1FjOvnxuWW0TotM95UdiAY0q7v754cu8cOsgWbmce1zFEhPJiy6VdlyxiIvTPiBjfZdk0rmNiaZLPXB9bGIkuljnsOkteZYvte1o08+Ow0Qd2PU3NN+1CJsNb/HfvJGJMiqIpopusrYzQDgq/QkGWyy/eOG+wJtt8ncQlhq1iE4iVxy3wDJz5AX+aG03P+F49h/GpcRWb9qJBC2kw2avHevC0B3n1DvIjrFhn9pU/uAJa+U0MITeoZPHyOZ6wIvlXldXmtFtzft5uliZ3jJTe1u/ILzgpQ==',
     tag     => ['global'],
     require => User['britt'],
   }
