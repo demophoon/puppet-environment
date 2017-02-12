@@ -34,6 +34,14 @@ class profiles::components::users {
     tag     => ['global'],
     require => User['britt'],
   }
+  
+  @ssh_authorized_key { 'britt@pixel.home.brittg.com':
+    user    => 'britt',
+    type    => 'ssh-rsa',
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCkxyGGoA9dMoEB+Wdlveo3n+0lmOJ3h7j14jQg/4fINbPIUS9SoaBVVGhDNj+KjeNfAkl4RjgMNN7rgHFUb17CZnBJVx6D90V0bB+4WqJx4290aFH93C0JBYh9z5eY/Efvn2Vl+MxVStbBCtYXEymsRbtGCUe5Vbz5xyQV4dlj3ihG3psdlY7bLwTT5243oQgu2cKvGXPRdU8fZjkYuGWo+sOLtRveMJCZOGb0xRTlUh4TSH0XK9L3Quka5nQTLRGKc0niWbejZtqb8vEfCzbLBwKz973dFxtGNB7Q8lfrHfRt2pEXvCYhf+rjEWiNcF8wi/p3bXxg5n1UrLqGdAdReRDGP3OYBIKKB7AUrA8LHx541U32KekeB2TB7YpJ3B66mlec5jzXOWue5KZOo7S2nXJOO9HdcxRK3dug9/GBjckzJVlmR3WsWXLcYRe5h8mgOA6oZ9GwmSypqQJaSaNbG0MhYhZ2Jq4p4KS2IVF1PHi/x3bl73E9fciHD439IFyQkqVBpmAYiFfEi4iKTPhGSjnJredS9TdKT3tAI/golYzeMnHQM7eXfU4Bbt0DvR50jQkjwOGYK+5EmmEvrEunxoNWVU13WLLqKa1dW9VSX6r7ybbwcQAsfw2nIY1lVGu10S6APxfsd/dc3a/jjmzcAidOZZvrGPpS7PcoS6MW2w==',
+    tag     => ['global'],
+    require => User['britt'],
+  }
 
   @ssh_authorized_key { 'britt@britt-ubuntu.home.brittg.com':
     user    => 'britt',
