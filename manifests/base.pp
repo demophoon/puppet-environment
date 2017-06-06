@@ -2,9 +2,9 @@ class profiles::base {
   include profiles::components::users
   include profiles::components::packages
 
-  User <| tag == 'global' |>
+  Package <| tag == 'global' |> ->
+  User <| tag == 'global' |> ->
   Ssh_authorized_key <| tag == 'global' |>
-  Package <| tag == 'global' |>
 
   class { 'ssh_hardening':
     ipv6_enabled => true,
