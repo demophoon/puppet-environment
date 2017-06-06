@@ -10,11 +10,14 @@ if command_exists dpkg; then
     release_file="puppetlabs-release-pc1-${UBUNTU_CODENAME:?}.deb"
     wget "https://apt.puppetlabs.com/${release_file:?}"
     sudo dpkg -i ${release_file:?}
+    rm ${release_file:?}
     sudo apt-get update
-    sudo apt-get install puppet-agent
+    sudo apt-get install puppet-agent -y
 elif command_exists yum; then
-    echo "Not yet supported. Sorry :("
-    exit 1
+    source /etc/os-release
+    release_file="puppetlabs-release-pc1-el-${VERSION_ID:?}.noarch.rpm"
+    sudo rpm -Uvh "https://yum.puppetlabs.com/${release_file:?}"
+    sudo yum install puppet-agent -y
 fi
 
 puppet="/opt/puppetlabs/puppet/bin/puppet"
