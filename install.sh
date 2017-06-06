@@ -35,4 +35,4 @@ class { 'r10k':\
 }"
 
 sudo ${r10k:?} deploy environment -pv
-sudo ${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/site.pp
+sudo ${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/modules/ /etc/puppetlabs/code/environments/production/site.pp
