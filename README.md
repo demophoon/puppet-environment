@@ -1,6 +1,14 @@
 Puppet for my environment
 =========================
 
+Automatic way
+-------------------------
+
+curl -L https://raw.githubusercontent.com/demophoon/puppet-environment/production/install.sh | bash
+
+Manual way
+-------------------------
+
 How to setup:
 
 * Install Puppet
