@@ -20,8 +20,8 @@ fi
 puppet="/opt/puppetlabs/puppet/bin/puppet"
 r10k="/opt/puppetlabs/puppet/bin/r10k"
 
-${puppet:?} module install puppet/r10k
-${puppet:?} apply -e "\
+sudo ${puppet:?} module install puppet/r10k
+sudo ${puppet:?} apply -e "\
 class { 'r10k':\
   sources => {\
     'default' => {\
@@ -31,5 +31,5 @@ class { 'r10k':\
   },\
 }"
 
-${r10k:?} deploy environment -pv
-${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/site.pp
+sudo ${r10k:?} deploy environment -pv
+sudo ${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/site.pp
