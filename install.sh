@@ -21,16 +21,15 @@ puppet="/opt/puppetlabs/puppet/bin/puppet"
 r10k="/opt/puppetlabs/puppet/bin/r10k"
 
 ${puppet:?} module install puppet/r10k
-${puppet:?} apply -e <<EOF
-class { 'r10k':
-  sources => {
-    'default' => {
-      'remote'  => 'https://github.com/demophoon/puppet-environment.git',
-      'basedir' => "/etc/puppetlabs/code/environments",
-    },
-  },
-}
-EOF
+${puppet:?} apply -e "\
+class { 'r10k':\
+  sources => {\
+    'default' => {\
+      'remote'  => 'https://github.com/demophoon/puppet-environment.git',\
+      'basedir' => '/etc/puppetlabs/code/environments',\
+    },\
+  },\
+}"
 
 ${r10k:?} deploy environment -pv
 ${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/site.pp
