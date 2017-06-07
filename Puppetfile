@@ -4,7 +4,7 @@ mod 'profiles',
   :git => 'git://github.com/demophoon/puppet-environment',
   :ref => 'production'
 
-mod 'zack/r10k'
+mod 'puppet/r10k'
 mod 'puppetlabs/ruby'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/pe_gem'
@@ -14,7 +14,7 @@ mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/git'
 mod 'gentoo/portage'
 
-mod 'jfryman/nginx', '0.2.7'
+mod 'puppet/nginx', '0.2.7'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/apt', '1.8.0'
 mod 'puppetlabs/concat'
