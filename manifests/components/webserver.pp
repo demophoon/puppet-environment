@@ -52,7 +52,7 @@ class profiles::components::webserver {
       proxy    => 'http://localhost:3254',
       ssl      => true,
       location => '/api/',
-      vhost    => 'brittg.com',
+      server    => 'brittg.com',
     }
 
     nginx::resource::server { "www.brittg.com":
@@ -68,7 +68,7 @@ class profiles::components::webserver {
       proxy    => 'http://localhost:3254',
       ssl      => true,
       location => '/api/',
-      vhost    => 'www.brittg.com',
+      server    => 'www.brittg.com',
     }
 
     nginx::resource::server { "tilde.demophoon.com":
