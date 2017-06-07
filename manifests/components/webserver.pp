@@ -39,12 +39,12 @@ class profiles::components::webserver {
       ]
     }
 
-    nginx::resource::vhost { "brittg.com":
+    nginx::resource::server { "brittg.com":
       proxy            => 'http://localhost:2649',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
@@ -55,12 +55,12 @@ class profiles::components::webserver {
       vhost    => 'brittg.com',
     }
 
-    nginx::resource::vhost { "www.brittg.com":
+    nginx::resource::server { "www.brittg.com":
       www_root         => '/var/www/brittg/',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
@@ -71,75 +71,75 @@ class profiles::components::webserver {
       vhost    => 'www.brittg.com',
     }
 
-    nginx::resource::vhost { "tilde.demophoon.com":
+    nginx::resource::server { "tilde.demophoon.com":
       proxy            => 'http://192.168.1.4:7844',
       ssl              => false,
     }
 
-    nginx::resource::vhost { "assets.brittg.com":
+    nginx::resource::server { "assets.brittg.com":
       www_root         => '/var/www/assets/',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
-    nginx::resource::vhost { "linode.brittg.com":
+    nginx::resource::server { "linode.brittg.com":
       www_root         => '/var/www/',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
-    nginx::resource::vhost { "htdocs.brittg.com":
+    nginx::resource::server { "htdocs.brittg.com":
       www_root         => '/var/www/htdocs',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
-    nginx::resource::vhost { "brittbot.brittg.com":
+    nginx::resource::server { "brittbot.brittg.com":
       www_root         => '/var/www/htdocs/brittbot',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
-    nginx::resource::vhost { "music.brittg.com":
+    nginx::resource::server { "music.brittg.com":
       www_root         => '/var/www/htdocs/music',
       ssl              => true,
       ssl_cert         => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
       ssl_key          => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      rewrite_to_https => true,
+      ssl_redirect     => true,
       require          => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
-    nginx::resource::vhost { 'cards.brittg.com':
+    nginx::resource::server { 'cards.brittg.com':
       proxy => 'http://localhost:3143',
     }
-    nginx::resource::vhost { 'reader.brittg.com':
+    nginx::resource::server { 'reader.brittg.com':
       proxy => 'http://localhost:8082',
     }
 
     # www.revelation22.org Resources
-    nginx::resource::vhost { 'www.revelation22.org':
+    nginx::resource::server { 'www.revelation22.org':
       www_root => '/var/www/htdocs/revelation22/',
     }
 
     # www.mikhailmarchenko.com Resources
-    nginx::resource::vhost { 'www.mikhailmarchenko.com':
+    nginx::resource::server { 'www.mikhailmarchenko.com':
       www_root => '/var/www/mm/',
     }
 
     # vim.brittg.com Resources
-    nginx::resource::vhost { 'vim.brittg.com':
+    nginx::resource::server { 'vim.brittg.com':
       proxy => 'http://localhost:2326',
     }
 }
