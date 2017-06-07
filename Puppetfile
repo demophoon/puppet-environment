@@ -14,7 +14,7 @@ mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/git'
 mod 'gentoo/portage'
 
-mod 'puppet/nginx', '0.2.7'
+mod 'puppet/nginx', '0.6.0'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/apt', '1.8.0'
 mod 'puppetlabs/concat'
