@@ -36,9 +36,6 @@ class profiles::base (
         'remote'       => 'git@github.com:demophoon/hieradata.git',
         'basedir'=> "${::settings::confdir}/hiera",
         'prefix'       => true,
-        'git_settings' => {
-          'private_key' => $hiera_private_key,
-        },
       }
     }
   } else {
