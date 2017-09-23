@@ -47,7 +47,7 @@ echo "Would you like to setup access to your hiera data repo? [y/N]"
 echo "Warning: Only answer yes to this if you are Demophoon or have access to the private hiera data repo!"
 
 if confirm; then
-  if [ -ne /root/.ssh/id_rsa.pub ]; then
+  if [ ! -f /root/.ssh/id_rsa.pub ]; then
     echo "We couldn't find a ssh key in '/root/.ssh/'."
     echo "Would you like us to generate one? [y/N]"
     echo "Warning: Answering no may cause the install script to fail!"
