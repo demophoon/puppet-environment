@@ -1,7 +1,4 @@
-Puppet::Functions.create_function(:'profiles::enable_private_hiera') do
-  dispatch :enable_private_hiera do
-  end
-
+Puppet::Functions.create_function(:'enable_private_hiera') do
   def enable_private_hiera()
     environment = scope['environment']
     [
