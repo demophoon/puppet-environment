@@ -1,4 +1,6 @@
-class profiles::britt_ubuntu {
+class profiles::britt_ubuntu (
+  Array[Hash] $mounts = [],
+){
   class { 'profiles::components::consul':
     datacenter => hiera('datacenter'),
     server     => true,
@@ -16,4 +18,12 @@ class profiles::britt_ubuntu {
     proxy          => 'http://127.0.0.1:8080',
     proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
   }
+
+  $mounts.each [String $name, $params] {
+    mount { $name:
+      ensure => present,
+      *      => $params,
+    }
+  }
+
 }
