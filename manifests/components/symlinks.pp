@@ -2,7 +2,7 @@ define profiles::components::symlinks (
   $filename = $title,
   $base_symlink_path = '/usr/local/bin',
 ) {
-  $puppet_bin_dir = "${::settings::confdir}"
+  $puppet_bin_dir = "${::settings::confdir}/bin"
 
   file { "${base_symlink_path}/${filename}":
     ensure => link,
