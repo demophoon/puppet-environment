@@ -24,7 +24,7 @@ class profiles::base (
   }
 
   # We need to make sure we have a key so we at least have a chance at authenticating against the repo
-  if $use_hiera and file_exists?($hiera_private_key) {
+  if $use_hiera and file_exists($hiera_private_key) {
     $default_hiera_sources = {
       'hiera' => {
         'remote'       => 'git@github.com:demophoon/hieradata.git',
