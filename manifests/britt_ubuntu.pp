@@ -19,7 +19,7 @@ class profiles::britt_ubuntu (
     proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
   }
 
-  $mounts.each [String $name, $params] {
+  $mounts.each |$name, $params| {
     mount { $name:
       ensure => mounted,
       *      => $params,
