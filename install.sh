@@ -81,8 +81,8 @@ if $(exit ${use_hiera:-1}); then
   hiera_sources="
 'hiera' => {
   'remote'       => 'git@github.com:demophoon/hieradata.git',
-  'basedir'=> '/etc/puppetlabs/hiera',
-  'prefix'       => true,
+  'basedir'      => '/etc/puppetlabs/puppet/hiera',
+  'prefix'       => false,
 }
 "
 

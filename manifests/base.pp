@@ -38,6 +38,20 @@ class profiles::base (
         'prefix'       => true,
       }
     }
+
+    class { 'hiera':
+      hiera_version  => '5',
+      hiera_defaults => {
+        'datadir'   => "${::settings::confdir}/hiera/${::environment}/",
+        'data_hash' => 'yaml_data',
+      },
+      hierarchy      => [
+        { 'name' => 'Node', 'path' => 'nodes/%{fqdn}.yaml' },
+        { 'name' => 'Environment', 'path' => 'environments/%{environment}.yaml' },
+        { 'name' => 'Global', 'path' => 'global.yaml' },
+      ],
+    }
+
   } else {
     $default_hiera_sources = {}
   }

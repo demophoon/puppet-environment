@@ -5,6 +5,7 @@ mod 'profiles',
   :ref => 'production'
 
 mod 'puppet/r10k'
+mod 'puppet/hiera'
 mod 'puppetlabs/ruby'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/pe_gem'
