@@ -3,7 +3,7 @@ class profiles::base (
   String  $hiera_private_key       = '/root/.ssh/id_rsa',
 
   Boolean $use_hiera               = $profiles::params::use_hiera,
-){
+) inherits profiles::params {
   include profiles::components::users
   include profiles::components::packages
 
