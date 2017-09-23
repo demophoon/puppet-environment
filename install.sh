@@ -75,6 +75,7 @@ if $(exit ${use_hiera:-1}); then
   hiera_sources="
 'hiera' => {
   'remote'       => 'git@github.com:demophoon/hieradata.git',
+  'basedir'=> '/opt/puppetlabs/hiera',
   'prefix'       => true,
   'git_settings' => {
     'private_key' => '/root/.ssh/id_rsa',
@@ -88,6 +89,7 @@ class { 'r10k':
   sources => {
     'puppet' => {
       'remote' => 'https://github.com/demophoon/puppet-environment.git',
+      'basedir'=> '/opt/puppetlabs/code/environments',
       'prefix' => false,
     },
     ${hiera_sources}

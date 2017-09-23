@@ -22,7 +22,7 @@ class profiles::base (
   $default_r10k_sources = {
     'puppet' => {
       'remote' => 'https://github.com/demophoon/puppet-environment.git',
-      'basedir'=> "${puppet_code_dir}/environments/",
+      'basedir'=> "${puppet_code_dir}/environments",
       'prefix' => false,
     }
   }
@@ -32,6 +32,7 @@ class profiles::base (
     $default_hiera_sources = {
       'hiera' => {
         'remote'       => 'git@github.com:demophoon/hieradata.git',
+        'basedir'=> "${::settings::confdir}/hiera",
         'prefix'       => true,
         'git_settings' => {
           'private_key' => $hiera_private_key,
