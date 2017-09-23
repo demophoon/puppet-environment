@@ -47,7 +47,7 @@ class profiles::base (
     modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
   }
 
-  $puppet_bin_dir = ${::settings::confdir}
+  $puppet_bin_dir = "${::settings::confdir}"
   $puppet_code_dir = '/etc/puppetlabs/code'
 
   $apply_path = "${puppet_code_dir}/environments/${::environment}"
