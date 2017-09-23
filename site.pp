@@ -10,7 +10,7 @@ node /linode.*/ {
 
 node /dc.ca.*/ { }
 
-node 'britt-ubuntu' {
+node 'beryllium.home.brittg.com' {
   class { 'profiles::britt_ubuntu': }
 }
 
