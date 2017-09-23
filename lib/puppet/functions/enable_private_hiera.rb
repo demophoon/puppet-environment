@@ -3,7 +3,7 @@ Puppet::Functions.create_function(:'enable_private_hiera') do
     scope = closure_scope
     environment = scope['environment']
     [
-      "/etc/puppetlabs/puppet/hiera/#{environment}",
+      "/etc/puppetlabs/puppet/hiera/master",
       "/root/.ssh/id_rsa",
       "/root/.ssh/id_rsa.pub",
       "/root/.ssh/known_hosts",
