@@ -16,9 +16,13 @@ class profiles::base (
     weak_kex     => true,
   }
 
+  $puppet_bin_dir = "${::settings::confdir}/bin"
+  $puppet_code_dir = '/etc/puppetlabs/code'
+
   $default_r10k_sources = {
     'puppet' => {
       'remote' => 'https://github.com/demophoon/puppet-environment.git',
+      'basedir'=> "${puppet_code_dir}/environments/",
       'prefix' => false,
     }
   }
@@ -41,12 +45,8 @@ class profiles::base (
   $r10k_source_defaults = deep_merge($default_r10k_sources, $default_hiera_sources)
   $r10k_sources = deep_merge($r10k_source_defaults, $additional_r10k_sources)
 
-  $puppet_bin_dir = "${::settings::confdir}/bin"
-  $puppet_code_dir = '/etc/puppetlabs/code'
-
   class { 'r10k':
     sources    => $r10k_sources,
-    basedir    => "${puppet_code_dir}/environments/",
     modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
   }
 
