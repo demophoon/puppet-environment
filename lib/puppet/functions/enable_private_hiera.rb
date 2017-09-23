@@ -7,7 +7,7 @@ Puppet::Functions.create_function(:'enable_private_hiera') do
       "/root/.ssh/id_rsa",
       "/root/.ssh/id_rsa.pub",
       "/root/.ssh/known_hosts",
-    ].map do |item|
+    ].map do |filepath|
       File.exists?(filepath)
     end.all?
   end
