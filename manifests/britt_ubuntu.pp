@@ -21,7 +21,7 @@ class profiles::britt_ubuntu (
 
   $mounts.each [String $name, $params] {
     mount { $name:
-      ensure => present,
+      ensure => mounted,
       *      => $params,
     }
   }
