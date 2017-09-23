@@ -6,119 +6,48 @@ class profiles::components::webserver {
     include nginx
 
     # BrittG.com Resources
-    letsencrypt_client::cert { "www.brittg.com":
-      domains => [
-        {
-          webroot     => '/opt/shrls/uploads/',
-          domain_name => 'brittg.com',
-        },
-        {
-          webroot     => '/var/www/brittg/',
-          domain_name => 'www.brittg.com',
-        },
-        {
-          webroot     => '/var/www/assets/',
-          domain_name => 'assets.brittg.com',
-        },
-        {
-          webroot     => '/var/www/',
-          domain_name => 'linode.brittg.com',
-        },
-        {
-          webroot     => '/var/www/htdocs/',
-          domain_name => 'htdocs.brittg.com',
-        },
-        {
-          webroot     => '/var/www/htdocs/brittbot/',
-          domain_name => 'brittbot.brittg.com',
-        },
-        {
-          webroot     => '/var/www/htdocs/music/',
-          domain_name => 'music.brittg.com',
-        },
-      ]
-    }
-
     nginx::resource::server { "brittg.com":
       proxy        => 'http://localhost:2649',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::location { "brittg.com/api":
       proxy    => 'http://localhost:3254',
-      ssl      => true,
       location => '/api/',
       server    => 'brittg.com',
     }
 
     nginx::resource::server { "www.brittg.com":
       www_root     => '/var/www/brittg/',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::location { "www.brittg.com/api":
       proxy    => 'http://localhost:3254',
-      ssl      => true,
       location => '/api/',
       server    => 'www.brittg.com',
     }
 
     nginx::resource::server { "tilde.demophoon.com":
       proxy            => 'http://192.168.1.4:7844',
-      ssl              => false,
     }
 
     nginx::resource::server { "assets.brittg.com":
       www_root     => '/var/www/assets/',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::server { "linode.brittg.com":
       www_root     => '/var/www/',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::server { "htdocs.brittg.com":
       www_root     => '/var/www/htdocs',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::server { "brittbot.brittg.com":
       www_root     => '/var/www/htdocs/brittbot',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::server { "music.brittg.com":
       www_root     => '/var/www/htdocs/music',
-      ssl          => true,
-      ssl_cert     => "/etc/letsencrypt/live/www.brittg.com/fullchain.pem",
-      ssl_key      => "/etc/letsencrypt/live/www.brittg.com/privkey.pem",
-      ssl_redirect => true,
-      require      => Letsencrypt_client::Cert["www.brittg.com"],
     }
 
     nginx::resource::server { 'cards.brittg.com':
