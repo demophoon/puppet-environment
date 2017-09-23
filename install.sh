@@ -11,7 +11,8 @@ install_puppet() {
     # Currently only supports ubuntu
     if command_exists dpkg; then
         source /etc/os-release
-        release_file="puppet5-release-${UBUNTU_CODENAME:?}.deb"
+        codename=$(lsb_release -c | cut -f2)
+        release_file="puppet5-release-${codename:?}.deb"
         wget "https://apt.puppetlabs.com/${release_file:?}"
         dpkg -i ${release_file:?}
         rm ${release_file:?}
