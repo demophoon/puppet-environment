@@ -68,6 +68,7 @@ fi
 puppet="/opt/puppetlabs/puppet/bin/puppet"
 r10k="/opt/puppetlabs/puppet/bin/r10k"
 
+${puppet:?} module install puppetlabs/stdlib --force
 ${puppet:?} module install puppet/r10k --force
 
 hiera_sources=""
