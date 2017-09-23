@@ -15,14 +15,8 @@ class profiles::base {
     remote => 'https://github.com/demophoon/puppet-environment.git',
   }
 
-  $puppet_bin_dir = $::clientversion ? {
-    /4\.\d+\.\d+/ => '/opt/puppetlabs/puppet/bin',
-    default       => '/usr/bin',
-  }
-  $puppet_code_dir = $::clientversion ? {
-    /4\.\d+\.\d+/ => '/etc/puppetlabs/code',
-    default       => '/etc/puppet',
-  }
+  $puppet_bin_dir = ${::settings::confdir}
+  $puppet_code_dir = '/etc/puppetlabs/code'
 
   $apply_path = "${puppet_code_dir}/environments/${::environment}"
   $apply_module_path = "${apply_path}/modules/"
