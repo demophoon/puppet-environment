@@ -41,7 +41,7 @@ class profiles::base (
 
     class { 'hiera':
       hiera_version  => '5',
-      hiera_defaults => {
+      hiera5_defaults => {
         'datadir'   => "${::settings::confdir}/hiera/${::environment}/",
         'data_hash' => 'yaml_data',
       },
