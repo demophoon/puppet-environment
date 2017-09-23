@@ -3,6 +3,8 @@ class profiles::base (
   String  $hiera_private_key       = '/root/.ssh/id_rsa',
 
   Boolean $use_hiera               = $profiles::params::use_hiera,
+
+  String $sample_message = "hiera works!",
 ) inherits profiles::params {
   include profiles::components::users
   include profiles::components::packages
@@ -28,8 +30,8 @@ class profiles::base (
   }
 
   # We need to make sure we have a key so we at least have a chance at authenticating against the repo
-  if enable_private_hiera() {
-    notify { "Looks like we are using hiera!": }
+  if $use_hiera or enable_private_hiera() {
+    notify { $sample_message: }
 
     $default_hiera_sources = {
       'hiera' => {
