@@ -43,7 +43,6 @@ class profiles::base (
 
   class { 'r10k':
     sources    => $r10k_sources,
-    purgedirs  => ["${::settings::confdir}/environments"],
     modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
   }
 
