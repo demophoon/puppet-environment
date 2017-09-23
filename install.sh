@@ -79,6 +79,7 @@ if $(exit ${use_hiera:-1}); then
   'git_settings' => {
     'private_key' => '/root/.ssh/id_rsa',
   },
+}
 "
 fi
 
