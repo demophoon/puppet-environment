@@ -1,5 +1,8 @@
 #!/bin/bash
 
+puppet="/opt/puppetlabs/puppet/bin/puppet"
+r10k="/opt/puppetlabs/puppet/bin/r10k"
+
 command_exists() {
     type "$1" &> /dev/null ;
 }
@@ -23,6 +26,11 @@ install_puppet() {
       echo "Unsupported platform :("
       exit 1
     fi
+}
+
+install_module() {
+  module_name=${1:?}
+  ${puppet:?} module install ${module_name:?} --force
 }
 
 confirm() {
@@ -65,11 +73,11 @@ if confirm; then
   use_hiera=0
 fi
 
-puppet="/opt/puppetlabs/puppet/bin/puppet"
-r10k="/opt/puppetlabs/puppet/bin/r10k"
-
-${puppet:?} module install puppetlabs/stdlib --force
-${puppet:?} module install puppet/r10k --force
+module_install puppetlabs/stdlib
+module_install puppetlabs/inifile
+module_install puppetlabs/vcsrepo
+module_install puppetlabs/git
+module_install puppet/r10k
 
 hiera_sources=""
 if $(exit ${use_hiera:-1}); then
