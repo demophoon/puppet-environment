@@ -1,4 +1,9 @@
-class profiles::base {
+class profiles::base (
+  Hash    $additional_r10k_sources = {},
+  String  $hiera_private_key       = '/root/.ssh/id_rsa',
+
+  Boolean $use_hiera               = $profiles::params::use_hiera,
+){
   include profiles::components::users
   include profiles::components::packages
 
@@ -11,8 +16,35 @@ class profiles::base {
     weak_kex     => true,
   }
 
+  $default_r10k_sources = {
+    'puppet' => {
+      'remote' => 'https://github.com/demophoon/puppet-environment.git',
+      'prefix' => false,
+    }
+  }
+
+  # We need to make sure we have a key so we at least have a chance at authenticating against the repo
+  if $use_hiera and file_exists?($hiera_private_key) {
+    $default_hiera_sources = {
+      'hiera' => {
+        'remote'       => 'git@github.com:demophoon/hieradata.git',
+        'prefix'       => true,
+        'git_settings' => {
+          'private_key' => $hiera_private_key,
+        },
+      }
+    }
+  } else {
+    $default_hiera_sources = {}
+  }
+
+  $r10k_source_defaults = deep_merge($default_r10k_sources, $default_hiera_sources)
+  $r10k_sources = deep_merge($r10k_source_defaults, $additional_r10k_sources)
+
   class { 'r10k':
-    remote => 'https://github.com/demophoon/puppet-environment.git',
+    sources    => $r10k_sources,
+    purgedirs  => ["${::settings::confdir}/environments"],
+    modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
   }
 
   $puppet_bin_dir = ${::settings::confdir}
