@@ -41,13 +41,14 @@ class profiles::base (
   $r10k_source_defaults = deep_merge($default_r10k_sources, $default_hiera_sources)
   $r10k_sources = deep_merge($r10k_source_defaults, $additional_r10k_sources)
 
-  class { 'r10k':
-    sources    => $r10k_sources,
-    modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
-  }
-
   $puppet_bin_dir = "${::settings::confdir}/bin"
   $puppet_code_dir = '/etc/puppetlabs/code'
+
+  class { 'r10k':
+    sources    => $r10k_sources,
+    basedir    => "${puppet_code_dir}/environments/",
+    modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
+  }
 
   $apply_path = "${puppet_code_dir}/environments/${::environment}"
   $apply_module_path = "${apply_path}/modules/"
