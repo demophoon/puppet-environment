@@ -28,7 +28,7 @@ class profiles::base (
   }
 
   # We need to make sure we have a key so we at least have a chance at authenticating against the repo
-  if $use_hiera and file_exists($hiera_private_key) {
+  if enable_private_hiera() {
     notify { "Looks like we are using hiera!": }
 
     $default_hiera_sources = {
