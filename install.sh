@@ -30,7 +30,7 @@ install_puppet() {
 
 install_module() {
   module_name=${1:?}
-  ${puppet:?} module install ${module_name:?} --force
+  ${puppet:?} module install ${module_name:?}
 }
 
 confirm() {
@@ -73,10 +73,6 @@ if confirm; then
   use_hiera=0
 fi
 
-install_module puppetlabs/stdlib
-install_module puppetlabs/inifile
-install_module puppetlabs/vcsrepo
-install_module puppetlabs/git
 install_module puppet/r10k
 
 hiera_sources=""
