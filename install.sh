@@ -73,11 +73,11 @@ if confirm; then
   use_hiera=0
 fi
 
-module_install puppetlabs/stdlib
-module_install puppetlabs/inifile
-module_install puppetlabs/vcsrepo
-module_install puppetlabs/git
-module_install puppet/r10k
+install_module puppetlabs/stdlib
+install_module puppetlabs/inifile
+install_module puppetlabs/vcsrepo
+install_module puppetlabs/git
+install_module puppet/r10k
 
 hiera_sources=""
 if $(exit ${use_hiera:-1}); then
