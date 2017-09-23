@@ -36,8 +36,8 @@ class profiles::base (
     $default_hiera_sources = {
       'hiera' => {
         'remote'       => 'git@github.com:demophoon/hieradata.git',
-        'basedir'=> "${::settings::confdir}/hiera",
-        'prefix'       => true,
+        'basedir'      => "${::settings::confdir}/hiera",
+        'prefix'       => false,
       }
     }
 
