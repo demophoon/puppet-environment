@@ -34,6 +34,10 @@ class profiles::components::webserver {
       www_root     => '/var/www/assets/',
     }
 
+    nginx::resource::server { "resume.brittg.com":
+      www_root     => '/var/www/assets/resume/',
+    }
+
     nginx::resource::server { "linode.brittg.com":
       www_root     => '/var/www/',
     }
