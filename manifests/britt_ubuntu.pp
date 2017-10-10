@@ -1,5 +1,5 @@
 class profiles::britt_ubuntu (
-  Array[Hash] $mounts = [],
+  Hash $mounts = {},
 ){
   class { 'profiles::components::consul':
     datacenter => hiera('datacenter'),
