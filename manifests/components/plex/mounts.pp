@@ -1,4 +1,4 @@
-class profiles::components::plex:mounts {
+class profiles::components::plex::mounts {
   mount { '/media/tb-tb':
     ensure   => mounted,
     device   => '/dev/sda1',
