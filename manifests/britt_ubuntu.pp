@@ -15,6 +15,17 @@ class profiles::britt_ubuntu (){
   nginx::resource::server { ["plex.home.brittg.com"]:
     proxy => 'http://localhost:32400',
   }
+  ::consul::service { 'plex':
+    checks  => [
+      {
+        script   => "curl http://localhost:32400 >/dev/null 2>&1",
+        interval => '10s'
+      }
+    ],
+    port    => 32400,
+    tags    => ['media']
+  }
+
   nginx::resource::server { ["britt-ubuntu.home.brittg.com"]:
     proxy => 'http://localhost:8500',
   }
