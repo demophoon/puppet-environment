@@ -6,8 +6,10 @@ class profiles::components::webserver {
     include nginx
 
     # BrittG.com Resources
-    nginx::resource::server { "brittg.com":
-      proxy        => 'http://localhost:2649',
+
+    profiles::components::webserver::vhost { 'shrls':
+      vhosts => 'brittg.com',
+      port   => 2649,
     }
 
     nginx::resource::location { "brittg.com/api":
@@ -54,11 +56,9 @@ class profiles::components::webserver {
       www_root     => '/var/www/htdocs/music',
     }
 
-    nginx::resource::server { 'cards.brittg.com':
-      proxy => 'http://localhost:3143',
-    }
-    nginx::resource::server { 'reader.brittg.com':
-      proxy => 'http://localhost:8082',
+    profiles::components::webserver::vhost { 'rss':
+      vhosts => 'reader.brittg.com',
+      port   => 8082,
     }
 
     # www.revelation22.org Resources
