@@ -1,5 +1,6 @@
 class profiles::britt_ubuntu (){
   include nginx
+  include docker
 
   include profiles::components::plex
 
@@ -13,11 +14,11 @@ class profiles::britt_ubuntu (){
   }
 
   profiles::components::webserver::vhost { 'Plex':
-    vhosts => ["plex.home.brittg.com"],
+    vhosts => ['plex.home.brittg.com'],
     port   => 32400,
   }
   profiles::components::webserver::vhost { 'Consul UI':
-    vhosts => ["consul.home.brittg.com"],
+    vhosts => ['consul.home.brittg.com'],
     port   => 8500,
   }
   profiles::components::webserver::vhost { 'Jenkins':

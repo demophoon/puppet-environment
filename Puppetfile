@@ -32,7 +32,7 @@ mod 'nanliu/staging'
 
 mod 'demophoon/letsencrypt_client'
 mod 'stankevich/python'
-mod 'stahnma/epel'
+mod 'stahnma/epel', '1.2.2'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 mod 'puppet/archive', '2.1.0'
@@ -45,3 +45,4 @@ mod 'jenkins',
 
 mod 'puppetlabs-java', '2.1.0'
 mod 'darin-zypprepo', '1.0.2'
+mod 'puppetlabs-docker', '1.0.0'
