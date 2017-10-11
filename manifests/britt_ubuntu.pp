@@ -2,8 +2,11 @@ class profiles::britt_ubuntu (){
   include nginx
 
   include profiles::components::plex
-  include profiles::components::jenkins
 
+  class { 'profiles::components::jenkins':
+    username => 'default',
+    password => 'password',
+  }
   class { 'profiles::components::consul':
     datacenter => hiera('datacenter'),
     server     => true,
