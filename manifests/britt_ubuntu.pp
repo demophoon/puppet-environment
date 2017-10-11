@@ -2,11 +2,16 @@ class profiles::britt_ubuntu (){
   include nginx
 
   include profiles::components::plex
+  include profiles::components::jenkins
+
   class { 'profiles::components::consul':
     datacenter => hiera('datacenter'),
     server     => true,
   }
 
+  nginx::resource::server { ["plex.home.brittg.com"]:
+    proxy => 'http://localhost:32400',
+  }
   nginx::resource::server { ["britt-ubuntu.home.brittg.com"]:
     proxy => 'http://localhost:8500',
   }
