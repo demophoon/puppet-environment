@@ -43,6 +43,11 @@ confirm() {
   return 1
 }
 
+run_puppet() {
+${r10k:?} deploy environment -pv
+${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/modules/ /etc/puppetlabs/code/environments/production/site.pp
+}
+
 if [ ${UID} -ne 0 ]; then
   echo "This script must run as root to work properly."
   exit 1
@@ -50,6 +55,11 @@ fi
 
 if ! command_exists /opt/puppetlabs/puppet/bin/puppet; then
     install_puppet
+fi
+
+if [ "${1}" = "run" ]; then
+    run_puppet
+    exit $?
 fi
 
 echo "Would you like to setup access to your hiera data repo? [y/N]"
@@ -119,5 +129,4 @@ class { 'r10k':
   },
 }"
 
-${r10k:?} deploy environment -pv
-${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/modules/ /etc/puppetlabs/code/environments/production/site.pp
+run_puppet
