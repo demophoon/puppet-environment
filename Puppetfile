@@ -21,7 +21,7 @@ mod 'gentoo/portage'
 
 mod 'puppet/nginx', '0.6.0'
 mod 'puppetlabs/stdlib', '4.20.0' # nice
-mod 'puppetlabs/apt', '1.8.0'
+mod 'puppetlabs/apt', '4.2.0'
 mod 'puppetlabs/concat'
 
 mod 'hardening/ssh_hardening', '1.0.5'
@@ -36,3 +36,7 @@ mod 'stahnma/epel'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 mod 'puppet/archive', '2.1.0'
+
+mod 'rtyler-jenkins', '1.7.0'
+mod 'puppetlabs-java', '2.1.0'
+mod 'darin-zypprepo', '1.0.2'
