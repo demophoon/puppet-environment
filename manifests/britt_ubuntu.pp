@@ -17,7 +17,7 @@ class profiles::britt_ubuntu (){
     port   => 32400,
   }
   profiles::components::webserver::vhost { 'Consul UI':
-    vhosts => ["britt-ubuntu.home.brittg.com"],
+    vhosts => ["consul.home.brittg.com"],
     port   => 8500,
   }
   profiles::components::webserver::vhost { 'Jenkins':
