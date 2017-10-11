@@ -8,7 +8,7 @@ class profiles::components::users {
     purge_ssh_keys => true,
     managehome     => true,
     tag            => ['global'],
-  }
+  } -> class { 'dotfiles': }
 
   @user { 'fgresham':
     ensure         => present,

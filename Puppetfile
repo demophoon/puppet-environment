@@ -4,6 +4,10 @@ mod 'profiles',
   :git => 'git://github.com/demophoon/puppet-environment',
   :ref => 'production'
 
+mod 'dotfiles',
+  :git => 'git://github.com/demophoon/dotfiles-puppet',
+  :ref => 'master'
+
 mod 'puppet/r10k'
 mod 'puppet/hiera'
 mod 'puppetlabs/ruby'
