@@ -16,7 +16,7 @@ class profiles::base (
     weak_kex     => true,
   }
 
-  $puppet_bin_dir = "${::settings::confdir}/bin"
+  $puppet_bin_dir = "/opt/puppetlabs/puppet/bin"
   $puppet_code_dir = '/etc/puppetlabs/code'
 
   $default_r10k_sources = {
