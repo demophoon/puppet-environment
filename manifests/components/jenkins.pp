@@ -1,6 +1,6 @@
 class profiles::components::jenkins (
-  String username,
-  String password,
+  String $username,
+  String $password,
 ){
   class { 'jenkins':
     install_java      => true,
