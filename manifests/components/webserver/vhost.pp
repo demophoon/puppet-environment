@@ -12,7 +12,7 @@ define profiles::components::webserver::vhost (
     *     => $vhost_options,
   }
 
-  ::consul::service { "HTTP: ${service_name}":
+  ::consul::service { "http-${service_name}":
     checks  => [
       {
         script   => "curl ${proxy}",
