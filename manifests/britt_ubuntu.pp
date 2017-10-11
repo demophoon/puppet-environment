@@ -1,12 +1,11 @@
-class profiles::britt_ubuntu (
-  Hash $mounts = {},
-){
+class profiles::britt_ubuntu (){
+  include nginx
+
+  include profiles::components::plex
   class { 'profiles::components::consul':
     datacenter => hiera('datacenter'),
     server     => true,
   }
-
-  include nginx
 
   nginx::resource::server { ["britt-ubuntu.home.brittg.com"]:
     proxy => 'http://localhost:8500',
@@ -17,13 +16,6 @@ class profiles::britt_ubuntu (
   nginx::resource::server { ['jenkins.home.brittg.com', 'jenkins.brittg.com']:
     proxy          => 'http://127.0.0.1:8080',
     proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
-  }
-
-  $mounts.each |$name, $params| {
-    mount { $name:
-      ensure => mounted,
-      *      => $params,
-    }
   }
 
 }
