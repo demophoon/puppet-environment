@@ -37,6 +37,11 @@ mod 'stahnma/epel'
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 mod 'puppet/archive', '2.1.0'
 
-mod 'rtyler-jenkins', '1.7.0'
+# currently the 1.7.0 version of the jenkins module doesn't have support for
+# installing jenkins 2.
+mod 'jenkins',
+  :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+  :ref => 'master'
+
 mod 'puppetlabs-java', '2.1.0'
 mod 'darin-zypprepo', '1.0.2'
