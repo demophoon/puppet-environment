@@ -1,5 +1,11 @@
 class profiles::components::users {
   # Users
+
+  if $::fqdn == 'beryllium.home.brittg.com' {
+    $groups = 'docker'
+  } else {
+    $groups = undef
+  }
   @user { 'britt':
     ensure         => present,
     password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
@@ -7,6 +13,7 @@ class profiles::components::users {
     shell          => '/bin/zsh',
     purge_ssh_keys => true,
     managehome     => true,
+    groups         => $groups,
     tag            => ['global'],
   } -> class { 'dotfiles': }
 
