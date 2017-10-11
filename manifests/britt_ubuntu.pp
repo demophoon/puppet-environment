@@ -12,29 +12,19 @@ class profiles::britt_ubuntu (){
     server     => true,
   }
 
-  nginx::resource::server { ["plex.home.brittg.com"]:
-    proxy => 'http://localhost:32400',
+  profiles::components::webserver::vhost { 'Plex':
+    vhosts => ["plex.home.brittg.com"],
+    port   => 32400,
   }
-  ::consul::service { 'plex':
-    checks  => [
-      {
-        script   => "curl http://localhost:32400 >/dev/null 2>&1",
-        interval => '10s'
-      }
-    ],
-    port    => 32400,
-    tags    => ['media']
+  profiles::components::webserver::vhost { 'Consul UI':
+    vhosts => ["britt-ubuntu.home.brittg.com"],
+    port   => 8500,
   }
-
-  nginx::resource::server { ["britt-ubuntu.home.brittg.com"]:
-    proxy => 'http://localhost:8500',
+  profiles::components::webserver::vhost { 'Jenkins':
+    vhosts        => ['jenkins.home.brittg.com', 'jenkins.brittg.com'],
+    port          => 8080,
+    vhost_options => {
+      proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
+    }
   }
-  nginx::resource::server { ['vimtalk.home.brittg.com', 'vimtalk.brittg.com']:
-    proxy => 'http://localhost:9000',
-  }
-  nginx::resource::server { ['jenkins.home.brittg.com', 'jenkins.brittg.com']:
-    proxy          => 'http://127.0.0.1:8080',
-    proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
-  }
-
 }
