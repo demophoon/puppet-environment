@@ -14,6 +14,7 @@ class profiles::components::consul(
         'node_name'        => $::fqdn,
         'server'           => true,
         'ui_dir'           => '/opt/consul/ui',
+        'recursors'        => ['192.168.1.1']
       }
     }
   } else {
