@@ -4,4 +4,7 @@ class profiles::linode {
   Ssh_authorized_key <| tag == 'tx.dc' |>
 
   class { 'profiles::components::webserver': }
+  class { 'profiles::components::consul':
+    datacenter => lookup('datacenter', String, 'first', 'global'),
+  }
 }
