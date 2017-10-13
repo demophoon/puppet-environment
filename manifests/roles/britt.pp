@@ -21,7 +21,7 @@ class profiles::roles::britt (
 
   if $developer {
     $github_token = lookup('github_token', Optional[String], 'first', undef)
-    if $github_token {
+    if $github_token != undef {
       $additional_params = {
         github_token => $github_token,
       }

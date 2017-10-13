@@ -18,7 +18,13 @@ define profiles::components::developer (
   }
 
   if $github_username {
-    get_github_repos($github_username, $github_token).each |$repo| {
+    if $github_token != undef {
+      $repos = get_github_repos($github_username, $github_token)
+    } else {
+      $repos = get_github_repos($github_username)
+    }
+
+    $repos.each |$repo| {
       vcsrepo { "${project_path}/${repo[name]}":
         ensure   => present,
         provider => git,
