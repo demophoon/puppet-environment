@@ -15,9 +15,10 @@ Puppet::Functions.create_function(:'get_github_repos') do
       request['Authorization'] = "token #{github_token}"
     end
 
-    response = Net::HTTP.start(uri.hostname, uri.port) do |http|
-      http.request(request)
-    end
+    http = Net::HTTP.new(uri.hostname, uri.port)
+    http.use_ssl = true
+    response = http.request(request)
+
     repos = JSON.parse(response.body)
 
     repos.map do |item|
