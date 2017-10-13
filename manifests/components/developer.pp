@@ -7,7 +7,6 @@ define profiles::components::developer (
   Optional[String] $github_username,
 ) {
   Vcsrepo {
-    refresh_only => true,
     owner        => $username,
     subscribe    => File[$project_path],
   }
