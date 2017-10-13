@@ -31,7 +31,7 @@ class profiles::roles::britt (
 
     profiles::components::developer { 'britt':
       github_username => 'demophoon',
-      after           => Class['dotfiles'],
+      require         => Class['dotfiles'],
       *               => $additional_params,
     }
   }
