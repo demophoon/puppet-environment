@@ -3,8 +3,8 @@ define profiles::components::developer (
   String           $project_dir     = 'projects',
   String           $home_dir        = "/home/${username}",
   String           $project_path    = "${home_dir}/${project_dir}",
+  Optional[String] $github_token    = undef,
   Optional[String] $github_username,
-  Optional[String] $github_token,
 ) {
   Vcsrepo {
     refresh_only => true,

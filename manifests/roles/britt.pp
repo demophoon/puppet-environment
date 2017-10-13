@@ -20,10 +20,19 @@ class profiles::roles::britt (
   class { 'dotfiles': }
 
   if $developer {
+    $github_token = lookup('github_token', Optional[String], 'first', undef)
+    if $github_token {
+      $additional_params = {
+        github_token => $github_token,
+      }
+    } else {
+      $additional_params = {}
+    }
+
     profiles::components::developer { 'britt':
       github_username => 'demophoon',
-      github_token    => lookup('github_token', String, 'first', undef),
       after           => Class['dotfiles'],
+      *               => $additional_params,
     }
   }
 
