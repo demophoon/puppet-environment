@@ -5,6 +5,7 @@ Puppet::Functions.create_function(:'get_github_repos') do
   dispatch :get_github_repos do
     required_param 'String', :github_username
     optional_param 'String', :github_token
+    return_type 'Array[Hash]'
   end
 
   def get_github_repos(github_username, github_token = nil)

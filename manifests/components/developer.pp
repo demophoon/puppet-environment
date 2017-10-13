@@ -25,13 +25,17 @@ define profiles::components::developer (
     }
 
     $repos.each |$repo| {
-      vcsrepo { "${project_path}/${repo[name]}":
+      $repo_name  = get_key_from_hash($repo, 'name')
+      $ssh_clone  = get_key_from_hash($repo, 'ssh')
+      $http_clone = get_key_from_hash($repo, 'http')
+
+      vcsrepo { "${project_path}/${repo_name}":
         ensure   => present,
         provider => git,
-        remote   => "$github_username-http",
+        remote   => "${github_username}-http",
         source   => {
-          $github_username        => $repo[ssh],
-          "$github_username-http" => $repo[http]
+          $github_username => $ssh_clone,
+          "${github_username}-http" => $http_clone
         },
       }
     }
