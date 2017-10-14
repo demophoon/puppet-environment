@@ -4,6 +4,8 @@ class profiles::britt_ubuntu (){
 
   include profiles::components::plex
 
+  include profiles::roles::development
+
   class { 'profiles::components::jenkins':
     username => 'default',
     password => 'password',
