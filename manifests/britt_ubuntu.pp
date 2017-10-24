@@ -5,6 +5,7 @@ class profiles::britt_ubuntu (){
   include profiles::components::plex
 
   include profiles::roles::development
+  include profiles::roles::bolt
 
   class { 'profiles::components::jenkins':
     username => 'default',
