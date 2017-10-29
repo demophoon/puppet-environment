@@ -6,6 +6,7 @@ class profiles::beryllium (){
 
   include profiles::roles::development
   include profiles::roles::bolt
+  include profiles::roles::mariadb
 
   class { 'profiles::components::jenkins':
     username => 'default',
