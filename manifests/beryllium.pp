@@ -7,7 +7,6 @@ class profiles::beryllium (){
   include profiles::roles::development
   include profiles::roles::bolt
   include profiles::roles::mysql
-  include profiles::roles::db::what
 
   include profiles::roles::seedbox
 
