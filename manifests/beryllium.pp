@@ -1,4 +1,4 @@
-class profiles::britt_ubuntu (){
+class profiles::beryllium (){
   include nginx
   include docker
 
