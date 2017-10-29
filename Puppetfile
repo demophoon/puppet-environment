@@ -48,5 +48,6 @@ mod 'darin-zypprepo', '1.0.2'
 mod 'puppetlabs-docker', '1.0.0'
 
 mod 'edestecd-mariadb', '0.6.0'
+mod 'puppetlabs-mysql', '5.1.0'
 
 mod 'CraigWatson1987-transmission', '2.1.0'
