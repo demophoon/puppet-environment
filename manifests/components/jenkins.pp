@@ -7,5 +7,8 @@ class profiles::components::jenkins (
     cli_remoting_free => true,
     cli_username      => $username,
     cli_password      => $password,
+    config_hash       => {
+      'HTTP_PORT' => { 'value' => '7368' },
+    },
   }
 }
