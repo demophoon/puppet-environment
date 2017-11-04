@@ -8,6 +8,9 @@ class profiles::beryllium (){
   include profiles::roles::bolt
   include profiles::roles::mysql
 
+  include profiles::roles::nodejs
+  include profiles::roles::dicecloud
+
   include profiles::roles::seedbox
 
   class { 'profiles::components::jenkins':
