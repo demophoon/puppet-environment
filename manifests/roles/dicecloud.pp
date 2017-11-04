@@ -1,5 +1,5 @@
 class profiles::roles::dicecloud () {
-  package { 'bower':
+  package { ['bower', 'meteor']:
     ensure   => 'present',
     provider =>  'npm',
   }
