@@ -4,9 +4,8 @@ define profiles::components::webserver::vhost (
   $port = 80,
   $vhost_options = {},
   $consul_options = {},
-) {
   $proxy = "http://127.0.0.1:${port}"
-
+) {
   nginx::resource::server { $vhosts:
     proxy => $proxy,
     *     => $vhost_options,

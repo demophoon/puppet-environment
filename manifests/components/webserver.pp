@@ -7,6 +7,12 @@ class profiles::components::webserver {
 
     # BrittG.com Resources
 
+    profiles::components::webserver::vhost { 'minio':
+      vhosts => ['s3.brittg.com'],
+      proxy  => 'http://192.168.1.4:9000',
+      port   => 9000,
+    }
+
     profiles::components::webserver::vhost { 'shrls':
       vhosts => 'brittg.com',
       port   => 2649,
