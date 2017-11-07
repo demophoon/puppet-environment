@@ -23,7 +23,11 @@ class profiles::beryllium (){
     vhosts => ['plex.home.brittg.com'],
     port   => 32400,
   }
-  profiles::components::webserver::vhost { 'Consul UI':
+  profiles::components::webserver::vhost { 'Minio':
+    vhosts => ['minio.home.brittg.com', 's3.home.brittg.com', 'store.home.brittg.com'],
+    port   => 9000,
+  }
+  profiles::components::webserver::vhost { 'Consul-UI':
     vhosts => ['consul.home.brittg.com'],
     port   => 8500,
   }
