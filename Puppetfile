@@ -52,3 +52,5 @@ mod 'puppetlabs-mysql', '5.1.0'
 mod 'CraigWatson1987-transmission', '2.1.0'
 
 mod 'puppet-nodejs', '4.0.0'
+
+mod 'ajjahn-samba', '0.5.0'
