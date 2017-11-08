@@ -10,6 +10,12 @@ class profiles::beryllium (){
 
   include profiles::roles::seedbox
 
+  profiles::roles::backup { $::fqdn:
+    backup_dirs => [
+      '/home/',
+    ],
+  }
+
   class { 'profiles::components::jenkins':
     username => 'default',
     password => 'password',

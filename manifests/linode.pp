@@ -7,4 +7,12 @@ class profiles::linode {
   class { 'profiles::components::consul':
     datacenter => lookup('datacenter', String, 'first', 'global'),
   }
+
+  profiles::roles::backup { $::fqdn:
+    backup_dirs => [
+      '/home/',
+      '/opt/',
+      '/var/www/',
+    ],
+  }
 }
