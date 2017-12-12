@@ -6,6 +6,10 @@ node 'beryllium.home.brittg.com' {
   class { 'profiles::beryllium': }
 }
 
+node 'apollo.home.brittg.com' {
+  class { 'profiles::apollo': }
+}
+
 node default {
   notify {'Node not classified.': }
 }
