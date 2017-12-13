@@ -5,6 +5,7 @@ class profiles::apollo (){
   include profiles::roles::bolt
 
   include profiles::roles::apps
+  include profiles::roles::yubikey
 
   profiles::roles::backup { $::fqdn:
     backup_dirs => [
