@@ -35,6 +35,10 @@ class profiles::beryllium (){
     vhosts => ['minio.home.brittg.com', 's3.home.brittg.com', 'store.home.brittg.com'],
     port   => 9000,
   }
+  profiles::components::webserver::vhost { 'Cloud':
+    vhosts => ['cloud.home.brittg.com'],
+    port   => 9263,
+  }
   profiles::components::webserver::vhost { 'Consul-UI':
     vhosts => ['consul.home.brittg.com'],
     port   => 8500,

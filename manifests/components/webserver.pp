@@ -13,6 +13,12 @@ class profiles::components::webserver {
       port   => 9000,
     }
 
+    profiles::components::webserver::vhost { 'cloud':
+      vhosts => ['cloud.brittg.com'],
+      proxy  => 'http://192.168.1.4:9263',
+      port   => 9263,
+    }
+
     profiles::components::webserver::vhost { 'shrls':
       vhosts => 'brittg.com',
       port   => 2649,
