@@ -11,6 +11,7 @@ class profiles::beryllium (){
   include profiles::roles::seedbox
 
   include profiles::roles::docker::owncloud
+  include profiles::roles::docker::minio
 
   profiles::roles::backup { $::fqdn:
     backup_dirs => [
