@@ -54,3 +54,5 @@ mod 'CraigWatson1987-transmission', '2.1.0'
 mod 'puppet-nodejs', '4.0.0'
 
 mod 'ajjahn-samba', '0.5.0'
+
+mod 'unibet-vagrant', '0.2.1'
