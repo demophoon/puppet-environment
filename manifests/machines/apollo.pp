@@ -1,4 +1,4 @@
-class profiles::apollo (){
+class profiles::machines::apollo (){
   include docker
   include vagrant
 

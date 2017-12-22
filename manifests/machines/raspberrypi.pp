@@ -1,4 +1,4 @@
-class profiles::raspberrypi {
+class profiles::machines::raspberrypi {
   include profiles::base
   include nginx
 

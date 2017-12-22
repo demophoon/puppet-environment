@@ -1,4 +1,4 @@
-class profiles::beryllium (){
+class profiles::machines::beryllium (){
   include nginx
   include docker
 
