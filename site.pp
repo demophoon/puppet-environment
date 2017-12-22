@@ -1,13 +1,13 @@
 node /linode.*/ {
-  class { 'profiles::linode': }
+  class { 'profiles::machines::linode': }
 }
 
 node 'beryllium.home.brittg.com' {
-  class { 'profiles::beryllium': }
+  class { 'profiles::machines::beryllium': }
 }
 
 node 'apollo.home.brittg.com' {
-  class { 'profiles::apollo': }
+  class { 'profiles::machines::apollo': }
 }
 
 node default {
