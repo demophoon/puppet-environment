@@ -1,5 +1,6 @@
 class profiles::apollo (){
   include docker
+  include vagrant
 
   include profiles::roles::development
   include profiles::roles::bolt
