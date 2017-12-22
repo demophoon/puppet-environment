@@ -71,19 +71,14 @@ class profiles::roles::britt (
     key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCzLJnHBl714lgLqJqbEheeDW2T5EEQ4rIicEDGThagRHgwMOCbvSBV3y7lSF/wYx+N45ZtXiW6+/I3OC00fYsx2dYCnb2rEiWyGxLVNn7B/NtJWRzqEtbQADHff4dR/cEKE2S529WP715Ip5UIhwI457knxOzRTWdxagpXe1uUQh13LXrgHhQOVS85kgIOh9Ksfyg0Qc865mVJppIIXmClBAreYM9R0tJHi2T2OQmSaZjgUuRHD+TIPb/Psjmp2eKy+TVJCOZ08nj4LREu14msN1Max/AlxFP6aT8FYXKPcE1D3yIMTCaBxVEKjm9oVDAFXf7OGdgMDgFisn6QeE0fMJL/4qzMFNWcQ9OJ5HBKa6HrOrx79TXcolKoLbAv8N3NlsFQdor40gRa9sxJ5C/GydoxNWbk1JUpY6vVMGIiuICmZgRPdTevrS/fiUFxdrG7NeCW7JeSPg2P7Zbfw+wmGh+npFiscWFvkYmGZaYDBe0qMILU1GTcQGDB+6gYuX1CBxRWKzX24Inox/qH7g/6LeL1o4T+d5pKJB414MA+0dvw/WLxV28y89t6+PO8iPqIUqLsRrJn0r/uqXitG7vn58MBBhrfH+8dBGqoTxE5fxdITwO375m5D2YSSoMX4Wg9AC4Q9ULFWTp+fYiz3XHwtQQ+4qOJaZYOk/fyu7ry/w==',
   }
 
-  ssh_authorized_key { 'jenkins@home.brittg.com':
-    type    => 'ssh-rsa',
-    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDD+Ig8HSjJQyqSCaFk0SQq3h7orFOja6cjG+va1iE/EEFnlGlJ48YoKI8CrRPce/ofZgcCc2b/PlPRp5Kuu4+AMUaJS3SBILq9nKVVyX6KHpukzMkVPi8xKZdkuZhWC19JDDECMDpEggW+EG//m9o4kCLTdxm4vrcAu1wtf3cxOo5qazk36Z5IHChcmXP28DtUzgJwxBKnPt1y9RrRPJ9we0T6MQcI1kL90v5jwAPfCMD9Og4gbarwUVBoNOchwlMU0rwQFBCNlK3961pRtGIKa/SpFcQ9xYEpjxnTMthGwr9VEHV3pGWymRw8nmZOOewSjsXkyCILKOXaIlX8gOMd',
-  }
-
-  ssh_authorized_key { 'nexus6.home.brittg.com':
-    type    => 'ssh-rsa',
-    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC6vKtGbGtYAKR+bJ0UMT65VBJJryK8ES3+Incr2zWtpH25Ur3b03jJfxVVtHbLVRQ/k/tLii+hUh8whykfoNZBFqpQygLmQrJgiGlOFvwVGl0s4ROPZG7Vg4gJg6ng2w6eNOSzgURlUr6yYdaqWPt6OW4pJYqaf50aqqZj1s31rPQ5Aw9IZPU4cgAoCuX1GKTLd2Ww9Zbe/o5eOPVvcESOzai3AZtDG7gC5iL1goDpLSvzI7n/g8UeP9Ei87HHFPnIDCKcMcPl1OEKMgkcfctNBBAhSDhlAeqhXNW4u9P6KN1afQ8XjddFmlCIpiQgkRr4HvFTAD2CL7Acgqc5Bgkoz3iLK8VsttChUZjBupNrs2Mqp1cHNbsSSE0AQvGJGuxF+qiynXpzQ/2/wMfJRoOIwSBSMWDqoVHnerqdQyJnDdmGOz3FkHLlPbcDImGuoRc2ZdZELLpHgELIcvjSeuqo9stjWRt8lysz9hS8zynAXh98Z0uI1i+/vVm7Fj/N9kgWNFTUsf1cQri/Ze9W/kHaDiZN/0NjAtaR9IxO0cDp6XAcRukLNrRtA+GUXim36jGTwvtG7KDS+EEE2Nw78tRSFEyytDX41bOprwwQjcBT5a+zmsSPOBC/B9tD216MQ0+L2oOu3f/jIG6lCHAvZfx8AYeWWoIN2XIO91YbEPQOJQ==',
-  }
-
   ssh_authorized_key { 'ubuntu@apollo.home.brittg.com':
     type    => 'ssh-ed25519',
     key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIAnOAYhlyJnwV6Nau90q8G5eNzZBkZm/WGCG9/jRSgKj',
+  }
+
+  ssh_authorized_key { 'pixel2.home.brittg.com':
+    type    => 'ssh-rsa',
+    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDpMfiwj/eLftCBooWJ6jIU0f+587hynQAZ/+7D7j6yd4afpgBohcAeKMSP0AqecCjU3KJN4QTgsyBWorKD06c0iV92qF+oQzvwR+eddogHWiqbvEyoWi7cRkIZRkdmZN2FtcpLct5uHSsfMMbRINbmF6Ol55w6HKTPNDy8hxFhHg30DzBh7MKBXW1B4S74IbCD3SrLlHzdZg1xYBEtKyh0xbQnO2TuhmlXxHAGTIkIZv3oUX8v2uFOs1uYqftOeQCLGe2QtYDLL50bBkAlFYwafZTCj7r9BCKveyb+Mas5bUA9YKXVk5JsqaGH87uIfj5Vtm8ynvDn+kxGu5PNsQFvJpH5QQGMaHN5iqozB4cDkjYMhHdo1ejLFnpHFC0ies/OTGirrfnl4T788P1b84pwy7KWHWyDZZT+sVfxsNg/Ona2gouvfzsbM3i8W+zxRLuOLNFY83LGwKnX21pAF1F8k14eGKo0aMR/Y0DzVH1x8tWZKfmelyq278LbugLiFcEhW+E4h9FFm8GbQikOmh/CMOzT2zTLe3mowlvhnyL85vPLi6Gkgz2wcs8SJoRoWbcNhM1lpvssT4CSIb5rMAndDtaeRntY+YERwnllZ/4cbJCJdmWfIV4B8mZwOIOcwS95JSVIZp2whTc2cqQrv+QvuJDced0kk5L9y6IJQTrlkw==',
   }
 
 }
