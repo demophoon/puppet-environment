@@ -13,7 +13,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::docker::owncloud
   include profiles::roles::docker::minio
 
-  profiles::roles::backup { $::fqdn:
+  class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
     ],

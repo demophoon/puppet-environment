@@ -8,7 +8,7 @@ class profiles::machines::linode {
     datacenter => lookup('datacenter', String, 'first', 'global'),
   }
 
-  profiles::roles::backup { $::fqdn:
+  class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
       '/opt/',

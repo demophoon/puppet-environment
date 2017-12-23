@@ -8,7 +8,7 @@ class profiles::machines::apollo (){
   include profiles::roles::yubikey
   include profiles::roles::vagrant
 
-  profiles::roles::backup { $::fqdn:
+  class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
     ],
