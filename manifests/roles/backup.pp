@@ -27,7 +27,8 @@ class profiles::roles::backup (
       cron { "S3 backup ${s3_url}":
         command => "s3cmd sync -F '${dir}' '${s3_url}'",
         user    => 'root',
-        hour    => [$i],
+        minute  => 0,
+        hour    => $i,
       }
     }
 
