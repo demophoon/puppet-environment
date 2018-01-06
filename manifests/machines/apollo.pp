@@ -7,6 +7,7 @@ class profiles::machines::apollo (){
   include profiles::roles::apps
   include profiles::roles::yubikey
   include profiles::roles::vagrant
+  include profiles::roles::i3
 
   class { 'profiles::roles::backup':
     backup_dirs => [
