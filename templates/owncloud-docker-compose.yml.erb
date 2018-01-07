@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    image: 'owncloud'
+    restart: 'always'
+    ports:
+      - '9263:80'
+    volumes:
+      - '/media/tb-tb/owncloud/:/var/www/html:rw'
+  mysql:
+    image: 'mariadb'
+    restart: 'always'
+    volumes:
+      - '/media/tb-tb/owncloud-db:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: <%= @db_password %>
