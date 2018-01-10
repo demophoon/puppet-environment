@@ -1,12 +1,12 @@
 class profiles::machines::beryllium (){
   include nginx
-  include docker
 
   include profiles::components::plex
 
   include profiles::roles::development
   include profiles::roles::bolt
   include profiles::roles::mysql
+  include profiles::roles::docker
 
   include profiles::roles::seedbox
 
@@ -22,10 +22,6 @@ class profiles::machines::beryllium (){
   class { 'profiles::components::jenkins':
     username => 'default',
     password => 'password',
-  }
-  class { 'profiles::components::consul':
-    datacenter => lookup('datacenter', String, 'first', 'global'),
-    server     => true,
   }
 
   profiles::components::webserver::vhost { 'Plex':
