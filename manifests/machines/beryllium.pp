@@ -24,7 +24,7 @@ class profiles::machines::beryllium (){
     password => 'password',
   }
   class { 'profiles::components::consul':
-    datacenter => hiera('datacenter'),
+    datacenter => lookup('datacenter', String, 'first', 'global'),
     server     => true,
   }
 
