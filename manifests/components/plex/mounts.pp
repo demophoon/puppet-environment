@@ -1,12 +1,17 @@
 class profiles::components::plex::mounts {
-  mount { '/media/tb-tb':
+  mount { '/media/Andromeda':
     ensure   => mounted,
-    device   => '/dev/sde1',
+    device   => '/dev/sdf1',
     fstype   => 'ext4',
     options  => 'defaults',
     remounts => true,
     atboot   => true,
   }
+
+  file { '/media/tb-tb':
+    ensure => link,
+    target => '/media/Andromeda/backup/tb-tb/',
+   }
 
   #class { 'samba::server':
   #  workgroup     => 'example',
