@@ -42,7 +42,7 @@ class profiles::roles::zfs () {
     atime          => 'on',
     canmount       => 'on',
     checksum       => 'on',
-    compression    => 'off',
+    compression    => 'on',
     copies         => '1',
     dedup          => 'off',
     devices        => 'on',
