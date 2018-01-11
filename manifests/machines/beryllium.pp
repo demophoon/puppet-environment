@@ -7,11 +7,12 @@ class profiles::machines::beryllium (){
   include profiles::roles::bolt
   include profiles::roles::mysql
   include profiles::roles::docker
+  include profiles::roles::zfs
 
   include profiles::roles::seedbox
 
-  #include profiles::roles::docker::owncloud
-  #include profiles::roles::docker::minio
+  include profiles::roles::docker::owncloud
+  include profiles::roles::docker::minio
 
   class { 'profiles::roles::backup':
     backup_dirs => [
