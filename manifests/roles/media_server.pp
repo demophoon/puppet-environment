@@ -3,6 +3,7 @@ class profiles::roles::media_server (
 ) {
 
   require profiles::roles::zfs
+  require profiles::roles::nfs::server
   require profiles::roles::samba::server
 
   zfs { 'tank0/media':
@@ -49,6 +50,12 @@ class profiles::roles::media_server (
     read_only   => false,
     guest_ok    => true,
     valid_users => 'britt',
+  }
+
+  nfs::server::export {'/tank0/media':
+    ensure  => present,
+    nfstag  => 'media',
+    clients => '192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
   }
 
 }
