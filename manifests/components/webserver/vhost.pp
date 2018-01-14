@@ -11,14 +11,14 @@ define profiles::components::webserver::vhost (
     *     => $vhost_options,
   }
 
-  ::consul::service { "http-${service_name}":
-    checks  => [
-      {
-        script   => "curl ${proxy}",
-        interval => '10s'
-      }
-    ],
-    port    => $port,
-    * => $consul_options,
-  }
+  #::consul::service { "http-${service_name}":
+  #  checks  => [
+  #    {
+  #      script   => "curl ${proxy}",
+  #      interval => '10s'
+  #    }
+  #  ],
+  #  port    => $port,
+  #  * => $consul_options,
+  #}
 }
