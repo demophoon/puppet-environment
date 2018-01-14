@@ -15,4 +15,10 @@ class profiles::machines::apollo (){
       '/home/',
     ],
   }
+
+  package { [
+    'cmus',
+  ]:
+    ensure => present,
+  }
 }
