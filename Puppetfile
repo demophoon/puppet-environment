@@ -56,3 +56,5 @@ mod 'puppet-nodejs', '4.0.0'
 mod 'ajjahn-samba', '0.5.0'
 
 mod 'unibet-vagrant', '0.2.1'
+
+mod 'derdanne-nfs', '2.0.6'
