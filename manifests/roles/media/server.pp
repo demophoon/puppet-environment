@@ -1,4 +1,4 @@
-class profiles::roles::media_server (
+class profiles::roles::media::server (
   $password = 'example',
 ) {
 
