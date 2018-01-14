@@ -8,6 +8,8 @@ class profiles::machines::beryllium (){
   include profiles::roles::mysql
   include profiles::roles::docker
   include profiles::roles::zfs
+  include profiles::roles::samba::server
+  include profiles::roles::media_server
 
   include profiles::roles::seedbox
 
