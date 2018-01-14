@@ -5,6 +5,7 @@ class profiles::components::packages {
     'bash',
     'ntp',
     'p7zip',
+    'unzip',
   ]
 
   $webserver_packages = [
