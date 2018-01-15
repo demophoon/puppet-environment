@@ -6,7 +6,7 @@ class profiles::roles::media::server (
   require profiles::roles::nfs::server
   require profiles::roles::samba::server
 
-  zfs { 'tank0/media':
+  zfs { 'dank0/media':
     ensure         => 'present',
     aclinherit     => 'restricted',
     aclmode        => '-',

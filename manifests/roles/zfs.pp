@@ -1,6 +1,6 @@
 class profiles::roles::zfs () {
 
-  zfs { 'tank0':
+  zfs { 'dank0':
     ensure         => 'present',
     aclinherit     => 'restricted',
     aclmode        => '-',
@@ -35,7 +35,7 @@ class profiles::roles::zfs () {
     zoned          => 'off',
   }
 
-  zfs { 'tank0/andromeda':
+  zfs { 'dank0/andromeda':
     ensure         => 'present',
     aclinherit     => 'restricted',
     aclmode        => '-',
@@ -70,7 +70,7 @@ class profiles::roles::zfs () {
     zoned          => 'off',
   }
 
-  zpool { 'tank0':
+  zpool { 'dank0':
     ensure => 'present',
     raidz  => ['sdc sdd sdb sde'],
   }
