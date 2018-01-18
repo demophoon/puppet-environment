@@ -50,4 +50,10 @@ class profiles::machines::beryllium (){
       proxy_redirect => 'http://127.0.0.1:8080 http://jenkins.brittg.com',
     }
   }
+
+  nfs::server::export {'/tank0/backups':
+    ensure  => present,
+    clients => '192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
+  }
+
 }
