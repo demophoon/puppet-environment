@@ -1,4 +1,4 @@
-node /linode.*/ {
+node 'oso.demophoon.com', 'calico.demophoon.com'  {
   class { 'profiles::machines::linode': }
 }
 
