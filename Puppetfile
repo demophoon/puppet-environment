@@ -58,3 +58,5 @@ mod 'ajjahn-samba', '0.5.0'
 mod 'unibet-vagrant', '0.2.1'
 
 mod 'derdanne-nfs', '2.0.6'
+
+mod 'saz-sudo', '5.0.0'
