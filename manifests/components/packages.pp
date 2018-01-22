@@ -7,6 +7,11 @@ class profiles::components::packages {
     'p7zip',
     'unzip',
     'tmux',
+    'mercurial',
+    'tree',
+    'curl',
+    'wget',
+    'htop',
   ]
 
   $webserver_packages = [
