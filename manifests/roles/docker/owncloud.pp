@@ -1,6 +1,8 @@
 class profiles::roles::docker::owncloud (
   $db_password = undef,
 ) {
+  require profiles::roles::docker
+
   if ($db_password == undef) {
     warning('Unable to setup owncloud. Please set database password.')
   } else {
