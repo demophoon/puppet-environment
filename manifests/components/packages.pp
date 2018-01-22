@@ -6,6 +6,7 @@ class profiles::components::packages {
     'ntp',
     'p7zip',
     'unzip',
+    'tmux',
   ]
 
   $webserver_packages = [
