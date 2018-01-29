@@ -3,4 +3,5 @@ class profiles::machines::linodes::calico {
 
   include profiles::roles::docker
   include profiles::roles::sudoers
+  include profiles::roles::docker::znc
 }
