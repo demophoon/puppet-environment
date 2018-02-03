@@ -14,7 +14,7 @@ class profiles::components::webserver {
     }
 
     profiles::components::webserver::vhost { 'cloud':
-      vhosts => ['cloud.brittg.com'],
+      vhosts => ['cloud.brittg.com', 'butt.brittg.com'],
       proxy  => 'http://192.168.1.4:9263',
       port   => 9263,
     }
