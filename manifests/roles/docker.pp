@@ -1,5 +1,5 @@
 class profiles::roles::docker (
-  $options = undef,
+  $options = {},
 ) {
   class { 'docker':
     * => $options,
