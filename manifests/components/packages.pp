@@ -12,6 +12,7 @@ class profiles::components::packages {
     'curl',
     'wget',
     'htop',
+    'silversearcher-ag',
   ]
 
   $webserver_packages = [
