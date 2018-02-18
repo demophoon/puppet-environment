@@ -1,5 +1,5 @@
 ---
-version: '3.4'
+version: '3'
 services:
   unifi:
     image: 'linuxserver/unifi:latest'
@@ -14,3 +14,6 @@ services:
       - '8443:8443'
       - '8843:8843'
       - '8880:8880'
+    environment:
+      - PGID=1000
+      - PUID=1000

@@ -15,6 +15,7 @@ class profiles::machines::beryllium (){
 
   include profiles::roles::docker::owncloud
   include profiles::roles::docker::minio
+  include profiles::roles::docker::unifi
 
   class { 'profiles::roles::backup':
     backup_dirs => [
