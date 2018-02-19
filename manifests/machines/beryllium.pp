@@ -1,8 +1,6 @@
 class profiles::machines::beryllium (){
   include nginx
 
-  include profiles::components::plex
-
   include profiles::roles::development
   include profiles::roles::bolt
   include profiles::roles::mysql
@@ -16,6 +14,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::docker::owncloud
   include profiles::roles::docker::minio
   include profiles::roles::docker::unifi
+  include profiles::roles::docker::plex
 
   class { 'profiles::roles::backup':
     backup_dirs => [
