@@ -22,7 +22,7 @@ class profiles::roles::media::server (
     mountpoint     => '/tank0/media',
     nbmand         => 'off',
     primarycache   => 'all',
-    quota          => '2T',
+    quota          => '6T',
     readonly       => 'off',
     recordsize     => '128K',
     refquota       => 'none',
