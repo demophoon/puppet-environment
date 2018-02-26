@@ -7,10 +7,19 @@ services:
       - '5422:80'
     volumes:
       - '/media/tb-tb/owncloud/:/var/www/html:rw'
+    environment:
+      DB_USER: 'ttrss'
+      DB_PASS: '<%= @db_password %>'
+      DB_ENV_USER: 'ttrss'
+      DB_ENV_PASS: '<%= @db_password %>'
+      DB_HOST: 'postgres'
+      DB_PORT: '5432'
+      DB_TYPE: 'pgsql'
   postgres:
     image: 'postgres'
     restart: 'always'
     volumes:
       - '/opt/ttrss-postgresql/data:/var/lib/postgresql/data'
     environment:
-      POSTGRES_PASSWORD: <%= @db_password %>
+      POSTGRES_USER: 'ttrss'
+      POSTGRES_PASSWORD: '<%= @db_password %>'
