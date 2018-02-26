@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    image: 'clue/ttrss'
+    restart: 'always'
+    ports:
+      - '5422:80'
+    volumes:
+      - '/media/tb-tb/owncloud/:/var/www/html:rw'
+  postgres:
+    image: 'postgres'
+    restart: 'always'
+    volumes:
+      - '/opt/ttrss-postgresql/data:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_PASSWORD: <%= @db_password %>
