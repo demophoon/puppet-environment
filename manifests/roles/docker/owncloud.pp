@@ -15,7 +15,7 @@ class profiles::roles::docker::owncloud (
       ensure  => 'present',
       owner   => 'root',
       mode    => '600',
-      content => template('profiles/owncloud-docker-compose.yml.erb')
+      content => template('profiles/docker/owncloud.yaml.erb')
     }
 
     docker_compose { '/tmp/owncloud.docker/docker-compose.yml':
