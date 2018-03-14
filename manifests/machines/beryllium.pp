@@ -8,6 +8,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::zfs
   include profiles::roles::samba::server
   include profiles::roles::media::server
+  include profiles::roles::certbot
 
   include profiles::roles::seedbox
 
