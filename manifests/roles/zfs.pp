@@ -51,7 +51,7 @@ class profiles::roles::zfs () {
     mountpoint     => '/media/tb-tb',
     nbmand         => 'off',
     primarycache   => 'all',
-    quota          => '4T',
+    quota          => '2T',
     readonly       => 'off',
     recordsize     => '128K',
     refquota       => 'none',

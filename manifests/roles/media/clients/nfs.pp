@@ -6,4 +6,8 @@ class profiles::roles::media::clients::nfs (
   nfs::client::mount {'/tank0/media':
     server => $server,
   }
+
+  nfs::client::mount {'/media/tb-tb':
+    server => $server,
+  }
 }
