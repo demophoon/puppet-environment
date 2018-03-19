@@ -11,7 +11,13 @@ node 'apollo.home.brittg.com' {
 }
 
 node default {
-  notify {'Node not classified.': }
+  if defined("profiles::machines::${::fqdn}") {
+    class { "profiles::machines::${::fqdn}": }
+  } elsif defined("profiles::machines::work::${::fqdn}") {
+    class { "profiles::machines::work::${::fqdn}": }
+  } else {
+    notify {'Node not classified.': }
+  }
 }
 
 $is_linux = ! ($::macosx or $::windows)
