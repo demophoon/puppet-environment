@@ -8,7 +8,7 @@ mod 'dotfiles',
   :git => 'git://github.com/demophoon/dotfiles-puppet',
   :ref => 'master'
 
-mod 'puppet/r10k'
+mod 'puppet/r10k', '6.3.2'
 mod 'puppet/hiera'
 mod 'puppetlabs/ruby'
 mod 'puppetlabs/gcc'
@@ -16,7 +16,7 @@ mod 'puppetlabs/pe_gem'
 mod 'croddy/make'
 mod 'puppetlabs/inifile'
 mod 'puppetlabs/vcsrepo'
-mod 'puppetlabs/git'
+mod 'puppetlabs/git', '0.5.0'
 mod 'gentoo/portage'
 
 mod 'puppet/nginx', '0.6.0'
