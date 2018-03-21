@@ -1,4 +1,6 @@
-class profiles::components::webserver {
+class profiles::components::webserver (
+  $beryllium_ip = 'localhost',
+) {
     include profiles::components::packages
 
     Package <| tag == 'webserver' |>
@@ -9,13 +11,13 @@ class profiles::components::webserver {
 
     profiles::components::webserver::vhost { 'minio':
       vhosts => ['s3.brittg.com'],
-      proxy  => 'http://192.168.1.4:9000',
+      proxy  => "http://${beryllium_ip}:9000",
       port   => 9000,
     }
 
     profiles::components::webserver::vhost { 'cloud':
       vhosts => ['cloud.brittg.com', 'butt.brittg.com'],
-      proxy  => 'http://192.168.1.4:9263',
+      proxy  => "http://${beryllium_ip}:9263",
       port   => 9263,
     }
 
@@ -41,7 +43,7 @@ class profiles::components::webserver {
     }
 
     nginx::resource::server { "tilde.demophoon.com":
-      proxy            => 'http://192.168.1.4:7844',
+      proxy            => "http://${beryllium_ip}:7844",
     }
 
     nginx::resource::server { "assets.brittg.com":
