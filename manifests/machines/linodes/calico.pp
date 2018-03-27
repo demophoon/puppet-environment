@@ -5,4 +5,10 @@ class profiles::machines::linodes::calico {
   include profiles::roles::sudoers
   include profiles::roles::docker::znc
   include profiles::roles::docker::ttrss
+
+  include profiles::roles::nginx
+
+  nginx::resource::server { ['mastodon-test.calico.demophoon.com']:
+    proxy => 'https://localhost:3000',
+  }
 }
