@@ -62,3 +62,5 @@ mod 'derdanne-nfs', '2.0.6'
 mod 'saz-sudo', '5.0.0'
 
 mod 'puppet-letsencrypt', '2.3.0'
+
+mod 'jdowning-rbenv', '2.4.0'
