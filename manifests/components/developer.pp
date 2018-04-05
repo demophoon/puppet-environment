@@ -28,6 +28,9 @@ define profiles::components::developer (
       $ssh_clone  = get_key_from_hash($repo, 'ssh')
       $http_clone = get_key_from_hash($repo, 'http')
 
+      file { "${project_path}/${repo_name}":
+        ensure => directory,
+      }
       vcsrepo { "${project_path}/${repo_name}":
         ensure   => present,
         provider => git,
@@ -36,6 +39,7 @@ define profiles::components::developer (
           $github_username => $ssh_clone,
           "${github_username}-http" => $http_clone
         },
+        require  => File["${project_path}/${repo_name}"],
       }
     }
   }
