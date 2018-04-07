@@ -11,4 +11,11 @@ class profiles::machines::linodes::calico {
   nginx::resource::server { ['mastodon-test.calico.demophoon.com']:
     proxy => 'https://localhost:3000',
   }
+
+  class { 'profiles::roles::backup':
+    backup_dirs => [
+      '/home/',
+      '/opt/',
+    ],
+  }
 }
