@@ -25,7 +25,7 @@ class profiles::roles::backup (
       $s3_url = "${base_s3_url}${dir}"
 
       cron { "S3 backup ${s3_url}":
-        command => "s3cmd sync -F '${dir}' '${s3_url}'",
+        command => "s3cmd sync --follow-symlinks --rexclude '\\/\\.' '${dir}' '${s3_url}'",
         user    => 'root',
         minute  => 0,
         hour    => $i,
