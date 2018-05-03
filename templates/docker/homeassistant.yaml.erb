@@ -1,0 +1,8 @@
+version: '3'
+services:
+  home-assistant:
+    image: 'homeassistant/home-assistant'
+    volumes:
+      - '/media/tb-tb/homeassistant:/config'
+      - '/etc/localtime:/etc/localtime:ro'
+    network_mode: 'host'
