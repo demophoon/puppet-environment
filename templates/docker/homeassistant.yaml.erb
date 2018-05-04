@@ -6,3 +6,11 @@ services:
       - '/media/tb-tb/homeassistant:/config'
       - '/etc/localtime:/etc/localtime:ro'
     network_mode: 'host'
+
+  mosquitto:
+    image: 'eclipse-mosquitto'
+    volumes:
+      - '/media/tb-tb/mosquitto:/mosquitto/config'
+    ports:
+      - '1883:1883'
+      - '9001:9001'
