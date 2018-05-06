@@ -5,7 +5,10 @@ services:
     volumes:
       - '/media/tb-tb/homeassistant:/config'
       - '/etc/localtime:/etc/localtime:ro'
+    devices:
+      - '/dev/ttyACM0:/dev/ttyACM0'
     network_mode: 'host'
+    privileged: true
 
   mosquitto:
     image: 'eclipse-mosquitto'
