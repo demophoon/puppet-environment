@@ -17,3 +17,31 @@ services:
     ports:
       - '1883:1883'
       - '9001:9001'
+
+  appdaemon:
+    image: 'acockburn/appdaemon:latest'
+    ports:
+      - '5050:5050'
+    environment:
+      - 'HA_URL="http://192.168.1.4:8123"'
+      - 'HA_KEY="<%= @ha_key %>"'
+      - 'DASH_URL="http://192.168.1.4:5050"'
+    volumes:
+      - '/media/tb-tb/appdaemon:/conf'
+
+  motion:
+    image: 'jshridha/motioneye:latest'
+    ports:
+      - '8082:8081'
+      - '8765:8765'
+    volumes:
+      - '/media/tb-tb/motion/media:/home/nobody/media'
+      - '/media/tb-tb/motion/config:/config'
+    environment:
+      - 'PUID=0'
+      - 'PGID=0'
+      - 'TIMEZONE="US/Pacific"'
+    privileged: true
+    devices:
+      - '/dev/video0:/dev/video0'
+      - '/dev/video1:/dev/video1'

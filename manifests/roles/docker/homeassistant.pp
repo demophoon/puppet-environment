@@ -1,4 +1,6 @@
-class profiles::roles::docker::homeassistant() {
+class profiles::roles::docker::homeassistant(
+  $ha_key = 'welcome',
+) {
   require profiles::roles::docker
 
   file { '/tmp/homeassistant.docker/':
