@@ -2,7 +2,8 @@ class profiles::roles::docker (
   $options = {},
 ) {
   class { 'docker':
-    * => $options,
+    storage_driver => 'zfs',
+    *              => $options,
   }
   class { 'docker::compose':
     ensure  => present,
