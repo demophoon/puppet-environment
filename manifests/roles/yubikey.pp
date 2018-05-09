@@ -1,4 +1,15 @@
 class profiles::roles::yubikey () {
+
+  apt::key {
+    'yubico launchpad ppa':
+      id     => '43D5C49532CBA1A9',
+      server => 'pgp.mit.edu',
+  }
+
+  apt::ppa { 'ppa:yubico/stable':
+    require => Apt::Key['yubico launchpad ppa'],
+  }
+
   package { [
     'gnupg2',
     'gnupg-agent',
@@ -7,7 +18,11 @@ class profiles::roles::yubikey () {
     'pcscd',
     'yubikey-personalization',
     'libusb-1.0.0-dev',
+    'yubioath-desktop',
   ]:
-    ensure => present,
+    ensure  => present,
+    require => [
+      Apt::Ppa['ppa:yubico/stable']
+    ],
   }
 }
