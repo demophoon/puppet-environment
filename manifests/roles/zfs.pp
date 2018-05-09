@@ -102,6 +102,38 @@ class profiles::roles::zfs () {
     zoned          => 'off',
   }
 
+  zfs { 'dank0/docker':
+    ensure         => 'present',
+    aclinherit     => 'restricted',
+    atime          => 'off',
+    canmount       => 'on',
+    checksum       => 'off',
+    compression    => 'off',
+    copies         => '1',
+    dedup          => 'off',
+    devices        => 'on',
+    exec           => 'on',
+    logbias        => 'latency',
+    mountpoint     => '/var/lib/docker',
+    nbmand         => 'off',
+    primarycache   => 'all',
+    quota          => '1T',
+    readonly       => 'off',
+    recordsize     => '128K',
+    refquota       => 'none',
+    refreservation => 'none',
+    reservation    => 'none',
+    secondarycache => 'all',
+    setuid         => 'on',
+    sharenfs       => 'off',
+    sharesmb       => 'off',
+    snapdir        => 'hidden',
+    version        => '5',
+    vscan          => 'off',
+    xattr          => 'on',
+    zoned          => 'off',
+  }
+
   zpool { 'dank0':
     ensure => 'present',
     raidz  => ['sdc sdd sdb sde'],
