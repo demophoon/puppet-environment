@@ -11,6 +11,10 @@ class profiles::machines::apollo (){
   include profiles::roles::nfs::client
   include profiles::roles::media::client
 
+  package { 'weechat':
+    ensure => 'latest',
+  }
+
   class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
