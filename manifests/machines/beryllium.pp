@@ -51,6 +51,10 @@ class profiles::machines::beryllium (){
     }
   }
 
+  nginx::resource::server { ["www.britt.fm", "britt.fm"]:
+    www_root => '/var/www/brittg/',
+  }
+
   nfs::server::export {'/tank0/backups':
     ensure  => present,
     clients => '192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
