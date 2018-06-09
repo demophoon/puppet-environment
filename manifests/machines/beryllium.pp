@@ -52,7 +52,8 @@ class profiles::machines::beryllium (){
   }
 
   nginx::resource::server { ["www.britt.fm", "britt.fm"]:
-    www_root => '/var/www/brittg/',
+    #www_root      => '/var/www/brittg/',
+    proxy => 'http://127.0.0.1:5050',
   }
 
   nfs::server::export {'/tank0/backups':
