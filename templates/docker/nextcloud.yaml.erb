@@ -13,7 +13,7 @@ services:
     volumes:
       - '/media/tb-tb/nextcloud-db:/var/lib/mysql'
     environment:
-      - MYSQL_ROOT_PASSWORD=<%= @db_password %>
-      - MYSQL_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=<%= @root_db_password %>
+      - MYSQL_PASSWORD=<%= @db_password %>
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud

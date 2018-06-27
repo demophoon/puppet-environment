@@ -1,9 +1,10 @@
 class profiles::roles::docker::nextcloud (
   $db_password = undef,
+  $root_db_password = undef,
 ) {
   require profiles::roles::docker
 
-  if ($db_password == undef) {
+  if ($db_password == undef or $root_db_password == undef) {
     warning('Unable to setup nextcloud. Please set database password.')
   } else {
     file { '/tmp/nextcloud.docker/':
