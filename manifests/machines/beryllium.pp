@@ -10,7 +10,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::media::server
   include profiles::roles::certbot
 
-  include profiles::roles::docker::owncloud
+  include profiles::roles::docker::nextcloud
   include profiles::roles::docker::minio
   include profiles::roles::docker::unifi
   include profiles::roles::docker::plex

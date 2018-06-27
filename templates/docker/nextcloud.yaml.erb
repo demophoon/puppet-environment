@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    image: 'nextcloud'
+    restart: 'always'
+    ports:
+      - '9263:80'
+    volumes:
+      - '/media/tb-tb/nextcloud/:/var/www/html:rw'
+  database:
+    image: 'mariadb'
+    restart: 'always'
+    volumes:
+      - '/media/tb-tb/nextcloud-db:/var/lib/mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=<%= @db_password %>
+      - MYSQL_PASSWORD=
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
