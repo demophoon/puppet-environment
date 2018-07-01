@@ -36,7 +36,7 @@ class profiles::machines::beryllium (){
     port   => 9000,
   }
   profiles::components::webserver::vhost { 'Cloud':
-    vhosts => ['cloud.home.brittg.com'],
+    vhosts => ['cloud.home.brittg.com', 'cloud.brittg.com'],
     port   => 9263,
   }
   profiles::components::webserver::vhost { 'Consul-UI':
