@@ -1,6 +1,7 @@
 class profiles::machines::beryllium (){
   include nginx
 
+  include profiles::roles::ansible
   include profiles::roles::development
   include profiles::roles::bolt
   include profiles::roles::mysql
