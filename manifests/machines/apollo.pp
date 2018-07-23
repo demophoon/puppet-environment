@@ -2,6 +2,8 @@ class profiles::machines::apollo (){
   include profiles::roles::development
   include profiles::roles::bolt
   include profiles::roles::vpn
+  include profiles::roles::wifi
+  include profiles::roles::ansible
 
   include profiles::roles::apps
   include profiles::roles::yubikey
