@@ -30,7 +30,7 @@ class profiles::roles::masterless (
     modulepath => "${::settings::confdir}/environments/\$environment/modules:/opt/puppet/share/puppet/modules",
   }
   cron { 'Update r10k and run puppet apply':
-    command => "${puppet_bin_dir}/r10k deploy environment -pv && ${puppet_bin_dir}/puppet apply --modulepath ${module_path} ${site_pp}",
+    command => "${puppet_bin_dir}/r10k deploy environment -pv && ${puppet_bin_dir}/puppet apply --modulepath ${module_path} --environment ${::environment} ${site_pp}",
     user    => 'root',
     *       => $run_cron,
   }
