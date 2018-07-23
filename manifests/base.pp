@@ -32,6 +32,10 @@ class profiles::base (
     }
   }
 
+  cron { ['puppet apply', 'r10k update environments']:
+    ensure => absent,
+  }
+
   profiles::components::symlinks { 'puppet': }
   profiles::components::symlinks { 'facter': }
   profiles::components::symlinks { 'hiera': }
