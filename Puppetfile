@@ -31,7 +31,7 @@ mod 'KyleAnderson/consul', '3.0.0'
 mod 'nanliu/staging'
 
 mod 'demophoon/letsencrypt_client'
-mod 'stankevich/python', '1.18.2'
+mod 'puppet/python', '2.1.0'
 mod 'stahnma/epel', '1.2.2'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'

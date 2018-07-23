@@ -2,6 +2,7 @@
 
 puppet="/opt/puppetlabs/puppet/bin/puppet"
 r10k="/opt/puppetlabs/puppet/bin/r10k"
+environment=${ENVIRONMENT:-production}
 
 command_exists() {
     type "$1" &> /dev/null ;
@@ -45,7 +46,7 @@ confirm() {
 
 run_puppet() {
 ${r10k:?} deploy environment -pv
-${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/production/modules/ /etc/puppetlabs/code/environments/production/site.pp
+${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/${environment}/modules/ --environment ${environment} /etc/puppetlabs/code/environments/${environment}/site.pp
 }
 
 if [ ${UID} -ne 0 ]; then
