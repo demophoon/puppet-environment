@@ -67,4 +67,7 @@ mod 'jdowning-rbenv', '2.4.0'
 
 mod 'otherskins-ansible', '2.0.2'
 
-mod 'camptocamp-networkmanager', '0.4.0'
+mod 'networkmanager',
+  :git => 'git://github.com/ClashTheBunny/puppet-networkmanager',
+  :ref => 'a250f3c062ed1bd36636644488293af566dd0505'
+
