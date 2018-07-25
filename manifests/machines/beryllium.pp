@@ -23,11 +23,6 @@ class profiles::machines::beryllium (){
     ],
   }
 
-  class { 'profiles::components::jenkins':
-    username => 'default',
-    password => 'password',
-  }
-
   profiles::components::webserver::vhost { 'Plex':
     vhosts => ['plex.home.brittg.com'],
     port   => 32400,
