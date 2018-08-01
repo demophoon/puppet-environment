@@ -3,6 +3,7 @@ class profiles::roles::backup (
   Array[String]    $backup_dirs   = [],
   String           $bucket        = 'backups',
   String           $s3_url        = $::profiles::params::s3_backup_url,
+  Boolean          $use_https     = true,
   Optional[String] $s3_access_key = undef,
   Optional[String] $s3_secret_key = undef,
 ) inherits profiles::params {
