@@ -12,6 +12,10 @@ class profiles::machines::linodes::calico {
     proxy => 'https://localhost:3000',
   }
 
+  nginx::resource::server { ['reader.brittg.com', 'reader.calico.demophoon.com']:
+    proxy => 'http://localhost:5422',
+  }
+
   class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
