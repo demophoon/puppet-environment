@@ -11,10 +11,10 @@ node 'apollo.home.brittg.com' {
 }
 
 node default {
-  if defined("profiles::machines::${::fqdn}") {
-    class { "profiles::machines::${::fqdn}": }
-  } elsif defined("profiles::machines::work::${::fqdn}") {
-    class { "profiles::machines::work::${::fqdn}": }
+  if defined("profiles::machines::${::hostname}") {
+    class { "profiles::machines::${::hostname}": }
+  } elsif defined("profiles::machines::work::${::hostname}") {
+    class { "profiles::machines::work::${::hostname}": }
   } else {
     notify {'Node not classified.': }
   }
