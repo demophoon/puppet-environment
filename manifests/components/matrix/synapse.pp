@@ -1,10 +1,16 @@
 class profiles::components::matrix::synapse () {
+
+  class { 'python' :
+    ensure      => 'present',
+    dev         => 'present',
+    virtualenv  => 'present',
+  }
+
   package { [
     'build-essential',
     'libffi-dev',
     'sqlite3',
     'libssl-dev',
-    'python-virtualenv',
     'libjpeg-dev',
     'libxslt1-dev',
   ]:
@@ -13,7 +19,7 @@ class profiles::components::matrix::synapse () {
 
   python::virtualenv { '/opt/matrix_synapse':
     ensure  => present,
-    version => '2.7',
+    version => 'system',
   }
 
   python::pip { 'https://github.com/matrix-org/synapse/tarball/master':
