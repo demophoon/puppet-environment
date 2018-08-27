@@ -20,8 +20,8 @@ mod 'puppetlabs/git', '0.5.0'
 mod 'gentoo/portage'
 
 mod 'puppet/nginx', '0.6.0'
-mod 'puppetlabs/stdlib', '4.20.0' # nice
-mod 'puppetlabs/apt', '4.2.0'
+mod 'puppetlabs/stdlib', '4.24.0'
+mod 'puppetlabs/apt', '4.4.1'
 mod 'puppetlabs/concat'
 
 mod 'hardening/ssh_hardening', '1.0.5'
@@ -45,7 +45,7 @@ mod 'jenkins',
 
 mod 'puppetlabs-java', '2.1.0'
 mod 'darin-zypprepo', '1.0.2'
-mod 'puppetlabs-docker', '1.0.4'
+mod 'puppetlabs-docker', '2.0.0'
 
 mod 'puppetlabs-mysql', '5.1.0'
 
@@ -71,3 +71,6 @@ mod 'networkmanager',
   :git => 'git://github.com/ClashTheBunny/puppet-networkmanager',
   :ref => 'a250f3c062ed1bd36636644488293af566dd0505'
 
+mod 'puppetlabs-translate', '1.1.0'
+mod 'puppetlabs-powershell', '2.1.5'
+mod 'puppetlabs-reboot', '2.0.0'
