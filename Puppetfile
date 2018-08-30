@@ -25,7 +25,7 @@ mod 'puppetlabs/apt', '4.4.1'
 mod 'puppetlabs/concat'
 
 mod 'hardening/ssh_hardening', '1.0.5'
-mod 'saz/ssh', '2.3.6'
+mod 'saz/ssh', '4.0.0'
 
 mod 'KyleAnderson/consul', '3.0.0'
 mod 'nanliu/staging'
