@@ -3,7 +3,6 @@ class profiles::roles::mac () inherits profiles::params {
     provider => 'brew',
   }
 
-  package { 'vim':
-    ensure => present,
-  }
+  include profiles::components::packages
+  Package <| tag == 'global' |>
 }
