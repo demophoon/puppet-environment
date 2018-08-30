@@ -4,6 +4,13 @@ puppet="/opt/puppetlabs/puppet/bin/puppet"
 r10k="/opt/puppetlabs/puppet/bin/r10k"
 environment=${ENVIRONMENT:-production}
 
+case "$(uname -s)" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+esac
+
 command_exists() {
     type "$1" &> /dev/null ;
 }
@@ -24,6 +31,18 @@ install_puppet() {
         release_file="puppet5-release-el-${VERSION_ID:?}.noarch.rpm"
         rpm -Uvh "https://yum.puppetlabs.com/${release_file:?}"
         yum install puppet-agent -y
+    elif [ ${machine} = 'Mac' ]; then
+        osx_version=$(sw_vers | grep ProductVersion | awk '{print $2}')
+        version_parts=(${osx_version//./ })
+        osx_version="${version_parts[0]}.${version_parts[1]}"
+        dmg_file="puppet-agent-latest.dmg"
+        curl -LO "https://downloads.puppetlabs.com/mac/${osx_version:?}/PC1/x86_64/${dmg_file}"
+        hdiutil attach ${dmg_file:?}
+        puppet_agent_mount=$(find /Volumes/ -type d -name 'puppet-agent*' -maxdepth 1)
+        puppet_agent_pkg=$(find ${puppet_agent_mount:?} -type f -name '*.pkg')
+        installer -package ${puppet_agent_pkg:?} -target /
+        hdiutil detach ${puppet_agent_mount:?}
+        rm -f ${dmg_file:?}
     else
       echo "Unsupported platform :("
       exit 1
