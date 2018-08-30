@@ -3,6 +3,8 @@ class profiles::base () inherits profiles::params {
     /Debian/: {
       include profiles::roles::linux
     }
-    /Darwin/: {}
+    /Darwin/: {
+      include profiles::roles::mac
+    }
   }
 }
