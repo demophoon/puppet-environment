@@ -115,30 +115,28 @@ if $(exit ${use_hiera:-1}); then
   'prefix'       => false,
 }
 "
+fi
 
-  # We need to check if Github's ssh fingerprint is in known_hosts
-  # First we fetch it from the server
-  readonly github_fingerprint_tmp_file='/tmp/github-sshkey'
-  ssh-keyscan github.com > ${github_fingerprint_tmp_file:?}
+if [ ${machine} = 'Mac' ]; then
+    echo "Specify osx user account: "
+    read -p '> ' osx_user
 
-  # Next we have to test if fingerprint is already in known_hosts
-  cat /root/.ssh/known_hosts | grep "$(cat /tmp/github-sshkey | awk '{print $3}' )"
-
-  # If we do not have a fingerprint lets check the one we have to make sure we
-  # are not being MITM'ed.
-  if [ $? != 0 ]; then
-    readonly github_fingerprint='16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48'
-    if ssh-keygen -lf ${github_fingerprint_tmp_file:?} | awk '{print $2}' | grep ${github_fingerprint:?}; then
-      cat ${github_fingerprint_tmp_file:?} >> /root/.ssh/known_hosts
-    else
-      echo "WARNING! GITHUB SSH FINGERPRINT DOES NOT MATCH. EXITING FOR SAFETY."
-      exit 1
-    fi
-  fi
+    install_module thekevjames-homebrew
+    ${puppet:?} apply -e "
+class { 'homebrew':
+    user => '${osx_user:?}',
+    multiuser => true,
+}"
+    r10k_class='r10k::config'
+    r10k_extra_params="root_group => 'wheel',"
+else
+    r10k_class='r10k'
+    r10k_extra_params=""
 fi
 
 ${puppet:?} apply -e "
-class { 'r10k':
+class { '${r10k_class:?}':
+  ${r10k_extra_params}
   sources => {
     'puppet' => {
       'remote' => 'https://github.com/demophoon/puppet-environment.git',
