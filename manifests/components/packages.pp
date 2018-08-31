@@ -27,17 +27,20 @@ class profiles::components::packages {
   case $::osfamily {
     /Darwin/: {
       $install_packages = $_global_packages + $_osx_packages
+      $ensure = present
     }
     /Debian/: {
       $install_packages = $_global_packages + $_debian_packages
+      $ensure = latest
     }
     default: {
       $install_packages = $_global_packages
+      $ensure = latest
     }
   }
 
   @package { $install_packages:
-    ensure => latest,
+    ensure => $ensure,
     tag    => ['global'],
   }
 }
