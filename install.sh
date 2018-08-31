@@ -86,18 +86,22 @@ echo "Would you like to setup access to your hiera data repo? [y/N]"
 echo "Warning: Only answer yes to this if you are Demophoon or have access to the private hiera data repo!"
 
 if confirm; then
-  if [ ! -f /root/.ssh/id_rsa.pub ]; then
-    echo "We couldn't find a ssh key in '/root/.ssh/'."
+  rootdir='/root'
+  if [ ${machine} = 'Mac' ]; then
+    rootdir='/var/root'
+  fi
+  if [ ! -f ${rootdir:?}/.ssh/id_rsa.pub ]; then
+    echo "We couldn't find a ssh key in '${rootdir:?}/.ssh/'."
     echo "Would you like us to generate one? [y/N]"
     echo "Warning: Answering no may cause the install script to fail!"
     if confirm; then
-      ssh-keygen -b 4096 -t rsa -f '/root/.ssh/id_rsa'
+      ssh-keygen -b 4096 -t rsa -f "${rootdir:?}/.ssh/id_rsa"
       echo
     fi
   fi
   echo "Add the following public key to the hiera data repo's deploy keys."
   echo
-  cat /root/.ssh/id_rsa.pub
+  cat ${rootdir:?}/.ssh/id_rsa.pub
   echo
   echo "Press enter to continue."
   confirm
