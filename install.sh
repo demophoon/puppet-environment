@@ -122,17 +122,24 @@ if $(exit ${use_hiera:-1}); then
 fi
 
 if [ ${machine} = 'Mac' ]; then
-    echo "Specify osx user account: "
-    read -p '> ' osx_user
+    osx_user=${SUDO_USER:-root}
+    if [ ${osx_user} = 'root' ]; then
+        echo "Specify osx user account: "
+        read -p '> ' osx_user
+    fi
 
     install_module thekevjames-homebrew
+    r10k_class='r10k::config'
+    r10k_extra_params="root_group => 'wheel',"
     ${puppet:?} apply -e "
 class { 'homebrew':
     user => '${osx_user:?}',
     multiuser => true,
+}
+package { 'r10k':
+    provider => 'puppet_gem',
+    ensure => present,
 }"
-    r10k_class='r10k::config'
-    r10k_extra_params="root_group => 'wheel',"
 else
     r10k_class='r10k'
     r10k_extra_params=""
