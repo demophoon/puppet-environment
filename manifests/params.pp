@@ -14,4 +14,15 @@ class profiles::params {
     $default_hiera_sources = {}
   }
   $default_r10k_sources = {}
+
+  case $::osfamily {
+    'Darwin': {
+      $use_r10k_gem = true
+      $r10k_config_group = 'wheel'
+    }
+    default: {
+      $use_r10k_gem = false
+      $r10k_config_group = 'root'
+    }
+  }
 }
