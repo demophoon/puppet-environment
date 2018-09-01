@@ -1,5 +1,7 @@
 class profiles::roles::apps::chromium () {
-  package { 'chromium-browser':
-    ensure => 'present',
+  case $::osfamily {
+    'Darwin': { $chromium = 'chromium' }
+    default: { $chromium = 'chromium-browser' }
   }
+  package { $chromium: }
 }
