@@ -22,6 +22,7 @@ class profiles::components::packages {
     'mercurial',
     'tree',
     'wget',
+    'gnupg',
   ]
 
   case $::osfamily {
