@@ -1,17 +1,27 @@
 class profiles::roles::britt (
+  String  $username  = 'britt',
   Boolean $developer = false,
   Hash    $additional_user_params = {},
 ){
 
-  Ssh_authorized_key {
-    user    => 'britt',
-    require => User['britt'],
+  case $::osfamily {
+    'Darwin': {
+      $homedir = "/Users/${username}"
+    }
+    default: {
+      $homedir = "/home/${username}"
+    }
   }
 
-  user { 'britt':
+  Ssh_authorized_key {
+    user    => $username,
+    require => User[$username],
+  }
+
+  user { $username:
     ensure         => present,
     password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
-    home           => '/home/britt',
+    home           => $homedir,
     shell          => '/bin/zsh',
     purge_ssh_keys => true,
     managehome     => true,
@@ -29,7 +39,7 @@ class profiles::roles::britt (
       $additional_params = {}
     }
 
-    profiles::components::developer { 'britt':
+    profiles::components::developer { $username:
       github_username => 'demophoon',
       require         => Class['dotfiles'],
       *               => $additional_params,
