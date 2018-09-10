@@ -6,28 +6,28 @@ class profiles::roles::britt (
 
   case $::osfamily {
     'Darwin': {
-      $homedir = "/Users/${username}"
+      Ssh_authorized_key {
+        user    => $username,
+      }
+      class { 'dotfiles': }
     }
     default: {
-      $homedir = "/home/${username}"
+      Ssh_authorized_key {
+        user    => $username,
+        require => User[$username],
+      }
+      user { $username:
+        ensure         => present,
+        password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
+        home           => "/home/${username}",
+        shell          => '/bin/zsh',
+        purge_ssh_keys => true,
+        managehome     => true,
+        *              => $additional_user_params,
+      } ->
+      class { 'dotfiles': }
     }
   }
-
-  Ssh_authorized_key {
-    user    => $username,
-    require => User[$username],
-  }
-
-  user { $username:
-    ensure         => present,
-    password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
-    home           => $homedir,
-    shell          => '/bin/zsh',
-    purge_ssh_keys => true,
-    managehome     => true,
-    *              => $additional_user_params,
-  } ->
-  class { 'dotfiles': }
 
   if $developer {
     $github_token = lookup('github_token', Optional[String], 'first', undef)
