@@ -9,7 +9,9 @@ class profiles::roles::britt (
       Ssh_authorized_key {
         user    => $username,
       }
-      class { 'dotfiles': }
+      class { 'dotfiles':
+        homedir => "/Users/${username}",
+      }
     }
     default: {
       Ssh_authorized_key {
