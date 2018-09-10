@@ -1,5 +1,10 @@
 class profiles::roles::apps::slack () {
   case $::osfamily {
-    'Darwin': { package { 'slack': } }
+    'Darwin': {
+      package { 'slack':
+        ensure   => 'present',
+        provider => 'brewcask',
+      }
+    }
   }
 }
