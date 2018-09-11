@@ -22,7 +22,15 @@ class profiles::machines::work::arcadia (){
     'pandoc',
     'gettext',
     'libyaml',
-    #'wget', ## Already installed
+    'gnu-sed',
+    'gawk',
+    'gnutls',
+    'gnu-indent',
+    'gnu-getopt',
+    'grep',
+    ## Listing deps which are already handled elsewhere so that we can export this if needed.
+    # 'wget',
+    # 'gnu-tar',
   ]: }
 
   exec { [
