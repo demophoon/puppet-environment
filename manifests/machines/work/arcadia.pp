@@ -40,4 +40,9 @@ class profiles::machines::work::arcadia (){
   ]:
     subscribe => Package['gettext'],
   }
+
+  package { 'virtualenvwrapper':
+    ensure   => latest,
+    provider => 'pip',
+  }
 }
