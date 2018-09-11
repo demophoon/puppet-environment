@@ -98,4 +98,9 @@ class profiles::roles::britt (
     key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDiXF1d2CLD4tdE1bIhbaE7eH+K+Z1iHGqg2iMj7SNObqTLjxtELL7gnRv8vAU/K2eFfR572n+HIWxOzRvpNUz8zXDA094PaZKJoVFx5AKCXVXOd5wRf64ygn3YbCTJfegdrThOg3xxwngy+NHz+ETyOG4Qx0c7ciIkbrVou/7DUsEM2nqcdAZ+mnZs415/uwkGvLNWp5tSOMdsqMeVgIqD0FxJwQcQCv2JZn9sGK03FWn5RHs7xC3veupnzTT1985EKry3V8cNJH0zowr3XgkHG+BeFcsaqgimlzq4WUrJ2e4OopsB7kxpv5N928w1BmRAVqLZ6iNHePOmDEDiwMN7',
   }
 
+  ssh_authorized_key { 'britt-bright.md@arcadia.work.demophoon.com':
+    type    => 'ssh-ed25519',
+    key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIMwyXx1p984VfvREPEcTZULyYgj3A6cTFpNj43yi7cC2',
+  }
+
 }
