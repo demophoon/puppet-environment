@@ -12,15 +12,14 @@ class profiles::machines::work::arcadia (){
     path        => '/bin:/usr/bin:/usr/local/bin',
     user        => 'britt',
     environment => ["HOME=/Users/britt"],
+    refreshonly => true,
   }
 
   package { [
-    'mongodb@3.4',
     'npm',
     'hyperestraier',
     'gnupg@1.4',
     'pandoc',
-    'gettext',
     'libyaml',
     'gnu-sed',
     'gawk',
@@ -33,13 +32,14 @@ class profiles::machines::work::arcadia (){
     # 'gnu-tar',
   ]: }
 
+  package { 'gettext': } ~>
+  exec { 'brew link gettext --force': }
+
+  package { 'mongodb@3.4': } ~>
   exec { [
-    'brew link gettext --force',
     'launchctl load /usr/local/Cellar/mongodb*/3.*/homebrew.mxcl.mongodb*.plist',
     'brew services start $(brew services list|awk \'/^mongodb/ {print $1}\')',
-  ]:
-    subscribe => Package['gettext'],
-  }
+  ]: }
 
   package { 'virtualenvwrapper':
     ensure   => latest,
