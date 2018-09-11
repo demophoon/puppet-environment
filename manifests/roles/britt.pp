@@ -100,7 +100,7 @@ class profiles::roles::britt (
 
   ssh_authorized_key { 'britt-bright.md@arcadia.work.demophoon.com':
     type    => 'ssh-ed25519',
-    key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIMwyXx1p984VfvREPEcTZULyYgj3A6cTFpNj43yi7cC2',
+    key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIM362UM9A8B9YBBikcZ1WWX/NIkk7HKmsSbXAfx7qm/B',
   }
 
 }
