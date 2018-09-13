@@ -9,5 +9,6 @@ class profiles::roles::apps::osx () {
     'slate',
     'flux',
     'caffeine',
+    'gpg-suite',
   ]: }
 }
