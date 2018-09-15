@@ -26,6 +26,7 @@ class profiles::machines::apollo (){
 
   package { [
     'cmus',
+    'emacs',
   ]:
     ensure => present,
   }
