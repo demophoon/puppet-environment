@@ -24,10 +24,13 @@ class profiles::machines::apollo (){
     ],
   }
 
+  apt::ppa { 'ppa:ubuntu-elisp/ppa': }
+
   package { [
     'cmus',
-    'emacs',
+    'emacs25',
   ]:
-    ensure => present,
+    ensure  => present,
+    require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
   }
 }
