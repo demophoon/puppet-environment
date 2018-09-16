@@ -27,7 +27,7 @@ class profiles::components::webserver (
     }
 
     nginx::resource::location { "brittg.com/api":
-      proxy    => 'http://localhost:3254',
+      proxy    => 'http://10.0.0.1:3254',
       location => '/api/',
       server    => 'brittg.com',
     }
@@ -37,7 +37,7 @@ class profiles::components::webserver (
     }
 
     nginx::resource::location { "www.brittg.com/api":
-      proxy    => 'http://localhost:3254',
+      proxy    => 'http://10.0.0.1:3254',
       location => '/api/',
       server    => 'www.brittg.com',
     }
