@@ -27,11 +27,15 @@ class profiles::machines::work::arcadia (){
     'gnu-indent',
     'gnu-getopt',
     'grep',
-    'nvim',
     ## Listing deps which are already handled elsewhere so that we can export this if needed.
     # 'wget',
     # 'gnu-tar',
   ]: }
+
+ package { 'nvim': } -> package { 'neovim':
+   ensure   => latest,
+   provider => 'pip',
+ }
 
   package { 'gettext': } ~>
   exec { 'brew link gettext --force': }
