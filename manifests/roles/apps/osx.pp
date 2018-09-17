@@ -16,5 +16,6 @@ class profiles::roles::apps::osx () {
     'caffeine',
     'gpg-suite',
     'yubico-authenticator',
+    'emacs',
   ]: }
 }
