@@ -27,6 +27,7 @@ class profiles::machines::work::arcadia (){
     'gnu-indent',
     'gnu-getopt',
     'grep',
+    'postman',
     ## Listing deps which are already handled elsewhere so that we can export this if needed.
     # 'wget',
     # 'gnu-tar',
