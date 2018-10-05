@@ -37,7 +37,7 @@ class profiles::machines::work::arcadia (
     'brew services start $(brew services list|awk \'/^mongodb/ {print $1}\')',
   ]: }
 
-  package { 'virtualenvwrapper':
+  package { ['magic-wormhole', 'virtualenvwrapper']:
     ensure   => latest,
     provider => 'pip',
   }
