@@ -4,6 +4,7 @@ class profiles::machines::work::arcadia (
   include profiles::roles::apps
   include profiles::roles::apps::slack
   include profiles::roles::apps::osx
+  include infra_private::roles::aorta
 
   Package {
     ensure   => present,
@@ -22,24 +23,6 @@ class profiles::machines::work::arcadia (
     group => 'wheel',
   }
 
-  package { [
-    'npm',
-    'hyperestraier',
-    'gnupg@1.4',
-    'pandoc',
-    'libyaml',
-    'gnu-sed',
-    'gawk',
-    'gnutls',
-    'gnu-indent',
-    'gnu-getopt',
-    'grep',
-    'postman',
-    ## Listing deps which are already handled elsewhere so that we can export this if needed.
-    # 'wget',
-    # 'gnu-tar',
-  ]: }
-
  package { 'nvim': } -> package { 'neovim':
    ensure   => latest,
    provider => 'pip',
@@ -57,32 +40,5 @@ class profiles::machines::work::arcadia (
   package { 'virtualenvwrapper':
     ensure   => latest,
     provider => 'pip',
-  }
-
-  $projects_dir = "/Users/${username}/projects"
-  $bmdprojects_dir = "/Users/${username}/Brightmd"
-  file { ["/Users/${username}/projects", $bmdprojects_dir]:
-      ensure => directory,
-  }
-  file { "${projects_dir}/work":
-    ensure => link,
-    target => $bmdprojects_dir,
-  }
-  $brightmd_repos = [
-    'aorta',
-    'amygdala',
-    'cortex',
-  ]
-  $brightmd_repos.each |$repo| {
-    vcsrepo { "${bmdprojects_dir}/${repo}":
-      ensure   => present,
-      provider => 'git',
-      remote   => 'brightmd',
-      user     => $username,
-      source   => {
-        'brightmd' => "git@github.com:brightmd/${repo}",
-      },
-      require => File[$bmdprojects_dir],
-    }
   }
 }
