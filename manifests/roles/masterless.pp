@@ -3,6 +3,7 @@
 class profiles::roles::masterless (
   $hiera_sources     = $profiles::params::default_hiera_sources,
   $r10k_sources      = $profiles::params::default_r10k_sources,
+  $module_paths      = $profiles::params::additional_module_paths,
   $control_repo_uri  = $profiles::params::control_repo_uri,
   $run_cron          = { 'minute' => ['0', '30'] },
   $use_r10k_gem      = $profiles::params::use_r10k_gem,
@@ -13,7 +14,8 @@ class profiles::roles::masterless (
   $puppet_bin_dir = "/opt/puppetlabs/puppet/bin"
   $puppet_code_dir = '/etc/puppetlabs/code'
   $environment_path = "${puppet_code_dir}/environments/${::environment}"
-  $module_path = "${environment_path}/modules/"
+  $default_module_path = "${environment_path}/modules/"
+  $module_path = join([$default_module_path] + $module_paths, ':')
   $site_pp = "${environment_path}/site.pp"
 
   # r10k sources setup

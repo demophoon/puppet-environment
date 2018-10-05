@@ -14,6 +14,7 @@ class profiles::params {
     $default_hiera_sources = {}
   }
   $default_r10k_sources = {}
+  $additional_module_paths = []
 
   case $::osfamily {
     'Darwin': {
