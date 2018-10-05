@@ -138,7 +138,7 @@ class { 'homebrew':
 }
 package { 'r10k':
     provider => 'puppet_gem',
-    ensure => present,
+    ensure => '~>2',
 }"
 else
     r10k_class='r10k'
