@@ -1,4 +1,6 @@
-class profiles::machines::work::arcadia (){
+class profiles::machines::work::arcadia (
+  $username = 'britt',
+) {
   include profiles::roles::apps
   include profiles::roles::apps::slack
   include profiles::roles::apps::osx
@@ -10,8 +12,8 @@ class profiles::machines::work::arcadia (){
 
   Exec {
     path        => '/bin:/usr/bin:/usr/local/bin',
-    user        => 'britt',
-    environment => ["HOME=/Users/britt"],
+    user        => $username,
+    environment => ["HOME=/Users/${username}"],
     refreshonly => true,
   }
 
