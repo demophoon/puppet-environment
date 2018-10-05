@@ -17,6 +17,11 @@ class profiles::machines::work::arcadia (
     refreshonly => true,
   }
 
+  File {
+    owner => $username,
+    group => 'wheel',
+  }
+
   package { [
     'npm',
     'hyperestraier',
