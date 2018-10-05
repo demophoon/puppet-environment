@@ -53,4 +53,31 @@ class profiles::machines::work::arcadia (
     ensure   => latest,
     provider => 'pip',
   }
+
+  $projects_dir = "/Users/${username}/projects"
+  $bmdprojects_dir = "/Users/${username}/Brightmd"
+  file { ["/Users/${username}/projects", $bmdprojects_dir]:
+      ensure => directory,
+  }
+  file { "${projects_dir}/work":
+    ensure => link,
+    target => $bmdprojects_dir,
+  }
+  $brightmd_repos = [
+    'aorta',
+    'amygdala',
+    'cortex',
+  ]
+  $brightmd_repos.each |$repo| {
+    vcsrepo { "${bmdprojects_dir}/${repo}":
+      ensure   => present,
+      provider => 'git',
+      remote   => 'brightmd',
+      user     => $username,
+      source   => {
+        'brightmd' => "git@github.com:brightmd/${repo}",
+      },
+      require => File[$bmdprojects_dir],
+    }
+  }
 }
