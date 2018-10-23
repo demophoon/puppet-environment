@@ -10,6 +10,8 @@ class profiles::machines::linodes::calico {
 
   include profiles::roles::matrix
 
+  include profiles::roles::nfs::client
+
   nginx::resource::server { ['mastodon-test.calico.demophoon.com']:
     proxy => 'https://localhost:3000',
   }
