@@ -55,13 +55,13 @@ class profiles::roles::media::server (
   nfs::server::export {'/tank0/media':
     ensure  => present,
     nfstag  => 'media',
-    clients => '192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
+    clients => '10.0.0.0/24(rw,insecure,async,no_root_squash) 192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
   }
 
   nfs::server::export {'/media/tb-tb':
     ensure  => present,
     nfstag  => 'media',
-    clients => '192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
+    clients => '10.0.0.0/24(rw,insecure,async,no_root_squash) 192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
   }
 
 }
