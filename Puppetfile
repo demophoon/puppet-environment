@@ -65,7 +65,9 @@ mod 'puppet-letsencrypt', '2.3.0'
 
 mod 'jdowning-rbenv', '2.4.0'
 
-mod 'otherskins-ansible', '2.0.2'
+mod 'ansible',
+  :git => 'git://github.com/otherskins/puppet-ansible',
+  :ref => '700613e7ad7f4bf58031ad5b913cb597aaca0c70'
 
 mod 'networkmanager',
   :git => 'git://github.com/ClashTheBunny/puppet-networkmanager',
