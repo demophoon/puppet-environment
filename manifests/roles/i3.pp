@@ -4,4 +4,9 @@ class profiles::roles::i3 () {
   package { 'i3':
     ensure => 'present',
   }
+
+  package { 'py3status':
+    ensure   => 'present',
+    provider => 'pip3',
+  }
 }
