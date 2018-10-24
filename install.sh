@@ -15,11 +15,20 @@ command_exists() {
     type "$1" &> /dev/null ;
 }
 
+resolve_codename() {
+    codename=${1}
+    case "${codename}" in
+        cosmic) echo 'bionic' ;; # Treat 18.10 as 18.04 for testing purposes
+        *) echo ${codename} ;;
+    esac
+}
+
 install_puppet() {
     # Currently only supports ubuntu
     if command_exists dpkg; then
         source /etc/os-release
         codename=$(lsb_release -c | cut -f2)
+        codename=$(resolve_codename "${codename}")
         release_file="puppet5-release-${codename:?}.deb"
         wget "https://apt.puppetlabs.com/${release_file:?}"
         dpkg -i ${release_file:?}
