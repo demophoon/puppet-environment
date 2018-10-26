@@ -24,7 +24,9 @@ mod 'puppetlabs/stdlib', '4.24.0'
 mod 'puppetlabs/apt', '4.4.1'
 mod 'puppetlabs/concat'
 
-mod 'hardening/ssh_hardening', '1.0.5'
+mod 'ssh_hardening',
+  :git => 'https://github.com/demophoon/puppet-ssh-hardening',
+  :ref => 'master'
 mod 'saz/ssh', '4.0.0'
 
 mod 'KyleAnderson/consul', '3.0.0'
