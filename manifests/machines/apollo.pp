@@ -14,7 +14,10 @@ class profiles::machines::apollo (){
   include profiles::roles::nfs::client
   include profiles::roles::media::client
 
-  package { 'weechat':
+  package { [
+    'weechat',
+    'feh',
+  ]:
     ensure => 'latest',
   }
 
