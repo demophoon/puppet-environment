@@ -28,6 +28,7 @@ class profiles::machines::apollo (){
   package { [
     'cmus',
     'emacs25',
+    'xserver-xorg-input-synaptics',
   ]:
     ensure  => present,
     require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
