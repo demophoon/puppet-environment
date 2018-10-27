@@ -2,7 +2,7 @@ class profiles::roles::yubikey () {
 
   apt::key {
     'yubico launchpad ppa':
-      id     => '43D5C49532CBA1A9',
+      id     => '3653E21064B19D134466702E43D5C49532CBA1A9',
       server => 'pgp.mit.edu',
   }
 
