@@ -6,6 +6,7 @@ class profiles::machines::apollo (){
   include profiles::roles::nextcloud_client
 
   include profiles::roles::apps
+  include profiles::roles::apps::light
   include profiles::roles::yubikey
   include profiles::roles::vagrant
   include profiles::roles::i3
