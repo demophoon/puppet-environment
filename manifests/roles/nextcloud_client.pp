@@ -24,7 +24,7 @@ class profiles::roles::nextcloud_client (
         ensure  => latest,
         require => [Apt::Ppa['ppa:nextcloud-devs/client'], Exec['apt_update']],
       }
-      if $login and $password and $server {
+      if $server != undef {
         package { 'libsecret-tools': } ->
         exec { 'Store Nextcloud Credentials':
           command => "echo '${password}' | secret-tool store --label='Nextcloud' server Nextcloud user '${username}:${server}' type plaintext",
