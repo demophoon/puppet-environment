@@ -1,4 +1,9 @@
-class profiles::roles::nextcloud_client {
+class profiles::roles::nextcloud_client (
+  Optional[String] $username   = undef,
+  Optional[String] $password   = undef,
+  Optional[String] $server     = undef,
+  Optional[String] $local_user = 'britt',
+){
   case $::osfamily {
     /Darwin/: {
       package { 'nextcloud':
@@ -18,6 +23,15 @@ class profiles::roles::nextcloud_client {
       package { 'nextcloud-client':
         ensure  => latest,
         require => [Apt::Ppa['ppa:nextcloud-devs/client'], Exec['apt_update']],
+      }
+      if $login and $password and $server {
+        package { 'libsecret-tools': } ->
+        exec { 'Store Nextcloud Credentials':
+          command => "echo '${password}' | secret-tool store --label='Nextcloud' server Nextcloud user '${username}:${server}' type plaintext",
+          user    => $local_user,
+          path    => '/bin:/usr/bin:/usr/local/bin',
+          onlyif  => 'test -z "$(secret-tool search --all server Nextcloud)"',
+        }
       }
     }
     default: {
