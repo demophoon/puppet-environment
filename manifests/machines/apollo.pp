@@ -16,7 +16,14 @@ class profiles::machines::apollo (){
 
   package { [
     'weechat',
+    # i3 deps
     'feh',
+    'lxappearance',
+    'fonts-inconsolata',
+    'blueman',
+    'rofi',
+    'gtk-chtheme',
+    'qt4-qtconfig',
   ]:
     ensure => 'latest',
   }
