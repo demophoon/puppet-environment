@@ -1,14 +1,8 @@
 class profiles::machines::work::britt_brightmd (
   $username = 'britt',
 ) {
-  include profiles::roles::apps
   include profiles::roles::apps::slack
-  include profiles::roles::apps::osx
   #include infra_private::roles::aorta
-
-  Package {
-    ensure   => present,
-  }
 
   Exec {
     path        => '/bin:/usr/bin:/usr/local/bin',
@@ -22,17 +16,13 @@ class profiles::machines::work::britt_brightmd (
     group => $username,
   }
 
- package { 'nvim': } ->
- package { 'neovim':
-   ensure   => latest,
-   provider => 'pip',
- }
+ package { 'neovim': }
 
-  package { [
+ package { [
     'awscli',
     'vagrant',
     'virtualbox',
-  ]: }
+ ]: }
 
   file { '/etc/letsencrypt':
     ensure => directory,
