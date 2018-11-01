@@ -7,4 +7,12 @@ class profiles::roles::apps::slack () {
       }
     }
   }
+
+  if $::facts['os']['name'] == 'Ubuntu' {
+    include ::snapd
+    package { 'slack':
+      ensure   => latest,
+      provider => 'snap',
+    }
+  }
 }

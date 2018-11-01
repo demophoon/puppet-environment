@@ -80,3 +80,5 @@ mod 'puppetlabs-powershell', '2.1.5'
 mod 'puppetlabs-reboot', '2.0.0'
 
 mod 'thekevjames-homebrew', '1.8.2'
+
+mod 'kemra102-snapd', '1.1.0'
