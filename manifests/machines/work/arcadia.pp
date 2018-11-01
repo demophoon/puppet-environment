@@ -23,10 +23,25 @@ class profiles::machines::work::arcadia (
     group => 'wheel',
   }
 
- package { 'nvim': } -> package { 'neovim':
+ package { 'nvim': } ->
+ package { 'neovim':
    ensure   => latest,
    provider => 'pip',
+ } ->
+ package { 'neovim':
+   ensure   => latest,
+   provider => 'pip3',
  }
+
+  package { [
+    'awscli',
+    'vagrant',
+    'virtualbox',
+  ]: }
+
+  file { '/private/etc/letsencrypt':
+    ensure => directory,
+  }
 
   package { 'gettext': } ~>
   exec { 'brew link gettext --force': }
