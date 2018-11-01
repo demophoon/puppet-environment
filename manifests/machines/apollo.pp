@@ -10,20 +10,13 @@ class profiles::machines::apollo (){
   include profiles::roles::yubikey
   include profiles::roles::vagrant
   include profiles::roles::i3
+  include profiles::roles::linux::thinkpad
   include profiles::roles::docker
   include profiles::roles::nfs::client
   include profiles::roles::media::client
 
   package { [
     'weechat',
-    # i3 deps
-    'feh',
-    'lxappearance',
-    'fonts-inconsolata',
-    'blueman',
-    'rofi',
-    'gtk-chtheme',
-    'qt4-qtconfig',
   ]:
     ensure => 'latest',
   }
@@ -42,25 +35,5 @@ class profiles::machines::apollo (){
   ]:
     ensure  => present,
     require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
-  }
-
-  package { [
-    # Multitouch Gesture Support
-    'xserver-xorg-input-libinput',
-    'wmctrl',
-    'libinput-tools',
-    ]:
-      ensure => 'present',
-  } ->
-  vcsrepo { '/opt/libinput-gestures':
-    ensure   => 'present',
-    provider => 'git',
-    source   => 'https://github.com/bulletmark/libinput-gestures.git',
-  } ~>
-  exec { 'Install libinput-gestures':
-    command     => 'libinput-gestures-setup install',
-    path        => '/bin:/usr/bin:/usr/local/bin:/opt/libinput-gestures',
-    cwd         => '/opt/libinput-gestures',
-    refreshonly => true,
   }
 }
