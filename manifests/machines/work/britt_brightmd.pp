@@ -26,10 +26,6 @@ class profiles::machines::work::britt_brightmd (
  package { 'neovim':
    ensure   => latest,
    provider => 'pip',
- } ->
- package { 'neovim':
-   ensure   => latest,
-   provider => 'pip3',
  }
 
   package { [
