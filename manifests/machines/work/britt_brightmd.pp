@@ -38,10 +38,4 @@ class profiles::machines::work::britt_brightmd (
   }
 
   package { 'gettext': }
-  package { 'mongodb-org': }
-
-  package { ['magic-wormhole', 'virtualenvwrapper']:
-    ensure   => latest,
-    provider => 'pip',
-  }
 }
