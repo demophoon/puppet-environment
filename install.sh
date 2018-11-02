@@ -73,8 +73,12 @@ confirm() {
 }
 
 run_puppet() {
+module_path="/etc/puppetlabs/code/environments/${environment}/modules/"
+if [ -d "/etc/puppetlabs/code-private/environments/master/modules" ]; then
+    module_path="${module_path}:/etc/puppetlabs/code-private/environments/master/modules"
+fi
 ${r10k:?} deploy environment -pv
-${puppet:?} apply --modulepath /etc/puppetlabs/code/environments/${environment}/modules/ --environment ${environment} /etc/puppetlabs/code/environments/${environment}/site.pp
+${puppet:?} apply --modulepath ${module_path} --environment ${environment} /etc/puppetlabs/code/environments/${environment}/site.pp
 }
 
 if [ ${UID} -ne 0 ]; then
