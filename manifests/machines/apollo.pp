@@ -14,6 +14,7 @@ class profiles::machines::apollo (){
   include profiles::roles::docker
   include profiles::roles::nfs::client
   include profiles::roles::media::client
+  include infra_private
 
   package { [
     'weechat',
