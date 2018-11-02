@@ -21,6 +21,11 @@ class profiles::base (
     }
   }
 
+  ## Enable private puppet configs if we have access to them.
+  if defined('infra_private') {
+    include infra_private
+  }
+
   ## Os Specific Bindings
   case $::osfamily {
     /Debian/: {
