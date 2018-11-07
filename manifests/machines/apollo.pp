@@ -17,6 +17,11 @@ class profiles::machines::apollo (){
 
   package { [
     'weechat',
+    'xscreensaver',
+    'xscreensaver-data',
+    'xscreensaver-gl',
+    'xscreensaver-data-extra',
+    'xscreensaver-gl-extra',
   ]:
     ensure => 'latest',
   }
