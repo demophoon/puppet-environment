@@ -4,6 +4,7 @@ class profiles::machines::apollo (){
   include profiles::roles::wifi
   include profiles::roles::ansible
   include profiles::roles::nextcloud_client
+  include profiles::roles::apps::slack
 
   include profiles::roles::apps
   include profiles::roles::apps::light
