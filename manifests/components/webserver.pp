@@ -16,9 +16,12 @@ class profiles::components::webserver (
     }
 
     profiles::components::webserver::vhost { 'cloud':
-      vhosts => ['cloud.brittg.com', 'butt.brittg.com'],
-      proxy  => "http://${beryllium_ip}:9263",
-      port   => 9263,
+      vhosts                => ['cloud.brittg.com', 'butt.brittg.com'],
+      proxy                 => "http://${beryllium_ip}:9263",
+      port                  => 9263,
+      vhost_options         => {
+        server_cfg_append => { 'rewrite' => '^/.well-known/webfinger /public.php?service=webfinger last' },
+      }
     }
 
     profiles::components::webserver::vhost { 'shrls':
