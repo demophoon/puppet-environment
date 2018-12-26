@@ -15,6 +15,12 @@ class profiles::components::webserver (
       port   => 9000,
     }
 
+    profiles::components::webserver::vhost { 'grafana':
+      vhosts => ['grafana.oso.demophoon.com'],
+      proxy  => "http://${beryllium_ip}:3000",
+      port   => 3000,
+    }
+
     profiles::components::webserver::vhost { 'cloud':
       vhosts                => ['cloud.brittg.com', 'butt.brittg.com'],
       proxy                 => "http://${beryllium_ip}:9263",
