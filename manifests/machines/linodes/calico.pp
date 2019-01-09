@@ -20,6 +20,10 @@ class profiles::machines::linodes::calico {
     proxy => 'http://localhost:5422',
   }
 
+  nginx::resource::server { ['test.calico.demophoon.com']:
+    proxy => 'http://localhost:1234',
+  }
+
   class { 'profiles::roles::backup':
     backup_dirs => [
       '/home/',
