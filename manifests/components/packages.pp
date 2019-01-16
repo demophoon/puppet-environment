@@ -40,9 +40,6 @@ class profiles::components::packages {
     }
   }
 
-  @package { $install_packages:
-    ensure => $ensure,
-    tag    => ['global'],
-  }
+  ensure_packages($install_packages)
 }
 
