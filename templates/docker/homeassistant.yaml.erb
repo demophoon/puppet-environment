@@ -7,7 +7,15 @@ services:
       - '/etc/localtime:/etc/localtime:ro'
     devices:
       - '/dev/ttyACM0:/dev/ttyACM0'
-    network_mode: 'host'
+    labels:
+      - "traefik.frontend.rule=Host:ha.cascadia.demophoon.com"
+      - "traefik.docker.network=traefikdocker_default"
+      - "traefik.enable=true"
+      - "traefik.port=8123"
+      - "traefik.backend=internal_https"
+    networks:
+      - web
+      - backend
     privileged: true
 
   mosquitto:
@@ -17,32 +25,11 @@ services:
     ports:
       - '1883:1883'
       - '9001:9001'
+    networks:
+      - backend
 
-  appdaemon:
-    image: 'acockburn/appdaemon:latest'
-    ports:
-      - '5050:5050'
-    environment:
-      - 'HA_URL="http://192.168.1.4:8123"'
-      - 'HA_KEY="<%= @ha_key %>"'
-      - 'DASH_URL="http://192.168.1.4:5050"'
-    volumes:
-      - '/media/tb-tb/appdaemon:/conf'
-
-  motion:
-    image: 'jshridha/motioneye:latest'
-    ports:
-      - '18081:8081'
-      - '18082:8082'
-      - '8765:8765'
-    volumes:
-      - '/media/tb-tb/motion/media:/home/nobody/media'
-      - '/media/tb-tb/motion/config:/config'
-    environment:
-      - 'PUID=0'
-      - 'PGID=0'
-      - 'TIMEZONE="US/Pacific"'
-    privileged: true
-    devices:
-      - '/dev/video0:/dev/video0'
-      - '/dev/video1:/dev/video1'
+networks:
+  web:
+    external:
+      name: 'traefikdocker_default'
+  backend:
