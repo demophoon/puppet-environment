@@ -21,7 +21,7 @@ mod 'gentoo/portage'
 
 mod 'puppet/nginx', '0.6.0'
 mod 'puppetlabs/stdlib', '4.24.0'
-mod 'puppetlabs/apt', '4.4.1'
+mod 'puppetlabs/apt', '6.3.0'
 mod 'puppetlabs/concat'
 
 mod 'ssh_hardening',
