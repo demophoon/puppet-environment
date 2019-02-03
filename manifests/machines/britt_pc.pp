@@ -6,7 +6,10 @@ class profiles::machines::britt_pc () {
   include profiles::roles::development
   include profiles::roles::nextcloud_client
   include profiles::roles::apps
-  include profiles::roles::i3
+
+  class {'profiles::roles::i3':
+    bluetooth => false,
+  }
 
   package { [
     'weechat',

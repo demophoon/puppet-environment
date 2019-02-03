@@ -1,5 +1,14 @@
-class profiles::roles::i3 () {
+class profiles::roles::i3 (
+  Boolean $bluetooth = true,
+) {
   include profiles::roles::i3::lock
+  if $bluetooth {
+    package {[
+      'blueman',
+    ]:
+      ensure => 'present',
+    }
+  }
 
   package {[
     'i3',
@@ -7,7 +16,6 @@ class profiles::roles::i3 () {
     'feh',
     'lxappearance',
     'fonts-inconsolata',
-    'blueman',
     'rofi',
     'gtk-chtheme',
     'qt4-qtconfig',
