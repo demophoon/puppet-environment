@@ -17,7 +17,7 @@ node default {
   } elsif defined("profiles::machines::work::${classification_hostname}") {
     class { "profiles::machines::work::${classification_hostname}": }
   } else {
-    notify {'Node not classified.': }
+    notify {"Node '${classification_hostname}' is not classified.": }
   }
 }
 
