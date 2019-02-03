@@ -1,4 +1,5 @@
 class profiles::machines::britt_pc () {
+  include profiles::roles::wsl
   include apt
 
   include profiles::roles::britt
