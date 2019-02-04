@@ -1,5 +1,6 @@
 class profiles::roles::i3 (
   Boolean $bluetooth = true,
+  Boolean $extras = true,
 ) {
   include profiles::roles::i3::lock
   if $bluetooth {
@@ -10,9 +11,18 @@ class profiles::roles::i3 (
     }
   }
 
+  if $extras {
+    package {[
+      'shutter',
+    ]:
+      ensure => 'present',
+    }
+  }
+
   package {[
     'i3',
     # i3 deps
+    'gnome-terminal',
     'feh',
     'lxappearance',
     'fonts-inconsolata',
