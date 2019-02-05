@@ -53,11 +53,6 @@ class profiles::roles::britt (
     key  => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC4fK7PotURVlARzUgFtahep86v5IbCShG0NTBgLfGw4g7IC/SSpEiU1vyj8RsGYcUhq9DKOqvObQWpplOz7eiuigFNMyv+dOYs8I/3wbwXQirvTalM0eC+aYCwiza3CQBri+EjwOafRdMDYdvT7rXPaktHEsOcGmkhBVH90znp2/2WOgPFwJfrAf3edZULB2PZS4p31lmJd72EZ/mnb8zW9tSGPmyXsKPsa2kWDlRClCe0lGtlhzHGCizwlqolKvL/GeM+qyT3IQ3OAUDRB9iBIVyzgQXK3XHB1BHZeKLxtpsP1iUA1zUJLLNch0QsKWsdWaAbVyQptdetW2kUCwSiCF3CtOgdFSLX+Qq3AXpyWxQ+FltAiOhiZCVWSs7y+mCgHhwpA6QiOONQ+xcZgmmg9D4Q8YYNi4tzSq/w2SCFKShk7Oc+JKO6uLH/GItoltc3VDdXOQ29hY9TCXFPTsIMMHSvrHDtpIkdtfyK8VFsnRl2S9ZBSUnPP54R/A8T+KZscSfu6dCc5ffqDLngMHG9mct2ZE50DKHYzqrBihvEukktOl+onZvuUdN5b7EgG/wZgEu0ZoYH59H1CBR5sgvNDeZ+0oRTCIQPx3KJCTAgZGpHOPQsQLE8zpCqNCtDpeB4SUoSU3UqLY9hh/air9TrrNUM/RrjfB4lbC80AGEt7Q==',
   }
 
-  ssh_authorized_key { 'britt@nexus7.home.brittg.com':
-    type    => 'ssh-rsa',
-    key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDj1CH9EQ+8Ikcjx0hbR8cKh7ihr9fFQCeS1mvX6KqyR1EOHNmzdKdX0XC9eCp7hcj1ryzE6WJ/2buplINOFDm0zjlvauAt2L1gk0KpF5cGQh52hLU65qcqtd5FjkiCS1N1Ka+swWQMHBM8ulxGqwAYyc+HMNL1gExu43KdwR12RdWolUNI9GC54/0+aAlU4uWwyF4b809DDuBJVL8ClYLJUe82K3k9bzewfSxTkUHGIi9Cg+J+HmbeP3ZM7k0YFsIceDTIrVYNRfP8So48FzUYyjwB+TY3J1CX6SLo1GyXNGiJjnq+eMakZA6ICl+rHquZfAViMwRt4Lw6jnBdP1I2uo1ZWMPt9Ekg2IGHopnvcAPKYizn0+QFwv3yCu9TTSSU0I7NQUWbaXUR1FjOvnxuWW0TotM95UdiAY0q7v754cu8cOsgWbmce1zFEhPJiy6VdlyxiIvTPiBjfZdk0rmNiaZLPXB9bGIkuljnsOkteZYvte1o08+Ow0Qd2PU3NN+1CJsNb/HfvJGJMiqIpopusrYzQDgq/QkGWyy/eOG+wJtt8ncQlhq1iE4iVxy3wDJz5AX+aG03P+F49h/GpcRWb9qJBC2kw2avHevC0B3n1DvIjrFhn9pU/uAJa+U0MITeoZPHyOZ6wIvlXldXmtFtzft5uliZ3jJTe1u/ILzgpQ==',
-  }
-
   ssh_authorized_key { 'britt@beryllium.home.brittg.com':
     type    => 'ssh-rsa',
     key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQC2sPkn4YjcnTjfPEqUTjvokbUetaXDTGY+YlgvPNOymdJSv0OcTD62IKBZSiW70exXwPmcB0fAoehrKMFL0hog3P9v8Y26+64BUL0v4ansckkyMo+SKSaTcrmXpKuGocyD3tevzOJBT1XrVqHsCqBo2ukWhFR/XNrfVu/t9dGPYdEoHI4rDv+ZcHkTVrLZtJliPo9RkmUxRo0+NMFYpYwkaeUi6Gq35++HXZBNnHbPhB9rZE+yujF80XQzvIUk1pOWphSL1ODm2jyTSD+L1+xliX9Upp18PwK1ESz3nQg0MiCpEdvWSWXncxlnmSzEmLrho1/MWdVsuAoltcFH8vatWK0tYd6gLDCjBEP2pE5v7/WA5yjd7lJwRh9spufXbFogq54huZtVm02t244t5kKKHmDKK/nD7GTU2jlpfKu0tSF8GRJ06h24LZmRJ06mk7kO77hxbf7W8xyNT+MO0pTNfRwo4v0vgmxnqSgqRgUpYNkGhlxrhgemj1ouZr3KooD4PrHSqBUML45FA/1tkm6k/6+mEtgExP2LnbmVSboVkJZhkLqrTBsHoUgoolqweCPvR7WQw3ovYWZN8zUqGtZuSk8mm0m26DG2BOOI+OfR8qRWzOdbybUCPVpgqJatwDtpeVsRaowKkJiT8a15Vx0KR9D0HBmnSmF/ZGMwyGIh8Q==',
@@ -76,11 +71,6 @@ class profiles::roles::britt (
   ssh_authorized_key { 'britt@bash-windows.home.brittg.com':
     type    => 'ssh-rsa',
     key     => 'AAAAB3NzaC1yc2EAAAADAQABAAACAQCzLJnHBl714lgLqJqbEheeDW2T5EEQ4rIicEDGThagRHgwMOCbvSBV3y7lSF/wYx+N45ZtXiW6+/I3OC00fYsx2dYCnb2rEiWyGxLVNn7B/NtJWRzqEtbQADHff4dR/cEKE2S529WP715Ip5UIhwI457knxOzRTWdxagpXe1uUQh13LXrgHhQOVS85kgIOh9Ksfyg0Qc865mVJppIIXmClBAreYM9R0tJHi2T2OQmSaZjgUuRHD+TIPb/Psjmp2eKy+TVJCOZ08nj4LREu14msN1Max/AlxFP6aT8FYXKPcE1D3yIMTCaBxVEKjm9oVDAFXf7OGdgMDgFisn6QeE0fMJL/4qzMFNWcQ9OJ5HBKa6HrOrx79TXcolKoLbAv8N3NlsFQdor40gRa9sxJ5C/GydoxNWbk1JUpY6vVMGIiuICmZgRPdTevrS/fiUFxdrG7NeCW7JeSPg2P7Zbfw+wmGh+npFiscWFvkYmGZaYDBe0qMILU1GTcQGDB+6gYuX1CBxRWKzX24Inox/qH7g/6LeL1o4T+d5pKJB414MA+0dvw/WLxV28y89t6+PO8iPqIUqLsRrJn0r/uqXitG7vn58MBBhrfH+8dBGqoTxE5fxdITwO375m5D2YSSoMX4Wg9AC4Q9ULFWTp+fYiz3XHwtQQ+4qOJaZYOk/fyu7ry/w==',
-  }
-
-  ssh_authorized_key { 'ubuntu@apollo.home.brittg.com':
-    type    => 'ssh-ed25519',
-    key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIAnOAYhlyJnwV6Nau90q8G5eNzZBkZm/WGCG9/jRSgKj',
   }
 
   ssh_authorized_key { 'windows@apollo.home.brittg.com':
