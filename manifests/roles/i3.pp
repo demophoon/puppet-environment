@@ -15,6 +15,7 @@ class profiles::roles::i3 (
     package {[
       'shutter',
       'qrencode',
+      'redshift',
     ]:
       ensure => 'present',
     }
