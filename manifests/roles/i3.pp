@@ -14,6 +14,7 @@ class profiles::roles::i3 (
   if $extras {
     package {[
       'shutter',
+      'qrencode',
     ]:
       ensure => 'present',
     }
