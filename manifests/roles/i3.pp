@@ -16,6 +16,7 @@ class profiles::roles::i3 (
       'shutter',
       'qrencode',
       'redshift',
+      'xclip',
     ]:
       ensure => 'present',
     }
