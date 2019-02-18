@@ -17,6 +17,7 @@ class profiles::roles::i3 (
       'qrencode',
       'redshift',
       'xclip',
+      'compton',
     ]:
       ensure => 'present',
     }
