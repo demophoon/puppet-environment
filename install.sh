@@ -64,7 +64,12 @@ install_module() {
 }
 
 confirm() {
-  read -p '> ' response
+  response=${!1}
+  if [ -z "${response}" ]; then
+      read -p '> ' response
+  else
+      echo "> (Auto-response from \$$1) ${response}"
+  fi
   echo
   if [[ ${response} =~ [yY] ]]; then
     return 0
@@ -98,7 +103,7 @@ fi
 echo "Would you like to setup access to your hiera data repo? [y/N]"
 echo "Warning: Only answer yes to this if you are Demophoon or have access to the private hiera data repo!"
 
-if confirm; then
+if confirm PRIVATE_HIERADATA; then
   rootdir='/root'
   if [ ${machine} = 'Mac' ]; then
     rootdir='/var/root'
@@ -107,7 +112,7 @@ if confirm; then
     echo "We couldn't find a ssh key in '${rootdir:?}/.ssh/'."
     echo "Would you like us to generate one? [y/N]"
     echo "Warning: Answering no may cause the install script to fail!"
-    if confirm; then
+    if confirm GEN_ROOT_SSH_KEY; then
       ssh-keygen -b 4096 -t rsa -f "${rootdir:?}/.ssh/id_rsa"
       echo
     fi
@@ -117,7 +122,7 @@ if confirm; then
   cat ${rootdir:?}/.ssh/id_rsa.pub
   echo
   echo "Press enter to continue."
-  confirm
+  confirm AUTO_CONFIRM
   use_hiera=0
 fi
 
