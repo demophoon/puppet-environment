@@ -43,4 +43,9 @@ class profiles::machines::apollo (){
     ensure  => present,
     require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
   }
+
+  apt::ppa { 'ppa:team-gcc-arm-embedded/ppa':
+    notify => Exec['apt_update'],
+  } ->
+  package { 'gcc-arm-embedded': }
 }
