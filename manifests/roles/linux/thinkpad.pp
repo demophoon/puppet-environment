@@ -5,6 +5,8 @@ class profiles::roles::linux::thinkpad () {
     'xserver-xorg-input-libinput',
     'wmctrl',
     'libinput-tools',
+    # pactl
+    'pavucontrol',
     ]:
       ensure => 'present',
   } ->
