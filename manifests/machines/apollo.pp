@@ -50,4 +50,7 @@ class profiles::machines::apollo (){
     notify => Exec['apt_update'],
   } ->
   package { 'gcc-arm-embedded': }
+
+  package { 'neovim':
+  }
 }
