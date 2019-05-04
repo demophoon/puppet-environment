@@ -5,6 +5,7 @@ class profiles::machines::apollo (){
   include profiles::roles::ansible
   include profiles::roles::nextcloud_client
   include profiles::roles::apps::slack
+  include profiles::roles::apps::vscode
   include profiles::roles::apps::asciinema
   include profiles::roles::apps::lutris
 
