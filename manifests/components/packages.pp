@@ -8,6 +8,7 @@ class profiles::components::packages {
     'htop',
     'silversearcher-ag',
     'fail2ban',
+    'coreutils',
   ]
 
   $_osx_packages = [
