@@ -6,8 +6,9 @@ class profiles::roles::apps::anbox () {
     ensure => present,
   } ->
   package { 'anbox':
-    ensure   => latest,
-    provider => 'snap',
+    ensure          => latest,
+    install_options => ['--devmode', '--beta'],
+    provider        => 'snap',
   } ->
   package { ['android-tools-adb']: }
 
