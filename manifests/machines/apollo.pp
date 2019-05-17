@@ -8,6 +8,7 @@ class profiles::machines::apollo (){
   include profiles::roles::apps::vscode
   include profiles::roles::apps::asciinema
   include profiles::roles::apps::lutris
+  include profiles::roles::apps::anbox
 
   include profiles::roles::apps
   include profiles::roles::apps::light
