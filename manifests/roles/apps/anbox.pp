@@ -8,6 +8,7 @@ class profiles::roles::apps::anbox () {
   package { 'anbox':
     ensure   => latest,
     provider => 'snap',
-  }
+  } ->
+  package { ['android-tools-adb']: }
 
 }
