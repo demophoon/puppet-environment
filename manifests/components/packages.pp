@@ -24,6 +24,9 @@ class profiles::components::packages {
     'tree',
     'wget',
     'gnupg',
+    'jq',
+    'shellcheck',
+    'netcat',
   ]
 
   case $::osfamily {
