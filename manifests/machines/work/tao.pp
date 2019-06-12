@@ -1,4 +1,4 @@
-class profiles::machines::tao (){
+class profiles::machines::work::tao (){
   include profiles::roles::development
   include profiles::roles::wifi
   include profiles::roles::ansible
