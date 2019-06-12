@@ -32,11 +32,12 @@ define profiles::components::developer (
         ensure => directory,
       }
       vcsrepo { "${project_path}/${repo_name}":
-        ensure   => present,
-        provider => git,
-        remote   => "${github_username}-http",
-        source   => {
-          $github_username => $ssh_clone,
+        ensure                      => present,
+        user                        => $username,
+        provider                    => git,
+        remote                      => "${github_username}-http",
+        source                      => {
+          $github_username          => $ssh_clone,
           "${github_username}-http" => $http_clone
         },
         require  => File["${project_path}/${repo_name}"],
