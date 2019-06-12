@@ -1,4 +1,4 @@
-class profiles::machines::apollo (){
+class profiles::machines::tao (){
   include profiles::roles::development
   include profiles::roles::wifi
   include profiles::roles::ansible
