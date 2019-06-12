@@ -2,6 +2,7 @@ class profiles::roles::linux::thinkpad () {
 
   package { [
     # Multitouch Gesture Support
+    'xserver-xorg-core',
     'xserver-xorg-input-libinput',
     'wmctrl',
     'libinput-tools',
