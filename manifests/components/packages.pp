@@ -23,7 +23,7 @@ class profiles::components::packages {
     'mercurial',
     'tree',
     'wget',
-    'gnupg',
+    #'gnupg',
     'jq',
     'shellcheck',
     'netcat',
