@@ -17,6 +17,10 @@ class profiles::machines::work::tao (){
 
   apt::ppa { 'ppa:ubuntu-elisp/ppa': }
 
+  class { 'hashicorp::terraform':
+    version => '0.11.14',
+  }
+
   package { [
     'cmus',
     'emacs25',
