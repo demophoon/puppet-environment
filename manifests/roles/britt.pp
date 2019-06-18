@@ -42,9 +42,8 @@ class profiles::roles::britt (
     }
 
     profiles::components::developer { $username:
-      github_username => 'demophoon',
-      require         => Class['dotfiles'],
-      *               => $additional_params,
+      require => Class['dotfiles'],
+      *       => $additional_params,
     }
   }
 
