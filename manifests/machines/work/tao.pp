@@ -31,4 +31,7 @@ class profiles::machines::work::tao (){
 
   package { 'neovim':
   }
+
+  package { ['python3-venv']:
+  }
 }
