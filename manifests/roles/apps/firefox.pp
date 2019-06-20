@@ -1,3 +1,5 @@
 class profiles::roles::apps::firefox () {
-  package { 'firefox': }
+  package { 'firefox':
+    ensure => latest,
+  }
 }
