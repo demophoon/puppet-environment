@@ -4,7 +4,7 @@ define profiles::components::developer (
   String           $home_dir        = "/home/${username}",
   String           $project_path    = "${home_dir}/${project_dir}",
   Optional[String] $github_token    = undef,
-  Optional[String] $github_username,
+  Optional[String] $github_username = undef,
 ) {
   Vcsrepo {
     owner        => $username,
