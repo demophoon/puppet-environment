@@ -1,4 +1,6 @@
 class profiles::components::packages {
+  include '::gnupg'
+
   $_debian_packages = [
     'bash',
     'ntp',
