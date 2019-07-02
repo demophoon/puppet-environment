@@ -38,14 +38,14 @@ class profiles::machines::apollo (){
     ],
   }
 
-  apt::ppa { 'ppa:ubuntu-elisp/ppa': }
+  apt::ppa { 'ppa:kelleyk/emacs': }
 
   package { [
     'cmus',
-    'emacs25',
+    'emacs26',
   ]:
     ensure  => present,
-    require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
+    require => Apt::Ppa['ppa:kelleyk/emacs'],
   }
 
   apt::ppa { 'ppa:team-gcc-arm-embedded/ppa':

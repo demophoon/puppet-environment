@@ -15,7 +15,7 @@ class profiles::machines::work::tao (){
   include profiles::roles::linux::thinkpad
   include profiles::roles::docker
 
-  apt::ppa { 'ppa:ubuntu-elisp/ppa': }
+  apt::ppa { 'ppa:kelleyk/emacs': }
 
   class { 'hashicorp::terraform':
     version => '0.11.14',
@@ -23,10 +23,10 @@ class profiles::machines::work::tao (){
 
   package { [
     'cmus',
-    'emacs25',
+    'emacs26',
   ]:
     ensure  => present,
-    require => Apt::Ppa['ppa:ubuntu-elisp/ppa'],
+    require => Apt::Ppa['ppa:kelleyk/emacs'],
   }
 
   package { 'neovim':
