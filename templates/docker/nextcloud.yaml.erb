@@ -3,16 +3,11 @@ services:
   web:
     image: 'nextcloud'
     restart: 'always'
-    labels:
-      - "traefik.frontend.rule=Host:cloud.brittg.com,butt.brittg.com,cloud.home.brittg.com,cloud.cascadia.demophoon.com"
-      - "traefik.docker.network=traefikdocker_default"
-      - "traefik.enable=true"
     ports:
       - '9263:80'
     volumes:
       - '/media/tb-tb/nextcloud/:/var/www/html:rw'
     networks:
-      - web
       - backend
   database:
     image: 'mariadb'
@@ -28,7 +23,4 @@ services:
       - MYSQL_USER=nextcloud
 
 networks:
-  web:
-    external:
-      name: 'traefikdocker_default'
   backend:
