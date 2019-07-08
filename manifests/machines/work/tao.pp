@@ -5,6 +5,7 @@ class profiles::machines::work::tao (){
   include profiles::roles::nextcloud_client
   include profiles::roles::apps::slack
   include profiles::roles::apps::vscode
+  include profiles::roles::apps::discord
   include profiles::roles::development::hub
 
   include profiles::roles::apps
