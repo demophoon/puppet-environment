@@ -12,16 +12,16 @@ class profiles::roles::docker::nextcloud (
       owner  => 'root',
       mode   => '600',
     }
-    file { '/tmp/nextcloud.docker/docker-compose.yml':
+    file { '/tmp/nextcloud.docker/docker-compose.yaml':
       ensure  => 'present',
       owner   => 'root',
       mode    => '600',
       content => template('profiles/docker/nextcloud.yaml.erb')
     }
 
-    docker_compose { '/tmp/nextcloud.docker/docker-compose.yml':
+    docker_compose { '/tmp/nextcloud.docker/docker-compose.yaml':
       ensure  => present,
-      require => File['/tmp/nextcloud.docker/docker-compose.yml'],
+      require => File['/tmp/nextcloud.docker/docker-compose.yaml'],
     }
   }
 }

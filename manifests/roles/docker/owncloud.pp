@@ -11,16 +11,16 @@ class profiles::roles::docker::owncloud (
       owner  => 'root',
       mode   => '600',
     }
-    file { '/tmp/owncloud.docker/docker-compose.yml':
+    file { '/tmp/owncloud.docker/docker-compose.yaml':
       ensure  => 'present',
       owner   => 'root',
       mode    => '600',
       content => template('profiles/docker/owncloud.yaml.erb')
     }
 
-    docker_compose { '/tmp/owncloud.docker/docker-compose.yml':
+    docker_compose { '/tmp/owncloud.docker/docker-compose.yaml':
       ensure  => present,
-      require => File['/tmp/owncloud.docker/docker-compose.yml'],
+      require => File['/tmp/owncloud.docker/docker-compose.yaml'],
     }
   }
 }
