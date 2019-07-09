@@ -11,6 +11,7 @@ class profiles::components::packages {
     'silversearcher-ag',
     'fail2ban',
     'coreutils',
+    'net-tools',
   ]
 
   $_osx_packages = [
