@@ -1,4 +1,5 @@
 class profiles::roles::docker::pihole (
+  $web_password = 'not-a-strong-password',
 ) {
   require profiles::roles::docker
 
