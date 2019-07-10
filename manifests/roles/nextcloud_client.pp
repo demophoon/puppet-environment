@@ -24,15 +24,6 @@ class profiles::roles::nextcloud_client (
         ensure  => latest,
         require => [Apt::Ppa['ppa:nextcloud-devs/client'], Exec['apt_update']],
       }
-      if $server != undef {
-        package { 'libsecret-tools': } ->
-        exec { 'Store Nextcloud Credentials':
-          command => "echo '${password}' | secret-tool store --label='Nextcloud' server Nextcloud user '${username}:${server}' type plaintext",
-          user    => $local_user,
-          path    => '/bin:/usr/bin:/usr/local/bin',
-          onlyif  => 'test -z "$(secret-tool search --all server Nextcloud)"',
-        }
-      }
     }
     default: {
       notify { 'Unable to install Nextcloud on this platform': }
