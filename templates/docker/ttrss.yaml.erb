@@ -16,7 +16,7 @@ services:
       DB_PORT: '5432'
       DB_TYPE: 'pgsql'
   postgres:
-    image: 'postgres'
+    image: 'postgres:10'
     restart: 'always'
     volumes:
       - '/opt/ttrss-postgresql/data:/var/lib/postgresql/data'
