@@ -6,7 +6,8 @@ services:
       - '/media/tb-tb/homeassistant:/config'
       - '/etc/localtime:/etc/localtime:ro'
     devices:
-      - '/dev/ttyACM0:/dev/ttyACM0'
+      - '/dev/zwave:/dev/zwave'
+      - '/dev/zigbee:/dev/zigbee'
     labels:
       - "traefik.frontend.rule=Host:ha.cascadia.demophoon.com"
       - "traefik.docker.network=traefikdocker_default"
