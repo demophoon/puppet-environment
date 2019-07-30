@@ -42,7 +42,7 @@ class profiles::components::webserver (
     }
 
     nginx::resource::server { "www.brittg.com":
-      www_root     => '/var/www/brittg/',
+      www_root     => '/usr/share/nginx/html/brittg/',
     }
 
     nginx::resource::location { "www.brittg.com/api":
@@ -56,27 +56,27 @@ class profiles::components::webserver (
     }
 
     nginx::resource::server { "assets.brittg.com":
-      www_root     => '/var/www/assets/',
+      www_root     => '/usr/share/nginx/html/assets/',
     }
 
     nginx::resource::server { "resume.brittg.com":
-      www_root     => '/var/www/assets/resume/',
+      www_root     => '/usr/share/nginx/html/assets/resume/',
     }
 
     nginx::resource::server { "linode.brittg.com":
-      www_root     => '/var/www/',
+      www_root     => '/usr/share/nginx/html/',
     }
 
     nginx::resource::server { "htdocs.brittg.com":
-      www_root     => '/var/www/htdocs',
+      www_root     => '/usr/share/nginx/html/htdocs',
     }
 
     nginx::resource::server { "brittbot.brittg.com":
-      www_root     => '/var/www/htdocs/brittbot',
+      www_root     => '/usr/share/nginx/html/htdocs/brittbot',
     }
 
     nginx::resource::server { "music.brittg.com":
-      www_root     => '/var/www/htdocs/music',
+      www_root     => '/usr/share/nginx/html/htdocs/music',
     }
 
     profiles::components::webserver::vhost { 'rss':
@@ -86,12 +86,12 @@ class profiles::components::webserver (
 
     # www.revelation22.org Resources
     nginx::resource::server { 'www.revelation22.org':
-      www_root => '/var/www/htdocs/revelation22/',
+      www_root => '/usr/share/nginx/html/htdocs/revelation22/',
     }
 
     # www.mikhailmarchenko.com Resources
     nginx::resource::server { 'www.mikhailmarchenko.com':
-      www_root => '/var/www/mm/',
+      www_root => '/usr/share/nginx/html/mm/',
     }
 
     # vim.brittg.com Resources
