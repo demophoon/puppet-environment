@@ -57,5 +57,5 @@ class profiles::machines::apollo (){
 
   package { 'neovim': }
 
-  package { 'rxvt-unicode': }
+  package { ['rxvt-unicode', 'autocutsel']: }
 }
