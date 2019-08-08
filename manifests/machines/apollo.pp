@@ -55,6 +55,7 @@ class profiles::machines::apollo (){
   } ->
   package { 'gcc-arm-embedded': }
 
-  package { 'neovim':
-  }
+  package { 'neovim': }
+
+  package { 'rxvt-unicode': }
 }
