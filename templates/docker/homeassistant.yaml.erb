@@ -14,6 +14,7 @@ services:
       - "traefik.enable=true"
       - "traefik.port=8123"
       - "traefik.backend=internal_https"
+    dns: '8.8.8.8'
     networks:
       - web
       - backend
