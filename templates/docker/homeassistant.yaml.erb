@@ -19,6 +19,8 @@ services:
       - web
       - backend
     privileged: true
+    depends_on:
+      - mosquitto
 
   mosquitto:
     image: 'eclipse-mosquitto'
