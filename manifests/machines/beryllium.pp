@@ -6,6 +6,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::mysql
   include profiles::roles::docker
   include profiles::roles::zfs
+  include profiles::roles::wireguard
   include profiles::roles::samba::server
   include profiles::roles::media::server
   include profiles::roles::certbot
