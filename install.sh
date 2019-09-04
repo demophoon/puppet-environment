@@ -24,12 +24,13 @@ resolve_codename() {
 }
 
 install_puppet() {
+    REPO_RELEASE='puppet5'
     # Currently only supports ubuntu
     if command_exists dpkg; then
         source /etc/os-release
         codename=$(lsb_release -c | cut -f2)
         codename=$(resolve_codename "${codename}")
-        release_file="puppet5-release-${codename:?}.deb"
+        release_file="${REPO_RELEASE:?}-release-${codename:?}.deb"
         wget "https://apt.puppetlabs.com/${release_file:?}"
         dpkg -i ${release_file:?}
         rm ${release_file:?}
@@ -37,7 +38,7 @@ install_puppet() {
         apt-get install puppet-agent -y
     elif command_exists yum; then
         source /etc/os-release
-        release_file="puppet5-release-el-${VERSION_ID:?}.noarch.rpm"
+        release_file="${REPO_RELEASE:?}-release-el-${VERSION_ID:?}.noarch.rpm"
         rpm -Uvh "https://yum.puppetlabs.com/${release_file:?}"
         yum install puppet-agent -y
     elif [ ${machine} = 'Mac' ]; then
