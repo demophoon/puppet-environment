@@ -85,3 +85,8 @@ mod 'kemra102-snapd', '1.1.0'
 
 mod 'inkblot-hashicorp', '1.4.1'
 mod 'golja-gnupg', '1.2.3'
+
+mod 'puppet-network', '0.9.0'
+mod 'puppet-boolean', '1.1.0'
+mod 'puppet-filemapper', '2.1.0'
+mod 'camptocamp-kmod', '2.3.1'
