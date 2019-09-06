@@ -58,6 +58,4 @@ class profiles::machines::apollo (){
   package { 'gcc-arm-embedded': }
 
   package { 'neovim': }
-
-  package { ['rxvt-unicode', 'autocutsel']: }
 }

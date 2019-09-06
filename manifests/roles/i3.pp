@@ -33,6 +33,8 @@ class profiles::roles::i3 (
     'rofi',
     'gtk-chtheme',
     'qt4-qtconfig',
+    'rxvt-unicode',
+    'autocutsel',
   ]:
     ensure => 'present',
   }
