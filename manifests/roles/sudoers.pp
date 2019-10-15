@@ -3,6 +3,10 @@ class profiles::roles::sudoers () {
     config_file_replace => false,
   }
 
+  package { 'sudo':
+    ensure => latest,
+  }
+
   sudo::conf { 'admins':
     priority => 10,
     content  => '%admin ALL=(ALL) ALL'
