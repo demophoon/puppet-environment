@@ -92,4 +92,9 @@ class profiles::roles::britt (
     key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQC7SytXOwYRjpLj2L7f5PvEtQmyguv5JxHIxcIP/MeL0sKW490ZsB+ztcCOKMCut81lhYRpcMsGT5iBXEyqU167e9aclT9+gxklSp+Fu1mPXj/k0iJf0OGbvX56mo3Wur7cO6tYkU4w+483gpq7AM/3hj85y+sZhPxmRMvlowQFRaFrzeqJCTR+PvuLsVc8e1WKQ4dVmg3LXssNBqrXEbYbZZdSDjRGXNfzg+cukFB/5Jggg+De4VWgtPa7TdDfQxVD5b+UR8AIZfiE6MU8hU8fdBfoBGIbNsw5/NiEaXXyRPiEj1V1Ba07o0IUr7NkdLk6DeGgzRiB+hGPae8hR0cR',
   }
 
+  ssh_authorized_key { 'ipad':
+    type => 'ssh-ed25519',
+    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIOzna72FKTMoJxlSyyuaR4qHoooN7I78Q+ZCCH2Ol3pb',
+  }
+
 }
