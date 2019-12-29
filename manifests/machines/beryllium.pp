@@ -18,6 +18,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::docker::homeassistant
 
   include profiles::roles::i3
+  include profiles::roles::britt
 
   class { 'profiles::roles::backup':
     backup_dirs => [
