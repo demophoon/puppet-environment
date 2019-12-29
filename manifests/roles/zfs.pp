@@ -1,5 +1,9 @@
 class profiles::roles::zfs () {
 
+  package { 'zfsutils-linux':
+    ensure => 'present',
+  }
+
   zfs { 'dank0':
     ensure         => 'present',
     aclinherit     => 'restricted',
@@ -136,6 +140,6 @@ class profiles::roles::zfs () {
 
   zpool { 'dank0':
     ensure => 'present',
-    raidz  => ['sdc sdd sdb sde'],
+    raidz  => ['wwn-0x50014ee2b9b3bf06 wwn-0x50014ee2645efada wwn-0x50014ee20f13da4b wwn-0x50014ee20efe5b2d'],
   }
 }
