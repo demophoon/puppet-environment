@@ -2,7 +2,7 @@ node 'oso.demophoon.com', 'calico.demophoon.com'  {
   class { 'profiles::machines::linode': }
 }
 
-node 'beryllium.home.brittg.com' {
+node 'beryllium.cascadia.demophoon.com' {
   class { 'profiles::machines::beryllium': }
 }
 
