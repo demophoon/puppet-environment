@@ -96,5 +96,9 @@ class profiles::roles::britt (
     type => 'ssh-ed25519',
     key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIOzna72FKTMoJxlSyyuaR4qHoooN7I78Q+ZCCH2Ol3pb',
   }
-
+  
+  ssh_authorized_key { 'trinity':
+    type => 'ssh-rsa',
+    key  => 'AAAAB3NzaC1yc2EAAAABJQAAAQEAyjpBVjViT1hnIO8UonYA3TGmkBHfqyuE8arGbeH1TSPLGX9PB7FhPKNlN/wAhSruyMLLy8wjzTrsqbelSrrid2f/HZdAm+kRk3bH7q8cPR03bApbWNvO80/gt6ld+yE55ynPU9qOjqa2f3lPWtBpVfZURVrS550vPFdTLWwHxQj/OEnKRopdMNu/wmgR9x5dEzKDew1N8VHL7MCNZzP63gMJBvKUp69q6+DPudrQZa+K765xbQsD1ojj1XTMNWIbtIjvGsaQCus0J44c1rCVBtyTI8skoEie9BiOg6dbJsro23Nu4LeyJ0p8ivR9JldOgrEeV9RLjBDvkHYjOa7kdQ==',
+  }
 }
