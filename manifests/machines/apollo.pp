@@ -18,7 +18,6 @@ class profiles::machines::apollo (){
   include profiles::roles::apps
   include profiles::roles::apps::light
   include profiles::roles::yubikey
-  include profiles::roles::vagrant
   include profiles::roles::i3
   include profiles::roles::linux::thinkpad
   include profiles::roles::docker
