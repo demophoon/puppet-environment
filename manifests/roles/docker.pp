@@ -6,6 +6,6 @@ class profiles::roles::docker (
   }
   class { 'docker::compose':
     ensure  => present,
-    version => '1.18.0',
+    version => '1.25.3',
   }
 }
