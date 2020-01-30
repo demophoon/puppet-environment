@@ -90,3 +90,5 @@ mod 'puppet-network', '0.9.0'
 mod 'puppet-boolean', '1.1.0'
 mod 'puppet-filemapper', '2.1.0'
 mod 'camptocamp-kmod', '2.3.1'
+
+mod 'bodgit/zfs', '2.2.7'

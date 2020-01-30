@@ -1,7 +1,27 @@
 class profiles::roles::zfs () {
 
-  package { 'zfsutils-linux':
-    ensure => 'present',
+  case $::osname {
+    'Debian': {
+      apt::setting { 'conf-validity':
+        content => @(EOS/L),
+        Acquire::Check-Valid-Until "false";
+        | EOS
+      }
+      class { '::apt::backports':
+        location => 'http://archive.debian.org/debian',
+        pin      => 500,
+      }
+      apt::source { 'contrib':
+        location => 'http://deb.debian.org/debian',
+        repos    => 'contrib',
+      }
+      include ::zfs
+    }
+    'Ubuntu': {
+      package { 'zfsutils-linux':
+        ensure => 'present',
+      }
+    }
   }
 
   zfs { 'dank0':
