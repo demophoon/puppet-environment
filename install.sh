@@ -11,6 +11,13 @@ case "$(uname -s)" in
     MINGW*)     machine=MinGw;;
 esac
 
+
+if [ -f '/etc/arch-release' ]; then
+    # Arch doesn't have a puppet-agent package :(
+    puppet='/usr/bin/puppet'
+    r10k='/usr/bin/r10k'
+fi
+
 command_exists() {
     type "$1" &> /dev/null ;
 }
@@ -41,6 +48,13 @@ install_puppet() {
         release_file="${REPO_RELEASE:?}-release-el-${VERSION_ID:?}.noarch.rpm"
         rpm -Uvh "https://yum.puppetlabs.com/${release_file:?}"
         yum install puppet-agent -y
+    elif [ -f '/etc/arch-release' ]; then
+        pacman --sync ${REPO_RELEASE:?}
+        ${puppet:?} apply -e "package {'r10k':
+            ensure          => latest,
+            provider        => 'gem',
+            install_options => ['--bindir', '/usr/bin'],
+        }"
     elif [ ${machine} = 'Mac' ]; then
         osx_version=$(sw_vers | grep ProductVersion | awk '{print $2}')
         version_parts=(${osx_version//./ })
