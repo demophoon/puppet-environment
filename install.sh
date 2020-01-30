@@ -49,7 +49,7 @@ install_puppet() {
         rpm -Uvh "https://yum.puppetlabs.com/${release_file:?}"
         yum install puppet-agent -y
     elif [ -f '/etc/arch-release' ]; then
-        pacman --sync ${REPO_RELEASE:?}
+        pacman --sync --noconfirm ${REPO_RELEASE:?}
         ${puppet:?} apply -e "package {'r10k':
             ensure          => latest,
             provider        => 'gem',
