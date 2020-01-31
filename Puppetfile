@@ -92,3 +92,5 @@ mod 'puppet-filemapper', '2.1.0'
 mod 'camptocamp-kmod', '2.3.1'
 
 mod 'bodgit/zfs', '2.2.7'
+
+mod 'jhoblitt-udev', '2.3.0'
