@@ -49,7 +49,8 @@ class profiles::machines::beryllium (){
   }
 
   nginx::resource::server { ["apt.cascadia.demophoon.com"]:
-    www_root      => '/usr/share/nginx/html/apt/',
+    www_root  => '/usr/share/nginx/html/apt/',
+    autoindex => "on",
   }
 
   nginx::resource::server { ["www.britt.fm", "britt.fm"]:
