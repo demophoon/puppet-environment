@@ -1,6 +1,4 @@
 class profiles::machines::beryllium (){
-  include nginx
-
   include profiles::roles::ansible
   include profiles::roles::development
   include profiles::roles::docker
@@ -15,8 +13,12 @@ class profiles::machines::beryllium (){
   include profiles::roles::docker::plex
   include profiles::roles::docker::homeassistant
 
-  include profiles::roles::i3
   include profiles::roles::britt
+
+  class { 'nginx':
+    package_ensure => absent,
+    service_ensure => stopped,
+  }
 
   class { 'profiles::roles::backup':
     backup_dirs => [
