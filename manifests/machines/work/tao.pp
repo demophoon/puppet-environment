@@ -25,6 +25,7 @@ class profiles::machines::work::tao (){
   package { [
     'cmus',
     'emacs26',
+    'tmate',
   ]:
     ensure  => present,
     require => Apt::Ppa['ppa:kelleyk/emacs'],
