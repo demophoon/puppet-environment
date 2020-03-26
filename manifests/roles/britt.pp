@@ -1,5 +1,6 @@
 class profiles::roles::britt (
   String  $username  = 'britt',
+  String  $password  = '',
   Boolean $developer = false,
   Hash    $additional_user_params = {},
 ){
@@ -20,7 +21,7 @@ class profiles::roles::britt (
       }
       user { $username:
         ensure         => present,
-        password       => '$1$yHFMx/We$PdgVVbs1ifYCWbMuhr1u.0',
+        password       => $password,
         home           => "/home/${username}",
         shell          => '/bin/zsh',
         purge_ssh_keys => true,
