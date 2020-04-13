@@ -8,6 +8,7 @@ class profiles::roles::linux::thinkpad () {
     'libinput-tools',
     # pactl
     'pavucontrol',
+    'autorandr',
     ]:
       ensure => 'present',
   } ->
