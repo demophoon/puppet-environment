@@ -1,6 +1,7 @@
 class profiles::roles::i3 (
   Boolean $bluetooth = true,
   Boolean $extras = true,
+  Boolean $regolith = false,
 ) {
   include profiles::roles::i3::lock
   if $bluetooth {
@@ -23,8 +24,23 @@ class profiles::roles::i3 (
     }
   }
 
+  if $regolith {
+    apt::ppa { 'ppa:regolith-linux/release': } ->
+    package { [
+      'regolith-desktop',
+      'i3xrocks-net-traffic',
+      'i3xrocks-cpu-usage',
+      'i3xrocks-time',
+    ]:
+      ensure => 'present',
+    }
+  } else {
+    package { 'i3':
+      ensure => 'present',
+    }
+  }
+
   package {[
-    'i3',
     # i3 deps
     'gnome-terminal',
     'feh',
