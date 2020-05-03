@@ -41,16 +41,16 @@ class profiles::roles::media::server (
     zoned          =>  'off',
   }
 
-  samba::server::user { 'britt':
-    password => $password,
-  }
+  #samba::server::user { 'britt':
+  #  password => $password,
+  #}
 
-  samba::server::share {'media':
-    path        => '/tank0/media',
-    read_only   => false,
-    guest_ok    => true,
-    valid_users => 'britt',
-  }
+  #samba::server::share {'media':
+  #  path        => '/tank0/media',
+  #  read_only   => false,
+  #  guest_ok    => true,
+  #  valid_users => 'britt',
+  #}
 
   nfs::server::export {'/tank0/media':
     ensure  => present,
