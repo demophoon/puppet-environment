@@ -14,6 +14,10 @@ class profiles::machines::beryllium (){
 
   include profiles::roles::britt
 
+  class { 'hashicorp::terraform':
+    version => '0.12.6',
+  }
+
   class { 'nginx':
     package_ensure => absent,
     service_ensure => stopped,
