@@ -34,6 +34,13 @@ class profiles::roles::i3 (
     ]:
       ensure => 'present',
     }
+
+    # regolith deps
+    package { [
+      'playerctl',
+    ]:
+      ensure => 'present'
+    }
   } else {
     package { 'i3':
       ensure => 'present',
