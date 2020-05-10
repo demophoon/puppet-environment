@@ -31,7 +31,7 @@ resolve_codename() {
 }
 
 install_puppet() {
-    REPO_RELEASE='puppet5'
+    REPO_RELEASE='puppet6'
     # Currently only supports ubuntu
     if command_exists dpkg; then
         source /etc/os-release
