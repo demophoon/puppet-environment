@@ -8,7 +8,6 @@ class profiles::machines::beryllium (){
 
   include profiles::roles::docker::nextcloud
   include profiles::roles::docker::minio
-  include profiles::roles::docker::unifi
   include profiles::roles::docker::plex
   include profiles::roles::docker::homeassistant
 
