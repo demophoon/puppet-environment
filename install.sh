@@ -92,13 +92,21 @@ confirm() {
   return 1
 }
 
+manage() {
+    run_r10k
+    run_puppet
+}
+
+run_r10k() {
+    ${r10k:?} deploy environment -pv
+}
+
 run_puppet() {
-module_path="/etc/puppetlabs/code/environments/${environment}/modules/"
-if [ -d "/etc/puppetlabs/code-private/environments/master/modules" ]; then
-    module_path="${module_path}:/etc/puppetlabs/code-private/environments/master/modules"
-fi
-${r10k:?} deploy environment -pv
-${puppet:?} apply --modulepath ${module_path} --environment ${environment} /etc/puppetlabs/code/environments/${environment}/site.pp
+    module_path="/etc/puppetlabs/code/environments/${environment}/modules/"
+    if [ -d "/etc/puppetlabs/code-private/environments/master/modules" ]; then
+        module_path="${module_path}:/etc/puppetlabs/code-private/environments/master/modules"
+    fi
+    ${puppet:?} apply --modulepath ${module_path} --environment ${environment} /etc/puppetlabs/code/environments/${environment}/site.pp
 }
 
 if [ ${UID} -ne 0 ]; then
@@ -110,10 +118,24 @@ if ! command_exists /opt/puppetlabs/puppet/bin/puppet; then
     install_puppet
 fi
 
-if [ "${1}" = "run" ]; then
-    run_puppet
-    exit $?
-fi
+case $1 in
+    run)
+        manage
+        exit $?
+        ;;
+    puppet)
+        run_puppet
+        exit $?
+        ;;
+    r10k)
+        run_r10k
+        exit $?
+        ;;
+    install)
+        install_puppet
+        exit $?
+        ;;
+esac
 
 echo "Would you like to setup access to your hiera data repo? [y/N]"
 echo "Warning: Only answer yes to this if you are Demophoon or have access to the private hiera data repo!"
@@ -191,4 +213,4 @@ class { '${r10k_class:?}':
   },
 }"
 
-run_puppet
+manage
