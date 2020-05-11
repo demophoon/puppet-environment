@@ -27,7 +27,7 @@ mod 'puppetlabs/concat'
 mod 'ssh_hardening',
   :git => 'https://github.com/demophoon/puppet-ssh-hardening',
   :ref => 'master'
-mod 'saz/ssh', '4.0.0'
+mod 'saz/ssh', '6.1.0'
 
 mod 'KyleAnderson/consul', '3.0.0'
 mod 'nanliu/staging'
