@@ -47,7 +47,7 @@ mod 'jenkins',
 
 mod 'puppetlabs-java', '2.1.0'
 mod 'darin-zypprepo', '1.0.2'
-mod 'puppetlabs-docker', '2.0.0'
+mod 'puppetlabs-docker', '3.10.0'
 
 mod 'puppetlabs-mysql', '5.1.0'
 
