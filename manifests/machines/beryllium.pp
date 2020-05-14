@@ -6,10 +6,10 @@ class profiles::machines::beryllium (){
   include profiles::roles::media::server
   include profiles::roles::certbot
 
-  include profiles::roles::docker::nextcloud
-  include profiles::roles::docker::minio
-  include profiles::roles::docker::plex
-  include profiles::roles::docker::homeassistant
+  #include profiles::roles::docker::nextcloud
+  #include profiles::roles::docker::minio
+  #include profiles::roles::docker::plex
+  #include profiles::roles::docker::homeassistant
 
   include profiles::roles::britt
 
