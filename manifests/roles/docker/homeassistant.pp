@@ -22,7 +22,7 @@ class profiles::roles::docker::homeassistant(
 
   udev::rule { 'zwave.rules':
     ensure  => present,
-    content => 'ACTION=="add", SUBSYSTEMS=="usb-serial", ATTRS{interface}=="HubZ Z-Wave Com Port", SYMLINKS+="zwave"',
+    content => 'SUBSYSTEM=="tty", ATTRS{interface}=="HubZ Z-Wave Com Port", SYMLINK+="zwave"',
     notify  => [
       Class['udev::udevadm::trigger'],
       Docker_compose['/tmp/homeassistant.docker/docker-compose.yaml']
@@ -30,7 +30,7 @@ class profiles::roles::docker::homeassistant(
   }
   udev::rule { 'zigbee.rules':
     ensure  => present,
-    content => 'ACTION=="add", SUBSYSTEMS=="usb-serial", ATTRS{interface}=="HubZ ZigBee Com Port", SYMLINKS+="zigbee"',
+    content => 'SUBSYSTEM=="tty", ATTRS{interface}=="HubZ ZigBee Com Port", SYMLINK+="zigbee"',
     notify  => [
       Class['udev::udevadm::trigger'],
       Docker_compose['/tmp/homeassistant.docker/docker-compose.yaml']
