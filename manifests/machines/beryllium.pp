@@ -11,7 +11,7 @@ class profiles::machines::beryllium (){
   #include profiles::roles::docker::plex
   #include profiles::roles::docker::homeassistant
 
-  include profiles::roles::britt
+  include profiles::roles::users::britt
 
   class { 'hashicorp::terraform':
     version => '0.12.6',

@@ -3,7 +3,7 @@ class profiles::roles::linux (
   include profiles::components::users
   include profiles::components::packages
 
-  include profiles::roles::britt
+  include profiles::roles::users::britt
 
   Package <| tag == 'global' |>
 

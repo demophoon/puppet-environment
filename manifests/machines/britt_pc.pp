@@ -2,7 +2,7 @@ class profiles::machines::britt_pc () {
   include profiles::roles::wsl
   include apt
 
-  include profiles::roles::britt
+  include profiles::roles::users::britt
   include profiles::roles::development
   include profiles::roles::nextcloud_client
   include profiles::roles::apps

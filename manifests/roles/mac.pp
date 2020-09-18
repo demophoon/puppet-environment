@@ -3,7 +3,7 @@ class profiles::roles::mac () inherits profiles::params {
     provider => 'brew',
   }
 
-  include profiles::roles::britt
+  include profiles::roles::users::britt
   include profiles::components::packages
 
   Package <| tag == 'global' |>
