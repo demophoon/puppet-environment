@@ -1,4 +1,4 @@
-class profiles::roles::britt (
+class profiles::roles::users::britt (
   String  $username  = 'britt',
   String  $password  = '',
   Boolean $developer = false,

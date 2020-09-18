@@ -1,4 +1,4 @@
-class profiles::components::alexis {
+class profiles::roles::users::alexis {
   # Users
   user { 'alexis':
     ensure         => present,
