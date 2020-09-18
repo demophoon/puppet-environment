@@ -5,6 +5,5 @@ class profiles::roles::development (
     version    => $python_version,
     pip        => 'present',
     dev        => 'present',
-    virtualenv => 'present',
   }
 }
