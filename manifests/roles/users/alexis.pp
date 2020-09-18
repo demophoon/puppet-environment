@@ -3,7 +3,7 @@ class profiles::roles::users::alexis {
   user { 'alexis':
     ensure         => present,
     home           => '/home/alexis',
-    groups         =>  ['sudoers', 'docker'],
+    groups         =>  ['sudo', 'docker'],
     purge_ssh_keys => true,
     managehome     => true,
   }
