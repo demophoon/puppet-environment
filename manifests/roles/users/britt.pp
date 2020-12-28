@@ -110,6 +110,6 @@ class profiles::roles::users::britt (
 
   ssh_authorized_key { 'helios':
     type => 'ssh-ed25519',
-    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAINhYuXD5rzwRiIVo3ScWpwl0NmKk7N7IxPhSDvkMQe8M',
+    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIJ6z4PxtPlUS4aOvY8/XBJDCUr0juwIKVXrClcJkI6QH',
   }
 }
