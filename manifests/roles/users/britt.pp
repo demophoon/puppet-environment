@@ -29,6 +29,18 @@ class profiles::roles::users::britt (
         *              => $additional_user_params,
       } ->
       class { 'dotfiles': }
+      package { [
+          'cmake',
+          'vim-nox',
+          'python3-dev',
+          'mono-complete',
+          'golang',
+          'nodejs',
+          'default-jdk',
+          'npm',
+        ]:
+        ensure => present,
+      }
     }
   }
 
