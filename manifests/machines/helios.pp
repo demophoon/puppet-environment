@@ -1,6 +1,5 @@
 class profiles::machines::helios (){
   include profiles::roles::development
-  include profiles::roles::development::hub
 
   include profiles::roles::yubikey
   include profiles::roles::docker
