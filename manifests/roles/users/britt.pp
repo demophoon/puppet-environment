@@ -32,7 +32,6 @@ class profiles::roles::users::britt (
       package { [
           'cmake',
           'vim-nox',
-          'python3-dev',
           'mono-complete',
           'golang',
           'nodejs',
