@@ -1,8 +1,8 @@
 class profiles::roles::apps::keepass2 () {
 
+  $keepass2 = 'keepassxc'
   case $::osfamily {
     'Darwin': {
-      $keepass2 = 'keepassxc'
       $opts = {}
     }
     'Debian': {
@@ -22,11 +22,11 @@ class profiles::roles::apps::keepass2 () {
       }
     }
     default: {
-      $keepass2 = 'keepassxc'
       package { 'keepass2':
         ensure => absent,
       }
       $additional_packages = []
+      $opts = {}
     }
   }
 
