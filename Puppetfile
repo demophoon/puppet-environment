@@ -94,3 +94,12 @@ mod 'camptocamp-kmod', '2.3.1'
 mod 'bodgit/zfs', '2.2.7'
 
 mod 'jhoblitt-udev', '2.3.0'
+
+mod 'puppet-zypprepo', '2.2.2'
+mod 'camptocamp-systemd', '2.10.0'
+mod 'puppetlabs-transition', '0.1.3'
+mod 'stankevich-python', '1.19.0'
+mod 'puppet-staging', '2.2.0'
+mod 'puppet-make', '2.1.1'
+mod 'puppetlabs-yumrepo_core', '1.0.7'
+mod 'puppetlabs-cron_core', '1.0.5'
