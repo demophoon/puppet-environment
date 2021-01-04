@@ -13,7 +13,6 @@ mod 'puppet/hiera'
 mod 'puppetlabs/ruby'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/pe_gem'
-mod 'croddy/make'
 mod 'puppetlabs/inifile'
 mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/git', '0.5.0'
@@ -30,7 +29,6 @@ mod 'ssh_hardening',
 mod 'saz/ssh', '6.1.0'
 
 mod 'KyleAnderson/consul', '3.0.0'
-mod 'nanliu/staging'
 
 mod 'demophoon/letsencrypt_client'
 mod 'puppet/python', '2.1.0'
@@ -46,7 +44,6 @@ mod 'jenkins',
   :ref => 'master'
 
 mod 'puppetlabs-java', '2.1.0'
-mod 'darin-zypprepo', '1.0.2'
 mod 'puppetlabs-docker', '3.10.0'
 
 mod 'puppetlabs-mysql', '5.1.0'
@@ -98,7 +95,6 @@ mod 'jhoblitt-udev', '2.3.0'
 mod 'puppet-zypprepo', '2.2.2'
 mod 'camptocamp-systemd', '2.10.0'
 mod 'puppetlabs-transition', '0.1.3'
-mod 'stankevich-python', '1.19.0'
 mod 'puppet-staging', '2.2.0'
 mod 'puppet-make', '2.1.1'
 mod 'puppetlabs-yumrepo_core', '1.0.7'
