@@ -33,7 +33,6 @@ class profiles::roles::users::britt (
           'cmake',
           'vim-nox',
           'mono-complete',
-          'golang',
           'nodejs',
           'default-jdk',
           'npm',
