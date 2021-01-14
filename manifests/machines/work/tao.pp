@@ -19,7 +19,7 @@ class profiles::machines::work::tao (){
   apt::ppa { 'ppa:kelleyk/emacs': }
 
   class { 'hashicorp::terraform':
-    version => '0.12.6',
+    version => '0.14.4',
   }
 
   package { [
