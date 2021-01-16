@@ -9,7 +9,7 @@ class profiles::roles::sudoers () {
   }
   sudo::conf { 'sudoers':
     priority => 11,
-    content  => '%sudo ALL=(ALL) ALL'
+    content  => '%sudo ALL=(ALL) NOPASSWD:ALL'
   }
   sudo::conf { 'root':
     priority => 50,
