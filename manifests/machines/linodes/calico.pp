@@ -16,7 +16,7 @@ class profiles::machines::linodes::calico {
   }
 
   user { 'gitlab':
-    groups         => ['sudo'],
+    groups         => ['sudo', 'www-data'],
     ensure         => present,
     purge_ssh_keys => true,
     managehome     => true,
