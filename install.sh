@@ -60,7 +60,7 @@ install_puppet() {
         version_parts=(${osx_version//./ })
         osx_version="${version_parts[0]}.${version_parts[1]}"
         dmg_file="puppet-agent-latest.dmg"
-        curl -LO "https://downloads.puppetlabs.com/mac/${osx_version:?}/PC1/x86_64/${dmg_file}"
+        curl -LO "https://downloads.puppetlabs.com/mac/${REPO_RELEASE:?}/${osx_version:?}/x86_64/${dmg_file}"
         hdiutil attach ${dmg_file:?}
         puppet_agent_mount=$(find /Volumes/ -type d -name 'puppet-agent*' -maxdepth 1)
         puppet_agent_pkg=$(find ${puppet_agent_mount:?} -type f -name '*.pkg')
