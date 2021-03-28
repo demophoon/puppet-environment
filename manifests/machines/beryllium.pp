@@ -4,7 +4,7 @@ class profiles::machines::beryllium (){
   include profiles::roles::docker
   include profiles::roles::zfs
   include profiles::roles::media::server
-  include profiles::roles::certbot
+  include profiles::roles::kubectl
 
   #include profiles::roles::docker::nextcloud
   #include profiles::roles::docker::minio

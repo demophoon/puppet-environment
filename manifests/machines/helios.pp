@@ -2,7 +2,7 @@ class profiles::machines::helios (){
   include profiles::roles::development
 
   include profiles::roles::yubikey
-  include profiles::roles::docker
+  include profiles::roles::kubectl
 
   apt::ppa { 'ppa:kelleyk/emacs': }
 
