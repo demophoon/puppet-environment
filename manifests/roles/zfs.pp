@@ -138,7 +138,7 @@ class profiles::roles::zfs () {
     devices        => 'on',
     exec           => 'on',
     logbias        => 'latency',
-    mountpoint     => '/var/lib/docker',
+    mountpoint     => '/var/lib/docker-zfs',
     nbmand         => 'off',
     primarycache   => 'all',
     quota          => '1T',
