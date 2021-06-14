@@ -145,6 +145,8 @@ if confirm PRIVATE_HIERADATA; then
   if [ ${machine} = 'Mac' ]; then
     rootdir='/var/root'
   fi
+  echo "Adding github.com to known hosts file..."
+  ssh-keyscan -H github.com >> ${rootdir:?}/.ssh/known_hosts
   if [ ! -f ${rootdir:?}/.ssh/id_rsa.pub ]; then
     echo "We couldn't find a ssh key in '${rootdir:?}/.ssh/'."
     echo "Would you like us to generate one? [y/N]"
