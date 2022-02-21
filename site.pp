@@ -18,6 +18,7 @@ node default {
     class { "profiles::machines::work::${classification_hostname}": }
   } else {
     notify {"Node '${classification_hostname}' is not classified.": }
+    class { "profiles::machines::no_classification": }
   }
 }
 
