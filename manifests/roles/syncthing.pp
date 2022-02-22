@@ -1,8 +1,8 @@
 class profiles::roles::syncthing () {
-  $config = '/home/britt/.syncthing'
+  $config = '/etc/syncthing'
   $notes = '/home/britt/Notes'
 
-  file { [$config, $notes]:
+  file { $notes:
     ensure => 'directory',
     owner  => 'britt',
     group  => 'britt',
