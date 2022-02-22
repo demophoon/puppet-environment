@@ -99,3 +99,5 @@ mod 'puppet-staging', '2.2.0'
 mod 'puppet-make', '2.1.1'
 mod 'puppetlabs-yumrepo_core', '1.0.7'
 mod 'puppetlabs-cron_core', '1.0.5'
+
+mod 'brwyatt-syncthing', '1.1.6'

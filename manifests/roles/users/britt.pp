@@ -5,6 +5,8 @@ class profiles::roles::users::britt (
   Hash    $additional_user_params = {},
 ){
 
+  include profiles::roles::syncthing
+
   case $::osfamily {
     'Darwin': {
       Ssh_authorized_key {
