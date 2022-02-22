@@ -44,7 +44,7 @@ mod 'jenkins',
   :ref => 'master'
 
 mod 'puppetlabs-java', '2.1.0'
-mod 'puppetlabs-docker', '3.10.0'
+mod 'puppetlabs-docker', '3.14.0'
 
 mod 'puppetlabs-mysql', '5.1.0'
 
