@@ -1,11 +1,11 @@
 forge "http://forge.puppetlabs.com"
 
 mod 'profiles',
-  :git => 'git://github.com/demophoon/puppet-environment',
+  :git => 'https://github.com/demophoon/puppet-environment',
   :ref => 'production'
 
 mod 'dotfiles',
-  :git => 'git://github.com/demophoon/dotfiles-puppet',
+  :git => 'https://github.com/demophoon/dotfiles-puppet',
   :ref => 'master'
 
 mod 'puppet/r10k', '6.3.2'
@@ -65,11 +65,11 @@ mod 'puppet-letsencrypt', '2.3.0'
 mod 'jdowning-rbenv', '2.4.0'
 
 mod 'ansible',
-  :git => 'git://github.com/otherskins/puppet-ansible',
+  :git => 'https://github.com/otherskins/puppet-ansible',
   :ref => '700613e7ad7f4bf58031ad5b913cb597aaca0c70'
 
 mod 'networkmanager',
-  :git => 'git://github.com/ClashTheBunny/puppet-networkmanager',
+  :git => 'https://github.com/ClashTheBunny/puppet-networkmanager',
   :ref => 'a250f3c062ed1bd36636644488293af566dd0505'
 
 mod 'puppetlabs-translate', '1.1.0'
