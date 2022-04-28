@@ -90,11 +90,6 @@ class profiles::roles::users::britt (
     key     => 'AAAAC3NzaC1lZDI1NTE5AAAAIEZ/I9JVorm2QwBo01rPPNrCl6OPwWOqEShqVvpFDwtI',
   }
 
-  ssh_authorized_key { 'pixel2.home.brittg.com':
-    type    => 'ecdsa-sha2-nistp384',
-    key     => 'AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzODQAAABhBH65LmMCCo+LyPLwwJdJWDfHW15fwn44NKhj6kJgkg3KJCXZQVeqFyS/wPRxg+fNRnabCGatpgldBnvWcPK2+a+hjomUvBn3KHUGvpYbqtLmrBy6JtXn+wRiWLiX9u3LVA==',
-  }
-
   ssh_authorized_key { 'unicorn':
     type => 'ssh-rsa',
     key  => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDiXF1d2CLD4tdE1bIhbaE7eH+K+Z1iHGqg2iMj7SNObqTLjxtELL7gnRv8vAU/K2eFfR572n+HIWxOzRvpNUz8zXDA094PaZKJoVFx5AKCXVXOd5wRf64ygn3YbCTJfegdrThOg3xxwngy+NHz+ETyOG4Qx0c7ciIkbrVou/7DUsEM2nqcdAZ+mnZs415/uwkGvLNWp5tSOMdsqMeVgIqD0FxJwQcQCv2JZn9sGK03FWn5RHs7xC3veupnzTT1985EKry3V8cNJH0zowr3XgkHG+BeFcsaqgimlzq4WUrJ2e4OopsB7kxpv5N928w1BmRAVqLZ6iNHePOmDEDiwMN7',
@@ -123,5 +118,10 @@ class profiles::roles::users::britt (
   ssh_authorized_key { 'helios':
     type => 'ssh-ed25519',
     key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIJ6z4PxtPlUS4aOvY8/XBJDCUr0juwIKVXrClcJkI6QH',
+  }
+
+  ssh_authorized_key { 'hashicorp-2':
+    type => 'ssh-ed25519',
+    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIK9DHCYQ8/Sbogb8vBHq2sfZVpo9YmOYzONdybip0BJ5',
   }
 }
