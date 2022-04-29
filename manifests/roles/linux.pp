@@ -10,6 +10,7 @@ class profiles::roles::linux (
   class { 'ssh_hardening':
     ipv6_enabled => true,
     weak_kex     => true,
+    *            => lookup('ssh_hardening'),
   }
 
   cron { ['puppet apply', 'r10k update environments']:
