@@ -120,8 +120,8 @@ class profiles::roles::users::britt (
     key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIJ6z4PxtPlUS4aOvY8/XBJDCUr0juwIKVXrClcJkI6QH',
   }
 
-  ssh_authorized_key { 'hashicorp-2':
+  ssh_authorized_key { 'hashicorp-3':
     type => 'ssh-ed25519',
-    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIK9DHCYQ8/Sbogb8vBHq2sfZVpo9YmOYzONdybip0BJ5',
+    key  => 'AAAAC3NzaC1lZDI1NTE5AAAAIAqc9fXJOyxbcttNDjHaVtxASykKztb/lfkZQv5Yr7cB',
   }
 }
