@@ -60,9 +60,4 @@ class profiles::machines::beryllium (){
     proxy => 'http://127.0.0.1:12345',
   }
 
-  nfs::server::export {'/tank0/backups':
-    ensure  => present,
-    clients => '10.0.0.0/24(rw,insecure,async,no_root_squash) 192.168.1.0/24(rw,insecure,async,no_root_squash) localhost(rw)',
-  }
-
 }
