@@ -19,7 +19,7 @@ mod 'puppetlabs/git', '0.5.0'
 mod 'gentoo/portage'
 
 mod 'puppet/nginx', '0.6.0'
-mod 'puppetlabs/stdlib', '4.24.0'
+mod 'puppetlabs/stdlib', '4.25.0'
 mod 'puppetlabs/apt', '6.3.0'
 mod 'puppetlabs/concat'
 
@@ -28,7 +28,9 @@ mod 'ssh_hardening',
   :ref => 'master'
 mod 'saz/ssh', '6.1.0'
 
-mod 'KyleAnderson/consul', '3.0.0'
+mod 'puppet-consul', '7.1.0'
+mod 'puppet-nomad', '2.0.0'
+mod 'puppet-hashi_stack', '2.0.1'
 
 mod 'demophoon/letsencrypt_client'
 mod 'puppet/python', '2.1.0'
@@ -44,7 +46,7 @@ mod 'jenkins',
   :ref => 'master'
 
 mod 'puppetlabs-java', '2.1.0'
-mod 'puppetlabs-docker', '3.14.0'
+mod 'puppetlabs-docker', '4.3.0'
 
 mod 'puppetlabs-mysql', '5.1.0'
 
