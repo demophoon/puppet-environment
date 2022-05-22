@@ -8,7 +8,4 @@ class profiles::machines::beryllium (){
 
   include profiles::roles::users::britt
 
-  class { 'hashicorp::terraform':
-    version => '0.12.6',
-  }
 }

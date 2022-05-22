@@ -4,8 +4,4 @@ class profiles::roles::docker (
   class { 'docker':
     * => $options,
   }
-  class { 'docker::compose':
-    ensure  => present,
-    version => '1.25.3',
-  }
 }
